@@ -9,25 +9,28 @@ namespace AdditionalActivities.Model
     class ActivityItem
     {
         private int id, scheduledHours, deferredHours;
-        private string observation;
+        private string title, observation;
         private Activity activity;
         private ActivityPortfolio portfolio;
+        private bool approved;
 
-        public ActivityItem(int scheduledHours, Activity activity, ActivityPortfolio portfolio)
+        public ActivityItem(string title, int scheduledHours, Activity activity, ActivityPortfolio portfolio)
         {
-            //this.Id =
+            this.Title = title;
             this.ScheduledHours = scheduledHours;
             this.Activity = activity;
             this.Portfolio = portfolio;
+            this.Approved = false;
         }
 
-        public ActivityItem(int scheduledHours, string observation, Activity activity, ActivityPortfolio portfolio)
+        public ActivityItem(string name, string observation, int scheduledHours, Activity activity, ActivityPortfolio portfolio)
         {
-            //this.Id =
-            this.ScheduledHours = scheduledHours;
+            this.Title = name;
             this.Observation = observation;
+            this.ScheduledHours = scheduledHours;
             this.Activity = activity;
             this.Portfolio = portfolio;
+            this.Approved = false;
         }
 
         public int Id
@@ -69,6 +72,19 @@ namespace AdditionalActivities.Model
             }
         }
 
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+
+            set
+            {
+                title = value;
+            }
+        }
+
         public string Observation
         {
             get
@@ -105,6 +121,19 @@ namespace AdditionalActivities.Model
             set
             {
                 portfolio = value;
+            }
+        }
+
+        public bool Approved
+        {
+            get
+            {
+                return approved;
+            }
+
+            set
+            {
+                approved = value;
             }
         }
     }

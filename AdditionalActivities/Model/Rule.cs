@@ -8,29 +8,29 @@ namespace AdditionalActivities.Model
 {
     class Rule
     {
-        private string name, course;
+        private string title, course;
         private int year, hours;
         private List<ActivityCategory> categories;
 
-        public Rule(string name, string course, int year, int hours)
+        public Rule(string title, string course, int year, int hours)
         {
-            this.Name = name;
+            this.Title = title;
             this.Course = course;
             this.Year = year;
             this.Hours = hours;
             this.categories = new List<ActivityCategory>();
         }
 
-        public string Name
+        public string Title
         {
             get
             {
-                return name;
+                return title;
             }
 
             set
             {
-                name = value;
+                title = value;
             }
         }
 

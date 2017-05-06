@@ -8,15 +8,14 @@ namespace AdditionalActivities.Model
 {
     class Activity
     {
-        private string name, description, observation, certificate;
+        private string title, description, observation, certificate;
         private int id, minHours, maxHours, hourStep;
         private ActivityCategory category;
 
-        public Activity(string name, string certificate, int minHours, int maxHours, ActivityCategory category)
+        public Activity(string title, string certificate, int minHours, int maxHours, ActivityCategory category)
         {
-            this.Name = name;
+            this.Title = title;
             this.Certificate = certificate;
-            //this.Id =
             this.MinHours = minHours;
             this.MaxHours = maxHours;
             this.HourStep = 1;
@@ -25,27 +24,26 @@ namespace AdditionalActivities.Model
 
         public Activity(string name, string description, string observation, string certificate, int minHours, int maxHours, int hourStep, ActivityCategory category)
         {
-            this.Name = name;
+            this.Title = name;
             this.Description = description;
             this.Observation = observation;
             this.Certificate = certificate;
-            //this.Id =
             this.MinHours = minHours;
             this.MaxHours = maxHours;
             this.HourStep = hourStep;
             this.Category = category;
         }
 
-        public string Name
+        public string Title
         {
             get
             {
-                return name;
+                return title;
             }
 
             set
             {
-                name = value;
+                title = value;
             }
         }
 

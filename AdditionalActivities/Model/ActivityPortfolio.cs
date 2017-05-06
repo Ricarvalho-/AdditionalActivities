@@ -8,18 +8,32 @@ namespace AdditionalActivities.Model
 {
     class ActivityPortfolio
     {
-        private int semester;
-        private string evaluator;
+        private int id, semester;
+        private string title, evaluator;
         private DateTime deliveryDate, evaluationDate;
         private Student student;
         private List<ActivityItem> items;
 
-        public ActivityPortfolio(int semester, DateTime deliveryDate, Student student)
+        public ActivityPortfolio(string title, int semester, DateTime deliveryDate, Student student)
         {
+            this.Title = title;
             this.Semester = semester;
             this.DeliveryDate = deliveryDate;
             this.Student = student;
             this.Items = new List<ActivityItem>();
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
 
         public int Semester
@@ -32,6 +46,19 @@ namespace AdditionalActivities.Model
             set
             {
                 semester = value;
+            }
+        }
+
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+
+            set
+            {
+                title = value;
             }
         }
 
