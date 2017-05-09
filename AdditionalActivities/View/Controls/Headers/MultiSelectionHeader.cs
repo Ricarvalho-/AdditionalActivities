@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Navigation.Headers
+namespace AdditionalActivities.View.Controls.Headers
 {
-    public partial class MultiSelectionNavigationHeaderControl : UserControl
+    public partial class MultiSelectionHeader : UserControl, IHeader
     {
-        public MultiSelectionNavigationHeaderControl()
+        public MultiSelectionHeader()
         {
             InitializeComponent();
         }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Details
+namespace AdditionalActivities.View.Controls.Cells
 {
-    public partial class DetailsControl : UserControl
+    public partial class LabeledControlCell : UserControl
     {
-        public DetailsControl()
+        public LabeledControlCell()
         {
             InitializeComponent();
         }

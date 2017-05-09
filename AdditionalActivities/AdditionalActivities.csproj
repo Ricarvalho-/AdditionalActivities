@@ -64,27 +64,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ScreenFlowMediator.cs" />
+    <Compile Include="Controller\ModelMediator.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\ActivityCategory.cs" />
     <Compile Include="Model\ActivityItem.cs" />
     <Compile Include="Model\ActivityPortfolio.cs" />
-    <Compile Include="Model\IDatabaseObject.cs" />
+    <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\Rule.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Supporting Files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Controls\Details\Cells\LabeledControlCellControl.cs">
+    <Compile Include="View\Controls\Cells\ICell.cs" />
+    <Compile Include="View\Controls\Cells\LabeledControlCell.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\Details\Cells\LabeledControlCellControl.Designer.cs">
-      <DependentUpon>LabeledControlCellControl.cs</DependentUpon>
+    <Compile Include="View\Controls\Cells\LabeledControlCell.Designer.cs">
+      <DependentUpon>LabeledControlCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\Details\DetailsControl.cs">
+    <Compile Include="View\Controls\Cells\SegmentedControlCell.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\Details\DetailsControl.Designer.cs">
-      <DependentUpon>DetailsControl.cs</DependentUpon>
+    <Compile Include="View\Controls\Cells\SegmentedControlCell.Designer.cs">
+      <DependentUpon>SegmentedControlCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Cells\SimpleCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Cells\SimpleCell.Designer.cs">
+      <DependentUpon>SimpleCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FilterOrder\FilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\FilterOrder\FilterControl.Designer.cs">
+      <DependentUpon>FilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FilterOrder\IFilterOrder.cs" />
+    <Compile Include="View\Controls\FilterOrder\OrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\FilterOrder\OrderControl.Designer.cs">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Headers\DetailsEditingHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Headers\DetailsEditingHeader.Designer.cs">
+      <DependentUpon>DetailsEditingHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Headers\DetailsHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Headers\DetailsHeader.Designer.cs">
+      <DependentUpon>DetailsHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Headers\FilterOrderHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Headers\FilterOrderHeader.Designer.cs">
+      <DependentUpon>FilterOrderHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Headers\IHeader.cs" />
+    <Compile Include="View\Controls\Headers\MultiSelectionHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Headers\MultiSelectionHeader.Designer.cs">
+      <DependentUpon>MultiSelectionHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Headers\SearchHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\Headers\SearchHeader.Designer.cs">
+      <DependentUpon>SearchHeader.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\MainMenuControl.cs">
       <SubType>UserControl</SubType>
@@ -92,47 +143,11 @@
     <Compile Include="View\Controls\MainMenuControl.Designer.cs">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\FilterControl.cs">
+    <Compile Include="View\Controls\TableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\FilterControl.Designer.cs">
-      <DependentUpon>FilterControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\OrderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\OrderControl.Designer.cs">
-      <DependentUpon>OrderControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\SegmentedControlCellControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\Filtering\SegmentedControlCellControl.Designer.cs">
-      <DependentUpon>SegmentedControlCellControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\SimpleNavigationCellControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Cells\SimpleNavigationCellControl.Designer.cs">
-      <DependentUpon>SimpleNavigationCellControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Headers\MultiSelectionNavigationHeaderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Headers\MultiSelectionNavigationHeaderControl.Designer.cs">
-      <DependentUpon>MultiSelectionNavigationHeaderControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Headers\NavigationSearchHeaderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\Headers\NavigationSearchHeaderControl.Designer.cs">
-      <DependentUpon>NavigationSearchHeaderControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\NavigationControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Navigation\NavigationControl.Designer.cs">
-      <DependentUpon>NavigationControl.cs</DependentUpon>
+    <Compile Include="View\Controls\TableControl.Designer.cs">
+      <DependentUpon>TableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -149,6 +164,42 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Controls\Cells\LabeledControlCell.resx">
+      <DependentUpon>LabeledControlCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Cells\SegmentedControlCell.resx">
+      <DependentUpon>SegmentedControlCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Cells\SimpleCell.resx">
+      <DependentUpon>SimpleCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\FilterOrder\FilterControl.resx">
+      <DependentUpon>FilterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\FilterOrder\OrderControl.resx">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Headers\DetailsEditingHeader.resx">
+      <DependentUpon>DetailsEditingHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Headers\DetailsHeader.resx">
+      <DependentUpon>DetailsHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Headers\FilterOrderHeader.resx">
+      <DependentUpon>FilterOrderHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Headers\MultiSelectionHeader.resx">
+      <DependentUpon>MultiSelectionHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\Headers\SearchHeader.resx">
+      <DependentUpon>SearchHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\MainMenuControl.resx">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\TableControl.resx">
+      <DependentUpon>TableControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

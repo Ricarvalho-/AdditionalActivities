@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Navigation.Cells.Filtering
+namespace AdditionalActivities.View.Controls.Cells
 {
-    public partial class SegmentedControlCellControl : UserControl
+    public partial class SegmentedControlCell : UserControl
     {
-        public SegmentedControlCellControl()
+        public SegmentedControlCell()
         {
             InitializeComponent();
         }

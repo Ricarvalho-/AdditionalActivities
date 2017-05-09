@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Navigation.Headers
+namespace AdditionalActivities.View.Controls.Cells
 {
-    public partial class NavigationSearchHeaderControl : UserControl
+    public partial class SimpleCell : UserControl
     {
-        public NavigationSearchHeaderControl()
+        public SimpleCell()
         {
             InitializeComponent();
         }

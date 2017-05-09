@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    class Activity
+    class Activity : IModel
     {
         private string title, description, observation, certificate;
         private int id, minHours, maxHours, hourStep;

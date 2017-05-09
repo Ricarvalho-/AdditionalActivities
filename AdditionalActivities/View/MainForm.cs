@@ -16,5 +16,15 @@ namespace AdditionalActivities.View
         {
             InitializeComponent();
         }
+
+        public void ShowNavigation()
+        {
+
+        }
+
+        public void showDetails()
+        {
+
+        }
     }
 }

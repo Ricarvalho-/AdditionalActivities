@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    class ActivityPortfolio
+    class ActivityPortfolio : IModel
     {
         private int id, semester;
         private string title, evaluator;

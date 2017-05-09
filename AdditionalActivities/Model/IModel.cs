@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    interface IDatabaseObject
+    interface IModel
     {
-        IDatabaseObject Create();
-
-        IDatabaseObject Fetch();
-
-        void Save();
-
-        void Delete();
     }
 }

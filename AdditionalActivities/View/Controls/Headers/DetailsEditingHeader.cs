@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Navigation.Cells
+namespace AdditionalActivities.View.Controls.Headers
 {
-    public partial class SimpleNavigationCellControl : UserControl
+    public partial class DetailsEditingHeader : UserControl, IHeader
     {
-        public SimpleNavigationCellControl()
+        public DetailsEditingHeader()
         {
             InitializeComponent();
         }

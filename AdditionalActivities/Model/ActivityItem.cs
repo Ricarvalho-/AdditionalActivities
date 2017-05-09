@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    class ActivityItem
+    class ActivityItem : IModel
     {
         private int id, scheduledHours, deferredHours;
         private string title, observation;

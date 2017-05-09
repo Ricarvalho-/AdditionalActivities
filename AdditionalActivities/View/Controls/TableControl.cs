@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdditionalActivities.View.Controls.Navigation
+namespace AdditionalActivities.View.Controls
 {
-    public partial class NavigationControl : UserControl
+    public partial class TableControl : UserControl
     {
-        public NavigationControl()
+        public TableControl()
         {
             InitializeComponent();
         }

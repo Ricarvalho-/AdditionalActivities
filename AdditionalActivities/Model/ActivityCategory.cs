@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    class ActivityCategory
+    class ActivityCategory : IModel
     {
         private string title;
         private int id;

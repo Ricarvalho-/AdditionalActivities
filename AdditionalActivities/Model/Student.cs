@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    class Student
+    class Student : IModel
     {
         private string name, registerNumber, registerState;
         private int hours;

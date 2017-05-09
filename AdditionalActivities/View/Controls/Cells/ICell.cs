@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Controller
+namespace AdditionalActivities.View.Controls.Cells
 {
-    class ScreenFlowMediator
+    interface ICell
     {
     }
 }
