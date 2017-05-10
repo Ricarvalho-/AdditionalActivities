@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.titleLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -42,19 +42,19 @@
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "title";
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(8, 21);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 73);
-            this.panel1.TabIndex = 1;
+            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Location = new System.Drawing.Point(8, 21);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(157, 73);
+            this.panel.TabIndex = 1;
             // 
             // LabeledControlCell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.titleLabel);
             this.Name = "LabeledControlCell";
             this.Padding = new System.Windows.Forms.Padding(8);
@@ -67,6 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
     }
 }

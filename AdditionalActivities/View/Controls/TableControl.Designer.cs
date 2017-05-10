@@ -43,6 +43,7 @@
             // tableLayoutPanel
             // 
             this.tableLayoutPanel.AutoScroll = true;
+            this.tableLayoutPanel.AutoSize = true;
             this.tableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -51,7 +52,7 @@
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
             this.tableLayoutPanel.Size = new System.Drawing.Size(336, 304);
             this.tableLayoutPanel.TabIndex = 1;
             // 
@@ -64,6 +65,7 @@
             this.Name = "TableControl";
             this.Size = new System.Drawing.Size(336, 379);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

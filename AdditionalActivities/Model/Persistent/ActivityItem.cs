@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Model
+namespace AdditionalActivities.Model.Persistent
 {
-    class ActivityItem : IModel
+    class ActivityItem : IPersistentObjectModel
     {
         private int id, scheduledHours, deferredHours;
         private string title, observation;
@@ -135,6 +135,36 @@ namespace AdditionalActivities.Model
             {
                 approved = value;
             }
+        }
+
+        public PersistentObjectModelType GetObjectModelType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FieldModel> GetFields(bool editingMode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetSubtitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsParent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ShouldSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace AdditionalActivities.Model
+namespace AdditionalActivities.Model.Persistent
 {
-    class Rule : IModel
+    class Rule : IPersistentObjectModel
     {
         private string title, course;
         private int year, hours;
@@ -104,6 +105,53 @@ namespace AdditionalActivities.Model
         public void SetCategory(int index, ActivityCategory category)
         {
             this.Categories[index] = category;
+        }
+
+        public PersistentObjectModelType GetObjectModelType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FieldModel> GetFields(bool editingMode)
+        {
+            List<FieldModel> fields = new List<FieldModel>();
+
+            Control title = editingMode ? (Control)new TextBox() : (Control)new Label();
+            Control course = editingMode ? (Control)new TextBox() : (Control)new Label();
+            Control year = editingMode ? (Control)new TextBox() : (Control)new Label();
+            Control hours = editingMode ? (Control)new TextBox() : (Control)new Label();
+
+            title.Text = this.title;
+            course.Text = this.course;
+            year.Text = this.year.ToString();
+            hours.Text = this.hours.ToString();
+
+            fields.Add(new FieldModel("Título", title));
+            fields.Add(new FieldModel("Curso", course));
+            fields.Add(new FieldModel("Ano", year));
+            fields.Add(new FieldModel("Horas necessárias", hours));
+
+            return fields;
+        }
+
+        public string GetTitle()
+        {
+            return this.title;
+        }
+
+        public string GetSubtitle()
+        {
+            return this.course + " - " + this.year;
+        }
+
+        public bool IsParent()
+        {
+            return true;
+        }
+
+        public bool ShouldSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

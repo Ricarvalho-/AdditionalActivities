@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Model
+namespace AdditionalActivities.Model.Persistent
 {
-    class Activity : IModel
+    class Activity : IPersistentObjectModel
     {
         private string title, description, observation, certificate;
         private int id, minHours, maxHours, hourStep;
@@ -149,6 +149,41 @@ namespace AdditionalActivities.Model
             {
                 category = value;
             }
+        }
+
+        static PersistentObjectModelType GetModelType()
+        {
+            return new PersistentObjectModelType();
+        }
+
+        public PersistentObjectModelType GetObjectModelType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FieldModel> GetFields(bool editingMode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetSubtitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsParent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ShouldSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

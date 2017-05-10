@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AdditionalActivities.View.Controls.FilterOrder;
 using AdditionalActivities.Model;
 
-namespace AdditionalActivities.View.Controls.Cells
+namespace AdditionalActivities.View.Controls.FilterOrder
 {
-    public partial class SegmentedControlCell : UserControl, ICell, IFilterOrder
+    public partial class FilterControl : UserControl, IFilterOrder
     {
-        public SegmentedControlCell()
+        public FilterControl()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;

@@ -40,6 +40,7 @@
             // 
             // mainSplitContainer
             // 
+            this.mainSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.mainSplitContainer.Name = "mainSplitContainer";
@@ -47,24 +48,25 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.subSplitContainer);
-            this.mainSplitContainer.Size = new System.Drawing.Size(549, 361);
-            this.mainSplitContainer.SplitterDistance = 83;
+            this.mainSplitContainer.Size = new System.Drawing.Size(941, 499);
+            this.mainSplitContainer.SplitterDistance = 142;
             this.mainSplitContainer.TabIndex = 0;
             // 
             // subSplitContainer
             // 
+            this.subSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.subSplitContainer.Name = "subSplitContainer";
-            this.subSplitContainer.Size = new System.Drawing.Size(462, 361);
-            this.subSplitContainer.SplitterDistance = 154;
+            this.subSplitContainer.Size = new System.Drawing.Size(795, 499);
+            this.subSplitContainer.SplitterDistance = 367;
             this.subSplitContainer.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 361);
+            this.ClientSize = new System.Drawing.Size(941, 499);
             this.Controls.Add(this.mainSplitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model
 {
-    interface IModel
+    public class FilterOrderCriteria
     {
     }
 }

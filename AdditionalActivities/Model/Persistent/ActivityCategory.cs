@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Model
+namespace AdditionalActivities.Model.Persistent
 {
-    class ActivityCategory : IModel
+    class ActivityCategory : IPersistentObjectModel
     {
         private string title;
         private int id;
@@ -90,6 +90,36 @@ namespace AdditionalActivities.Model
         public void SetActivity(int index, Activity activity)
         {
             this.Activities[index] = activity;
+        }
+
+        public PersistentObjectModelType GetObjectModelType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FieldModel> GetFields(bool editingMode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetSubtitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsParent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ShouldSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

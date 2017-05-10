@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.View.Controls.Cells
 {
-    interface ICell
+    public interface ICell
     {
     }
 }

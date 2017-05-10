@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Model
+namespace AdditionalActivities.Model.Persistent
 {
-    class Student : IModel
+    class Student : IPersistentObjectModel
     {
         private string name, registerNumber, registerState;
         private int hours;
@@ -119,6 +119,36 @@ namespace AdditionalActivities.Model
         public void SetPortfolio(int index, ActivityPortfolio portfolio)
         {
             this.Portfolios[index] = portfolio;
+        }
+
+        public PersistentObjectModelType GetObjectModelType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<FieldModel> GetFields(bool editingMode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetSubtitle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsParent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ShouldSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.View.Controls.Cells;
 
 namespace AdditionalActivities.View.Controls.Headers
 {
@@ -15,6 +16,12 @@ namespace AdditionalActivities.View.Controls.Headers
         public MultiSelectionHeader()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
+        }
+
+        public void DidClickCell(ICell cell)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -73,6 +73,7 @@
             this.Name = "SimpleCell";
             this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(190, 49);
+            this.Click += new System.EventHandler(this.SimpleCell_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

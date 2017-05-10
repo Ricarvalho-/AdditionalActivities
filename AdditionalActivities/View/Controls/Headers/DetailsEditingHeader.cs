@@ -7,14 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.Model.Persistent;
+using AdditionalActivities.Model;
+using AdditionalActivities.View.Controls.Cells;
 
 namespace AdditionalActivities.View.Controls.Headers
 {
     public partial class DetailsEditingHeader : UserControl, IHeader
     {
-        public DetailsEditingHeader()
+        TableControl parent;
+
+        public DetailsEditingHeader(TableControl parent, IPersistentObjectModel obj)
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
+            this.parent = parent;
+
+            List<ICell> cells = new List<ICell>();
+
+            foreach(FieldModel field in obj.GetFields(true))
+                cells.Add(new LabeledControlCell(field));
+
+            this.parent.TableCells = cells;
+        }
+
+        public void DidClickCell(ICell cell)
+        {
+            throw new NotImplementedException();
         }
     }
 }
