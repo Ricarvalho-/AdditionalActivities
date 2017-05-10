@@ -16,12 +16,15 @@ namespace AdditionalActivities.View.Controls.Headers
     public partial class DetailsEditingHeader : UserControl, IHeader
     {
         TableControl parent;
+        IPersistentObjectModel obj;
 
         public DetailsEditingHeader(TableControl parent, IPersistentObjectModel obj)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.parent = parent;
+            this.obj = obj;
+            this.titleTextBox.Text = obj.GetTitle();
 
             List<ICell> cells = new List<ICell>();
 

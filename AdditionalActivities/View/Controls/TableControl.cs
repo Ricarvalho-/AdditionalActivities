@@ -34,6 +34,8 @@ namespace AdditionalActivities.View.Controls
                 this.tableLayoutPanel.Controls.Clear();
                 foreach (UserControl control in tableCells)
                     this.tableLayoutPanel.Controls.Add(control);
+                foreach (RowStyle style in this.tableLayoutPanel.RowStyles)
+                    style.SizeType = SizeType.AutoSize;
             }
         }
 

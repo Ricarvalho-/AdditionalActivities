@@ -35,6 +35,9 @@ namespace AdditionalActivities.View
         public void ShowNavigation(PersistentObjectModelType objType)
         {
             navControl.SetHeader(new SearchHeader(navControl, objType));
+            detControl = new TableControl(this);
+            this.subSplitContainer.Panel2.Controls.Clear();
+            this.subSplitContainer.Panel2.Controls.Add(detControl);
         }
 
         public void showDetails(IPersistentObjectModel obj)
