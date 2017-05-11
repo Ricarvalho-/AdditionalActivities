@@ -40,5 +40,10 @@ namespace AdditionalActivities.View.Controls.Headers
         {
             //TODO: change parent cells to a filtered list of cells
         }
+
+        //TODO: Filter/Order()
+        //TODO: MultiSelection()
+        //TODO: NavUp()
+        //TODO: AddItem()
     }
 }

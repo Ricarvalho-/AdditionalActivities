@@ -109,7 +109,7 @@ namespace AdditionalActivities.Model.Persistent
 
         public PersistentObjectModelType GetObjectModelType()
         {
-            throw new NotImplementedException();
+            return new PersistentObjectModelType(null, null, ModelType.Rule);//FIXME
         }
 
         public List<FieldModel> GetFields(bool editingMode)

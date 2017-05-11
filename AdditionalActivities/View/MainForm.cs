@@ -44,5 +44,7 @@ namespace AdditionalActivities.View
         {
             detControl.SetHeader(new DetailsHeader(detControl, obj));
         }
+
+        //TBD: ToggleMainMenuSize()
     }
 }

@@ -43,5 +43,8 @@ namespace AdditionalActivities.View.Controls.Headers
         {
             this.parent.SetHeader(new DetailsEditingHeader(this.parent, obj));
         }
+
+        //TODO: Delete()
+        //TODO: PerformItemAction() - Strategy/Delegate
     }
 }

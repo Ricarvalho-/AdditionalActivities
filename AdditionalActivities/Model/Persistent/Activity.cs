@@ -153,7 +153,7 @@ namespace AdditionalActivities.Model.Persistent
 
         static PersistentObjectModelType GetModelType()
         {
-            return new PersistentObjectModelType();
+            return null;//new PersistentObjectModelType();
         }
 
         public PersistentObjectModelType GetObjectModelType()

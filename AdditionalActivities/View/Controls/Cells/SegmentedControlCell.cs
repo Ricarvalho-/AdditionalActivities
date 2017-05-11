@@ -14,25 +14,32 @@ namespace AdditionalActivities.View.Controls.Cells
 {
     public partial class SegmentedControlCell : UserControl, ICell, IFilterOrder
     {
-        public SegmentedControlCell()
+        IFilterOrder parent;
+
+        public SegmentedControlCell(IFilterOrder parent)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
+            this.parent = parent;
         }
 
         public void AddNew()
         {
-            throw new NotImplementedException();
+            this.parent.AddNew();
         }
 
         public FilterOrderCriteria GetCriteria()
         {
+            //return this.child.GetCriteria();
             throw new NotImplementedException();
         }
 
         public void Remove(IFilterOrder filterOrder)
         {
-            throw new NotImplementedException();
+            parent.Remove(filterOrder);//TBD: Or this
         }
+
+        //TODO: SwitchToFilter()
+        //TODO: SwitchToOrder()
     }
 }
