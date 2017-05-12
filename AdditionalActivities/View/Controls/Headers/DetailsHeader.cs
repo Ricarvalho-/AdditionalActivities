@@ -34,17 +34,25 @@ namespace AdditionalActivities.View.Controls.Headers
             this.parent.TableCells = cells;
         }
 
-        public void DidClickCell(ICell cell)
-        {
-            throw new NotImplementedException();
-        }
+        public void DidClickCell(ICell cell) { }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             this.parent.SetHeader(new DetailsEditingHeader(this.parent, obj));
         }
 
-        //TODO: Delete()
-        //TODO: PerformItemAction() - Strategy/Delegate
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void moreButton_Click(object sender, EventArgs e)
+        {
+            ContextMenuStrip menu = new ContextMenuStrip();
+            menu.ShowImageMargin = false;
+            //foreach(action in obj.actions)
+            //  menu.Items.Add(action.label, null, action.Action);
+            menu.Show(moreButton, new Point(0, moreButton.Height));
+        }
     }
 }

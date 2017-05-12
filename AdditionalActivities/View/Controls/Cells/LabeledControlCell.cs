@@ -13,12 +13,23 @@ namespace AdditionalActivities.View.Controls.Cells
 {
     public partial class LabeledControlCell : UserControl, ICell
     {
+        FieldModel field;
+
         public LabeledControlCell(FieldModel field)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.titleLabel.Text = field.title;
+            this.field = field;
             this.panel.Controls.Add(field.control);
+        }
+
+        public FieldModel Field
+        {
+            get
+            {
+                return field;
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ namespace AdditionalActivities.Model.Persistent
     {
         PersistentObjectModelType GetObjectModelType();
         List<FieldModel> GetFields(bool editingMode);
+        void SetValueWithField(FieldModel field);
+        //List<IPersistentObjectModel> ReadChildren();
         string GetTitle();
         string GetSubtitle();
         bool IsParent();

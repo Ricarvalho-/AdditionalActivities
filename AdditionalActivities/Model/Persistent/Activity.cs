@@ -185,5 +185,10 @@ namespace AdditionalActivities.Model.Persistent
         {
             throw new NotImplementedException();
         }
+
+        public void SetValueWithField(FieldModel field)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

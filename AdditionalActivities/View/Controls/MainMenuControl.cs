@@ -25,12 +25,12 @@ namespace AdditionalActivities.View.Controls
 
         private void studentsButton_Click(object sender, EventArgs e)
         {
-            parent.ShowNavigation(null);//new PersistentObjectModelType());
+            parent.ShowNavigation(new PersistentObjectModelType(null, null, ModelType.Student));
         }
 
         private void rulesButton_Click(object sender, EventArgs e)
         {
-            parent.ShowNavigation(null);//new PersistentObjectModelType());
+            parent.ShowNavigation(new PersistentObjectModelType(null, null, ModelType.Rule));
         }
 
         //TBD: Settings()

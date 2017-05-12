@@ -48,7 +48,17 @@ namespace AdditionalActivities.View.Controls
 
         public void ShowDetails(IPersistentObjectModel obj)
         {
-            this.parent.showDetails(obj);
+            this.parent.ShowDetails(obj);
+        }
+
+        public void ShowNavigation(IPersistentObjectModel obj)
+        {
+            this.parent.ShowNavigation(obj);
+        }
+
+        public void NewDetails(PersistentObjectModelType obj)
+        {
+            this.parent.ShowNewDetails(obj);
         }
     }
 }

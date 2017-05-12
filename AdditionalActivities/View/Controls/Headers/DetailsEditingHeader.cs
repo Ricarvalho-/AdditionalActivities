@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AdditionalActivities.Model.Persistent;
 using AdditionalActivities.Model;
 using AdditionalActivities.View.Controls.Cells;
+using AdditionalActivities.Controller;
 
 namespace AdditionalActivities.View.Controls.Headers
 {
@@ -17,6 +18,7 @@ namespace AdditionalActivities.View.Controls.Headers
     {
         TableControl parent;
         IPersistentObjectModel obj;
+        List<ICell> cells;
 
         public DetailsEditingHeader(TableControl parent, IPersistentObjectModel obj)
         {
@@ -26,7 +28,7 @@ namespace AdditionalActivities.View.Controls.Headers
             this.obj = obj;
             this.titleTextBox.Text = obj.GetTitle();
 
-            List<ICell> cells = new List<ICell>();
+            cells = new List<ICell>();
 
             foreach(FieldModel field in obj.GetFields(true))
                 cells.Add(new LabeledControlCell(field));
@@ -34,9 +36,19 @@ namespace AdditionalActivities.View.Controls.Headers
             this.parent.TableCells = cells;
         }
 
-        public void DidClickCell(ICell cell)
+        public void DidClickCell(ICell cell) { }
+
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            foreach (LabeledControlCell cell in cells)
+                obj.SetValueWithField(cell.Field);
+            ModelMediator.Save(obj);
+            this.parent.SetHeader(new DetailsHeader(this.parent, obj));
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.parent.SetHeader(new DetailsHeader(this.parent, obj));
         }
 
         //TODO: Save()

@@ -126,10 +126,10 @@ namespace AdditionalActivities.Model.Persistent
             year.Text = this.year.ToString();
             hours.Text = this.hours.ToString();
 
-            fields.Add(new FieldModel("Título", title));
-            fields.Add(new FieldModel("Curso", course));
-            fields.Add(new FieldModel("Ano", year));
-            fields.Add(new FieldModel("Horas necessárias", hours));
+            fields.Add(new FieldModel(prop.Title, "Título", title));
+            fields.Add(new FieldModel(prop.Course, "Curso", course));
+            fields.Add(new FieldModel(prop.Year, "Ano", year));
+            fields.Add(new FieldModel(prop.Hours, "Horas necessárias", hours));
 
             return fields;
         }
@@ -152,6 +152,33 @@ namespace AdditionalActivities.Model.Persistent
         public bool ShouldSave()
         {
             throw new NotImplementedException();
+        }
+
+        public void SetValueWithField(FieldModel field)
+        {
+            switch ((prop)field.prop)
+            {
+                case prop.Title:
+                    title = field.control.Text;
+                    break;
+                case prop.Course:
+                    course = field.control.Text;
+                    break;
+                case prop.Year:
+                    year = int.Parse(field.control.Text);
+                    break;
+                case prop.Hours:
+                    hours = int.Parse(field.control.Text);
+                    break;
+            }
+        }
+
+        enum prop
+        {
+            Title,
+            Course,
+            Year,
+            Hours
         }
     }
 }

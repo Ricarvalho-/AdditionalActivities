@@ -23,9 +23,20 @@ namespace AdditionalActivities.View.Controls.Headers
         {
             throw new NotImplementedException();
         }
-        
-        //TODO: PerformAction()
-        //TODO: Cancel()
-        //TODO: ToggleSelectAll()
+
+        private void toggleSelectionButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void performActionButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

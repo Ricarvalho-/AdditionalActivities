@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AdditionalActivities.View.Controls;
 using AdditionalActivities.View.Controls.Headers;
 using AdditionalActivities.Model.Persistent;
+using AdditionalActivities.Controller;
 
 namespace AdditionalActivities.View
 {
@@ -40,9 +41,22 @@ namespace AdditionalActivities.View
             this.subSplitContainer.Panel2.Controls.Add(detControl);
         }
 
-        public void showDetails(IPersistentObjectModel obj)
+        public void ShowNavigation(IPersistentObjectModel obj)
+        {
+            navControl.SetHeader(new SearchHeader(navControl, obj));
+            detControl = new TableControl(this);
+            this.subSplitContainer.Panel2.Controls.Clear();
+            this.subSplitContainer.Panel2.Controls.Add(detControl);
+        }
+
+        public void ShowDetails(IPersistentObjectModel obj)
         {
             detControl.SetHeader(new DetailsHeader(detControl, obj));
+        }
+
+        public void ShowNewDetails(PersistentObjectModelType objType)
+        {
+            detControl.SetHeader(new DetailsEditingHeader(detControl, ModelMediator.Create(objType)));
         }
 
         //TBD: ToggleMainMenuSize()

@@ -11,9 +11,11 @@ namespace AdditionalActivities.Model
     {
         public string title;
         public Control control;
+        public Enum prop;
 
-        public FieldModel(string title, Control control)
+        public FieldModel(Enum prop, string title, Control control)
         {
+            this.prop = prop;
             this.title = title;
             this.control = control;
             this.control.Dock = DockStyle.Fill;
