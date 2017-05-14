@@ -27,7 +27,7 @@ namespace AdditionalActivities.View.Controls.Cells
 
             titleLabel.Text = this.obj.GetTitle(false).Control.Text;
             detailLabel.Text = this.obj.GetSubtitle(false).Control.Text;
-            object image = this.obj.IsParent() ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject("");
+            object image = this.obj.IsParent ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject("");
             pictureBox.Image = (Image)image;
         }
 

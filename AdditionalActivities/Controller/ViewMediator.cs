@@ -40,7 +40,7 @@ namespace AdditionalActivities.Controller
             if (obj != null)
             {
                 ShowDetails(obj);
-                if (obj.IsParent() && navStack.Peek() != obj)
+                if (obj.IsParent && navStack.Peek() != obj)
                 {
                     navStack.Push(obj);
                     ShowNav(obj);
@@ -93,7 +93,7 @@ namespace AdditionalActivities.Controller
         {
             ShowDetails(obj.GetType());
             ShowNav(obj == navStack.Peek() ? navStack.Pop() : navStack.Peek());
-            obj.Delete();
+            ModelMediator.Delete(obj);
         }
 
         public static void Add(Type objType)
@@ -101,7 +101,7 @@ namespace AdditionalActivities.Controller
             if (objType == null)
                 objType = rootType;
             if(typeof(DatabaseObject).IsAssignableFrom(objType))
-                ShowDetails(ModelMediator.Create(objType));
+                EditDetails(ModelMediator.Create(objType));
         }
 
         public static void MultiSelect(DatabaseObject parentObj, List<DatabaseObject> childrenObjsSubSet, IHeader actualHeader)

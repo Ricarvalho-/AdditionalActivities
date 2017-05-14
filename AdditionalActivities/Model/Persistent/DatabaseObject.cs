@@ -8,22 +8,27 @@ namespace AdditionalActivities.Model.Persistent
 {
     public abstract class DatabaseObject
     {
-        public List<ActionType> Actions { get; protected set; } = new List<ActionType>();
-        public List<Property> Properties { get; protected set; } = new List<Property>();
-        protected List<FieldModel> fields = new List<FieldModel>();
-        protected List<FieldModel> editingFields = new List<FieldModel>();
-        
+        public abstract bool IsParent { get; }
+        public abstract List<ActionType> Actions { get; }
+        public abstract List<Property> Properties { get; }
+        protected abstract List<FieldModel> Fields { get; }
+        protected abstract List<FieldModel> EditingFields { get; }
+
+        public abstract override string ToString();
         public abstract FieldModel GetTitle(bool editingMode);
         public abstract FieldModel GetSubtitle(bool editingMode);
-        public abstract List<DatabaseObject> ReadChildren();
-        public abstract DatabaseObject SetupFromDB(/*param*/);//TBD
-        public abstract bool IsParent();
-        public abstract bool CouldSave();
-        public abstract void Delete();
+        public abstract bool ShouldSave();
+        //TODO: setup database
+        //public abstract SqlCommand GetAllSqlCmd();
+        //public abstract SqlCommand GetDeleteSqlCmd();
+        //public abstract SqlCommand GetChildrenSqlCmd();
+        //public abstract SqlCommand GetSaveSqlCmd();
+        //public abstract DatabaseObject SetupWithDataReader(SqlDataReader reader);
+
 
         public List<FieldModel> GetFields(bool editingMode)
         {
-            return editingMode ? editingFields : fields;
+            return editingMode ? EditingFields : Fields;
         }
     }
 

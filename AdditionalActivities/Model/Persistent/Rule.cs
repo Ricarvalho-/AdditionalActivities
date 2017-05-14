@@ -9,105 +9,26 @@ namespace AdditionalActivities.Model.Persistent
 {
     class Rule : DatabaseObject
     {
-        private string title, course;
-        private int year, hours;
-        private List<ActivityCategory> categories;
+        public string Title { get; set; }
+        public string Course { get; set; }
+        public int Year { get; set; }
+        public int Hours { get; set; }
 
         public Rule() { }
 
-        public Rule(string title, string course, int year, int hours)
+        public override bool IsParent { get { return true; } }
+
+        public override List<ActionType> Actions { get { throw new NotImplementedException(); } }
+
+        public override List<Property> Properties { get { throw new NotImplementedException(); } }
+
+        protected override List<FieldModel> Fields { get { throw new NotImplementedException(); } }
+
+        protected override List<FieldModel> EditingFields { get { throw new NotImplementedException(); } }
+
+        public override string ToString()
         {
-            this.Title = title;
-            this.Course = course;
-            this.Year = year;
-            this.Hours = hours;
-            this.categories = new List<ActivityCategory>();
-            //TODO: set actions, properties, field, editingFields lists
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
-            }
-        }
-
-        public string Course
-        {
-            get
-            {
-                return course;
-            }
-
-            set
-            {
-                course = value;
-            }
-        }
-
-        public int Year
-        {
-            get
-            {
-                return year;
-            }
-
-            set
-            {
-                year = value;
-            }
-        }
-
-        public int Hours
-        {
-            get
-            {
-                return hours;
-            }
-
-            set
-            {
-                hours = value;
-            }
-        }
-
-        internal List<ActivityCategory> Categories
-        {
-            get
-            {
-                return categories;
-            }
-
-            set
-            {
-                categories = value;
-            }
-        }
-
-        public void AddCategory(ActivityCategory category)
-        {
-            this.Categories.Add(category);
-        }
-
-        public void RemoveCategory(ActivityCategory category)
-        {
-            this.Categories.Remove(category);
-        }
-
-        public ActivityCategory GetCategory(int index)
-        {
-            return this.Categories[index];
-        }
-
-        public void SetCategory(int index, ActivityCategory category)
-        {
-            this.Categories[index] = category;
+            throw new NotImplementedException();
         }
 
         public override FieldModel GetTitle(bool editingMode)
@@ -120,27 +41,7 @@ namespace AdditionalActivities.Model.Persistent
             throw new NotImplementedException();
         }
 
-        public override List<DatabaseObject> ReadChildren()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DatabaseObject SetupFromDB()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool IsParent()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool CouldSave()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Delete()
+        public override bool ShouldSave()
         {
             throw new NotImplementedException();
         }

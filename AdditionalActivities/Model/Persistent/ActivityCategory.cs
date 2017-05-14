@@ -11,36 +11,22 @@ namespace AdditionalActivities.Model.Persistent
         public string Title { get; set; }
         public int Id { get; set; }
         public Rule Rule { get; set; }
-        public List<Activity> Activities { get; set; }
 
         public ActivityCategory() { }
 
-        public ActivityCategory(string title, Rule rule)
-        {
-            Title = title;
-            Rule = rule;
-            Activities = new List<Activity>();
-            //TODO: set actions, properties, field, editingFields lists
-        }
+        public override bool IsParent { get { return true; } }
 
-        public void AddActivity(Activity activity)
-        {
-            Activities.Add(activity);
-        }
+        public override List<ActionType> Actions { get { throw new NotImplementedException(); } }
 
-        public void RemoveActivity(Activity activity)
-        {
-            Activities.Remove(activity);
-        }
+        public override List<Property> Properties { get { throw new NotImplementedException(); } }
 
-        public Activity GetActivity(int index)
-        {
-            return Activities[index];
-        }
+        protected override List<FieldModel> Fields { get { throw new NotImplementedException(); } }
 
-        public void SetActivity(int index, Activity activity)
+        protected override List<FieldModel> EditingFields { get { throw new NotImplementedException(); } }
+
+        public override string ToString()
         {
-            Activities[index] = activity;
+            throw new NotImplementedException();
         }
 
         public override FieldModel GetTitle(bool editingMode)
@@ -53,27 +39,7 @@ namespace AdditionalActivities.Model.Persistent
             throw new NotImplementedException();
         }
 
-        public override List<DatabaseObject> ReadChildren()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DatabaseObject SetupFromDB()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool IsParent()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool CouldSave()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Delete()
+        public override bool ShouldSave()
         {
             throw new NotImplementedException();
         }

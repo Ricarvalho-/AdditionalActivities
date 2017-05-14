@@ -11,7 +11,12 @@ namespace AdditionalActivities.Controller
     {
         public static bool CanSave(DatabaseObject obj)
         {
-            return obj.CouldSave();
+            if (obj.ShouldSave()) {
+                //TODO: obj.GetSaveSqlCmd() and execute
+                return true;
+            }
+            else
+                return false;
         }
         
         public static DatabaseObject Create(Type objType)
@@ -29,20 +34,27 @@ namespace AdditionalActivities.Controller
 
             List<DatabaseObject> objs = new List<DatabaseObject>();
 
-            while(false)//UNDONE: db.nextLine()
-                objs.Add(Create(objType).SetupFromDB(/*param*/));//TBD
+            //sqlCommand = Create(objType).GetAllSqlCmd();
+
+            //TODO: setup SqlCommand
+
+            //try catch finally
+
+            //if(reader.HasRows)
+            //  while (reader.Read())
+            //      objs.Add(Create(objType).SetupFromDB(reader));
 
             return objs;
         }
 
         public static List<DatabaseObject> ReadChildren(DatabaseObject parent)
         {
-            return parent.ReadChildren();//TBD
+            return null;//UNDONE: parent.GetChildrenSqlCmd();
         }
 
         public static void Delete(DatabaseObject obj)
         {
-            obj.Delete();
+            //UNDONE: obj.GetDeleteSqlCmd();
         }
     }
 }
