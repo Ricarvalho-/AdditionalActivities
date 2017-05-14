@@ -13,6 +13,8 @@ namespace AdditionalActivities.Model.Persistent
         private int year, hours;
         private List<ActivityCategory> categories;
 
+        public Rule() { }
+
         public Rule(string title, string course, int year, int hours)
         {
             this.Title = title;

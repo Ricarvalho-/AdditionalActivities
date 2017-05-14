@@ -13,6 +13,8 @@ namespace AdditionalActivities.Model.Persistent
         private Rule rule;
         private List<ActivityPortfolio> portfolios;
 
+        public Student() { }
+
         public Student(string name, string registerNumber, string registerState, Rule rule)
         {
             this.Name = name;

@@ -12,7 +12,7 @@ namespace AdditionalActivities.Model.Persistent
         private int id, minHours, maxHours, hourStep;
         private ActivityCategory category;
 
-        Activity() { }
+        public Activity() { }
 
         public Activity(string title, string certificate, int minHours, int maxHours, ActivityCategory category)
         {

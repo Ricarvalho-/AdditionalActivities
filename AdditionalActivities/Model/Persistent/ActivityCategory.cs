@@ -13,6 +13,8 @@ namespace AdditionalActivities.Model.Persistent
         private Rule rule;
         private List<Activity> activities;
 
+        public ActivityCategory() { }
+
         public ActivityCategory(string title, Rule rule)
         {
             this.Title = title;

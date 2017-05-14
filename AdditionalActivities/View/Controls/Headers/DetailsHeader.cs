@@ -53,7 +53,9 @@ namespace AdditionalActivities.View.Controls.Headers
 
             titleLabel.Text = ""; //UNDONE: Get obj type title or hide (TBD)
 
-            //TODO: hide buttons
+            deleteButton.Hide();
+            editButton.Hide();
+            moreButton.Hide();
         }
 
         public void DidClickCell(ICell cell) { }

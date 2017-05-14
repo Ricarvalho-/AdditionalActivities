@@ -14,6 +14,8 @@ namespace AdditionalActivities.Model.Persistent
         private Student student;
         private List<ActivityItem> items;
 
+        public ActivityPortfolio() { }
+
         public ActivityPortfolio(string title, int semester, DateTime deliveryDate, Student student)
         {
             this.Title = title;

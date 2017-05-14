@@ -14,6 +14,8 @@ namespace AdditionalActivities.Model.Persistent
         private ActivityPortfolio portfolio;
         private bool approved;
 
+        public ActivityItem() { }
+
         public ActivityItem(string title, int scheduledHours, Activity activity, ActivityPortfolio portfolio)
         {
             this.Title = title;
