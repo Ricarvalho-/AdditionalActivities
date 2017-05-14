@@ -19,9 +19,9 @@ namespace AdditionalActivities.View.Controls.Cells
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            this.titleLabel.Text = field.title;
+            this.titleLabel.Text = field.Title;
             this.field = field;
-            this.panel.Controls.Add(field.control);
+            this.panel.Controls.Add(field.Control);
         }
 
         public FieldModel Field

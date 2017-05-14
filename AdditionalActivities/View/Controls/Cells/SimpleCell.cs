@@ -16,17 +16,17 @@ namespace AdditionalActivities.View.Controls.Cells
     public partial class SimpleCell : UserControl, ICell
     {
         IHeader parent;
-        public IPersistentObjectModel obj;
+        public DatabaseObject obj;
 
-        public SimpleCell(IPersistentObjectModel obj, IHeader parent)
+        public SimpleCell(DatabaseObject obj, IHeader parent)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.parent = parent;
             this.obj = obj;
 
-            this.titleLabel.Text = this.obj.GetTitle();
-            this.detailLabel.Text = this.obj.GetSubtitle();
+            this.titleLabel.Text = this.obj.GetTitle().Control.Text;
+            this.detailLabel.Text = this.obj.GetSubtitle().Control.Text;
             object image = this.obj.IsParent() ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject("");
             this.pictureBox.Image = (Image)image;
         }

@@ -10,21 +10,24 @@ using System.Windows.Forms;
 using AdditionalActivities.Model.Persistent;
 using AdditionalActivities.Model;
 using AdditionalActivities.View.Controls.Cells;
+using AdditionalActivities.Controller;
 
 namespace AdditionalActivities.View.Controls.Headers
 {
     public partial class DetailsHeader : UserControl, IHeader
     {
         TableControl parent;
-        IPersistentObjectModel obj;
+        DatabaseObject obj;
 
-        public DetailsHeader(TableControl parent, IPersistentObjectModel obj)
+        public DetailsHeader(TableControl parent, DatabaseObject obj)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
             this.obj = obj;
-            this.titleLabel.Text = obj.GetTitle();
+
+            foreach (ActionType action in obj.Actions)
+                actionsContextMenu.Items.Add(action.Label, null, action.ActionHandler);
 
             List<ICell> cells = new List<ICell>();
 
@@ -32,27 +35,42 @@ namespace AdditionalActivities.View.Controls.Headers
                 cells.Add(new LabeledControlCell(field));
 
             this.parent.TableCells = cells;
+
+            titleLabel.Text = obj.GetTitle(false).Control.Text;
+        }
+
+        public DetailsHeader(TableControl parent, Type objType)
+        {
+            InitializeComponent();
+            Dock = DockStyle.Fill;
+            this.parent = parent;
+
+            List<ICell> cells = new List<ICell>();
+
+            //TODO: Get obj type details (TBD)
+
+            this.parent.TableCells = cells;
+
+            titleLabel.Text = ""; //UNDONE: Get obj type title or hide (TBD)
+
+            //TODO: hide buttons
         }
 
         public void DidClickCell(ICell cell) { }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            this.parent.SetHeader(new DetailsEditingHeader(this.parent, obj));
+            ViewMediator.EditDetails(obj);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ViewMediator.Delete(obj);
         }
 
         private void moreButton_Click(object sender, EventArgs e)
         {
-            ContextMenuStrip menu = new ContextMenuStrip();
-            menu.ShowImageMargin = false;
-            //foreach(action in obj.actions)
-            //  menu.Items.Add(action.label, null, action.Action);
-            menu.Show(moreButton, new Point(0, moreButton.Height));
+            actionsContextMenu.Show(moreButton, new Point(0, moreButton.Height));
         }
     }
 }

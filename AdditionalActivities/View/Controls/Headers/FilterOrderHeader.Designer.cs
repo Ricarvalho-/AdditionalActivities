@@ -39,14 +39,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.Location = new System.Drawing.Point(3, 4);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(199, 20);
+            this.searchTextBox.Size = new System.Drawing.Size(132, 20);
             this.searchTextBox.TabIndex = 0;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
             // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(208, 3);
+            this.okButton.Location = new System.Drawing.Point(141, 3);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(289, 3);
+            this.cancelButton.Location = new System.Drawing.Point(222, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
@@ -69,11 +69,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.searchTextBox);
+            this.MinimumSize = new System.Drawing.Size(300, 29);
             this.Name = "FilterOrderHeader";
-            this.Size = new System.Drawing.Size(367, 29);
+            this.Size = new System.Drawing.Size(300, 29);
             this.ResumeLayout(false);
             this.PerformLayout();
 

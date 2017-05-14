@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Persistent
 {
-    class ActivityCategory : IPersistentObjectModel
+    class ActivityCategory : DatabaseObject
     {
         private string title;
         private int id;
@@ -92,37 +92,37 @@ namespace AdditionalActivities.Model.Persistent
             this.Activities[index] = activity;
         }
 
-        public PersistentObjectModelType GetObjectModelType()
+        public override FieldModel GetTitle(bool editingMode)
         {
             throw new NotImplementedException();
         }
 
-        public List<FieldModel> GetFields(bool editingMode)
+        public override FieldModel GetSubtitle(bool editingMode)
         {
             throw new NotImplementedException();
         }
 
-        public string GetTitle()
+        public override List<DatabaseObject> ReadChildren()
         {
             throw new NotImplementedException();
         }
 
-        public string GetSubtitle()
+        public override DatabaseObject SetupFromDB()
         {
             throw new NotImplementedException();
         }
 
-        public bool IsParent()
+        public override bool IsParent()
         {
             throw new NotImplementedException();
         }
 
-        public bool ShouldSave()
+        public override bool CouldSave()
         {
             throw new NotImplementedException();
         }
 
-        public void SetValueWithField(FieldModel field)
+        public override void Delete()
         {
             throw new NotImplementedException();
         }

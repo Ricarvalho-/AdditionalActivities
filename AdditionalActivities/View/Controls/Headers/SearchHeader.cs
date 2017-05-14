@@ -16,76 +16,81 @@ namespace AdditionalActivities.View.Controls.Headers
     public partial class SearchHeader : UserControl, IHeader
     {
         TableControl parent;
-        IPersistentObjectModel obj;
+        DatabaseObject parentObj;
+        List<DatabaseObject> childrenObjs;
 
-        public SearchHeader(TableControl parent, PersistentObjectModelType objectType)
+        public SearchHeader(TableControl parent, DatabaseObject parentObj, List<DatabaseObject> childrenObjs)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
+            this.parentObj = parentObj;
+            this.childrenObjs = childrenObjs;
 
             List<ICell> cells = new List<ICell>();
 
-            foreach (IPersistentObjectModel obj in ModelMediator.ReadAll(objectType))
+            foreach (DatabaseObject obj in childrenObjs)
                 cells.Add(new SimpleCell(obj, this));
 
             this.parent.TableCells = cells;
+
+            titleLabel.Text = parentObj.GetTitle(false).Control.Text;
+            detailLabel.Text = parentObj.GetSubtitle(false).Control.Text;
         }
 
-        public SearchHeader(TableControl parent, IPersistentObjectModel obj)//TODO: change to stack<obj>
+        public SearchHeader(TableControl parent, Type objsType, List<DatabaseObject> objs)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
-            this.obj = obj;
+            childrenObjs = objs;
 
             List<ICell> cells = new List<ICell>();
 
-            foreach (IPersistentObjectModel child in ModelMediator.ReadChildren(obj))
+            foreach (DatabaseObject obj in childrenObjs)
                 cells.Add(new SimpleCell(obj, this));
 
             this.parent.TableCells = cells;
+            //TODO: Show objType name and detail (TBD)
+            //titleLabel.Text = ;
+            //detailLabel.Text = ;
+            //TODO: hide nav up button
         }
 
         public void DidClickCell(ICell cell)
         {
-            if (obj != null && obj.IsParent())
-                this.parent.ShowNavigation(((SimpleCell)cell).obj);
-            this.parent.ShowDetails(((SimpleCell)cell).obj);
+            //if (cell.GetObject() != null)
+            ViewMediator.NavInto(cell.GetObject());
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //TODO: show filtered objs
         }
 
         private void moreButton_Click(object sender, EventArgs e)
         {
-            ContextMenuStrip menu = new ContextMenuStrip();
-            menu.ShowImageMargin = false;
-            menu.Items.Add("Filter/Order", null, FilterOrder);
-            menu.Items.Add("Multi Selection", null, MultiSelection);
-            menu.Show(moreButton, new Point(0, moreButton.Height));
-        }
-
-        private void MultiSelection(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void FilterOrder(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            moreContextMenu.Show(moreButton, new Point(0, moreButton.Height));
         }
 
         private void navUpButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ViewMediator.NavUp();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            this.parent.NewDetails(new Model.Persistent.Rule("", "", 0, 0).GetObjectModelType());//FIXME
+            ViewMediator.Add(parentObj.GetType());
+        }
+
+        private void filterOrderMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewMediator.FilterOrder(parentObj);
+        }
+
+        private void multipleSelectionMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewMediator.MultiSelect(parentObj, childrenObjs, this);
         }
     }
 }

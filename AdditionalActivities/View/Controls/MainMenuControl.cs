@@ -2,39 +2,44 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
+//using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AdditionalActivities.View.Controls.Headers;
+using AdditionalActivities.Controller;
 using AdditionalActivities.Model.Persistent;
 
 namespace AdditionalActivities.View.Controls
 {
     public partial class MainMenuControl : UserControl
     {
-        MainForm parent;
+        MainForm mainForm;
+        static bool expanded = false;
 
         public MainMenuControl(MainForm parent)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            this.parent = parent;
+            Dock = DockStyle.Fill;
+            mainForm = parent;
         }
 
         private void studentsButton_Click(object sender, EventArgs e)
         {
-            parent.ShowNavigation(new PersistentObjectModelType(null, null, ModelType.Student));
+            ViewMediator.RootType = typeof(Student);
         }
 
         private void rulesButton_Click(object sender, EventArgs e)
         {
-            parent.ShowNavigation(new PersistentObjectModelType(null, null, ModelType.Rule));
+            ViewMediator.RootType = typeof(Rule);
+        }
+
+        private void toggleSizeButton_Click(object sender, EventArgs e)
+        {
+            mainForm.ToggleMainMenuSize(expanded = !expanded);
         }
 
         //TBD: Settings()
         //TBD: Help/About/Feedback()
-        //TBD: ToggleSize()
     }
 }

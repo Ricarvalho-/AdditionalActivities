@@ -9,21 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Controls.Headers;
 using AdditionalActivities.View.Controls.Cells;
-using AdditionalActivities.Model.Persistent;
 
 namespace AdditionalActivities.View.Controls
 {
     public partial class TableControl : UserControl
     {
-        UserControl headerControl;
-        MainForm parent;
+        private IHeader headerControl;
         private List<ICell> tableCells = new List<ICell>();
 
-        public TableControl(MainForm parent)
+        public TableControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            this.parent = parent;
+            Dock = DockStyle.Fill;
+        }
+
+        public IHeader HeaderControl
+        {
+            set
+            {
+                header.Controls.Remove((UserControl)headerControl);
+                headerControl = value;
+                header.Controls.Add((UserControl)value);
+            }
         }
 
         public List<ICell> TableCells
@@ -31,34 +38,12 @@ namespace AdditionalActivities.View.Controls
             set
             {
                 tableCells = value;
-                this.tableLayoutPanel.Controls.Clear();
+                tableLayoutPanel.Controls.Clear();
                 foreach (UserControl control in tableCells)
-                    this.tableLayoutPanel.Controls.Add(control);
-                foreach (RowStyle style in this.tableLayoutPanel.RowStyles)
+                    tableLayoutPanel.Controls.Add(control);
+                foreach (RowStyle style in tableLayoutPanel.RowStyles)
                     style.SizeType = SizeType.AutoSize;
             }
-        }
-
-        public void SetHeader(IHeader header)
-        {
-            this.header.Controls.Remove(this.headerControl);
-            this.headerControl = (UserControl)header;
-            this.header.Controls.Add(this.headerControl);
-        }
-
-        public void ShowDetails(IPersistentObjectModel obj)
-        {
-            this.parent.ShowDetails(obj);
-        }
-
-        public void ShowNavigation(IPersistentObjectModel obj)
-        {
-            this.parent.ShowNavigation(obj);
-        }
-
-        public void NewDetails(PersistentObjectModelType obj)
-        {
-            this.parent.ShowNewDetails(obj);
         }
     }
 }

@@ -8,57 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Controls;
-using AdditionalActivities.View.Controls.Headers;
-using AdditionalActivities.Model.Persistent;
 using AdditionalActivities.Controller;
 
 namespace AdditionalActivities.View
 {
     public partial class MainForm : Form
     {
-        static MainMenuControl menuControl;
-        static TableControl navControl;
-        static TableControl detControl;
-
         public MainForm()
         {
             InitializeComponent();
 
-            menuControl = new MainMenuControl(this);
-            navControl = new TableControl(this);
-            detControl = new TableControl(this);
+            MainMenuControl menuControl = new MainMenuControl(this);
+            TableControl navControl = new TableControl();
+            TableControl detControl = new TableControl();
 
-            this.mainSplitContainer.Panel1.Controls.Add(menuControl);
-            this.subSplitContainer.Panel1.Controls.Add(navControl);
-            this.subSplitContainer.Panel2.Controls.Add(detControl);
+            mainSplitContainer.Panel1.Controls.Add(menuControl);
+            subSplitContainer.Panel1.Controls.Add(navControl);
+            subSplitContainer.Panel2.Controls.Add(detControl);
+
+            ViewMediator.NavTable = navControl;
+            ViewMediator.DetTable = detControl;
         }
 
-        public void ShowNavigation(PersistentObjectModelType objType)
+        public void ToggleMainMenuSize(bool expanded)
         {
-            navControl.SetHeader(new SearchHeader(navControl, objType));
-            detControl = new TableControl(this);
-            this.subSplitContainer.Panel2.Controls.Clear();
-            this.subSplitContainer.Panel2.Controls.Add(detControl);
-        }
 
-        public void ShowNavigation(IPersistentObjectModel obj)
-        {
-            navControl.SetHeader(new SearchHeader(navControl, obj));
-            detControl = new TableControl(this);
-            this.subSplitContainer.Panel2.Controls.Clear();
-            this.subSplitContainer.Panel2.Controls.Add(detControl);
         }
-
-        public void ShowDetails(IPersistentObjectModel obj)
-        {
-            detControl.SetHeader(new DetailsHeader(detControl, obj));
-        }
-
-        public void ShowNewDetails(PersistentObjectModelType objType)
-        {
-            detControl.SetHeader(new DetailsEditingHeader(detControl, ModelMediator.Create(objType)));
-        }
-
-        //TBD: ToggleMainMenuSize()
     }
 }

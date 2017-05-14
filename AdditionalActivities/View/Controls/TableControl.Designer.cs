@@ -34,10 +34,11 @@
             // 
             // header
             // 
+            this.header.BackColor = System.Drawing.SystemColors.Control;
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(336, 75);
+            this.header.Size = new System.Drawing.Size(300, 75);
             this.header.TabIndex = 0;
             // 
             // tableLayoutPanel
@@ -52,18 +53,19 @@
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(336, 304);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(300, 125);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // TableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.header);
             this.Name = "TableControl";
-            this.Size = new System.Drawing.Size(336, 379);
+            this.Size = new System.Drawing.Size(300, 200);
             this.ResumeLayout(false);
             this.PerformLayout();
 

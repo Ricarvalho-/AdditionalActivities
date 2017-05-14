@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace AdditionalActivities.Model.Persistent
 {
-    class Rule : IPersistentObjectModel
+    class Rule : DatabaseObject
     {
         private string title, course;
         private int year, hours;
@@ -107,78 +107,39 @@ namespace AdditionalActivities.Model.Persistent
             this.Categories[index] = category;
         }
 
-        public PersistentObjectModelType GetObjectModelType()
-        {
-            return new PersistentObjectModelType(null, null, ModelType.Rule);//FIXME
-        }
-
-        public List<FieldModel> GetFields(bool editingMode)
-        {
-            List<FieldModel> fields = new List<FieldModel>();
-
-            Control title = editingMode ? (Control)new TextBox() : (Control)new Label();
-            Control course = editingMode ? (Control)new TextBox() : (Control)new Label();
-            Control year = editingMode ? (Control)new TextBox() : (Control)new Label();
-            Control hours = editingMode ? (Control)new TextBox() : (Control)new Label();
-
-            title.Text = this.title;
-            course.Text = this.course;
-            year.Text = this.year.ToString();
-            hours.Text = this.hours.ToString();
-
-            fields.Add(new FieldModel(prop.Title, "Título", title));
-            fields.Add(new FieldModel(prop.Course, "Curso", course));
-            fields.Add(new FieldModel(prop.Year, "Ano", year));
-            fields.Add(new FieldModel(prop.Hours, "Horas necessárias", hours));
-
-            return fields;
-        }
-
-        public string GetTitle()
-        {
-            return this.title;
-        }
-
-        public string GetSubtitle()
-        {
-            return this.course + " - " + this.year;
-        }
-
-        public bool IsParent()
-        {
-            return true;
-        }
-
-        public bool ShouldSave()
+        public override FieldModel GetTitle(bool editingMode)
         {
             throw new NotImplementedException();
         }
 
-        public void SetValueWithField(FieldModel field)
+        public override FieldModel GetSubtitle(bool editingMode)
         {
-            switch ((prop)field.prop)
-            {
-                case prop.Title:
-                    title = field.control.Text;
-                    break;
-                case prop.Course:
-                    course = field.control.Text;
-                    break;
-                case prop.Year:
-                    year = int.Parse(field.control.Text);
-                    break;
-                case prop.Hours:
-                    hours = int.Parse(field.control.Text);
-                    break;
-            }
+            throw new NotImplementedException();
         }
 
-        enum prop
+        public override List<DatabaseObject> ReadChildren()
         {
-            Title,
-            Course,
-            Year,
-            Hours
+            throw new NotImplementedException();
+        }
+
+        public override DatabaseObject SetupFromDB()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool IsParent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool CouldSave()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete()
+        {
+            throw new NotImplementedException();
         }
     }
 }

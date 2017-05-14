@@ -43,13 +43,16 @@
             this.mainSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainSplitContainer.MinimumSize = new System.Drawing.Size(700, 200);
             this.mainSplitContainer.Name = "mainSplitContainer";
+            this.mainSplitContainer.Panel1MinSize = 100;
             // 
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.subSplitContainer);
-            this.mainSplitContainer.Size = new System.Drawing.Size(941, 499);
-            this.mainSplitContainer.SplitterDistance = 142;
+            this.mainSplitContainer.Panel2MinSize = 600;
+            this.mainSplitContainer.Size = new System.Drawing.Size(709, 201);
+            this.mainSplitContainer.SplitterDistance = 100;
             this.mainSplitContainer.TabIndex = 0;
             // 
             // subSplitContainer
@@ -57,18 +60,22 @@
             this.subSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.subSplitContainer.MinimumSize = new System.Drawing.Size(600, 200);
             this.subSplitContainer.Name = "subSplitContainer";
-            this.subSplitContainer.Size = new System.Drawing.Size(795, 499);
-            this.subSplitContainer.SplitterDistance = 367;
+            this.subSplitContainer.Panel1MinSize = 300;
+            this.subSplitContainer.Panel2MinSize = 300;
+            this.subSplitContainer.Size = new System.Drawing.Size(605, 201);
+            this.subSplitContainer.SplitterDistance = 300;
             this.subSplitContainer.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 499);
+            this.ClientSize = new System.Drawing.Size(709, 201);
             this.Controls.Add(this.mainSplitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(725, 240);
             this.Name = "MainForm";
             this.Text = "Additional Activities";
             this.mainSplitContainer.Panel2.ResumeLayout(false);

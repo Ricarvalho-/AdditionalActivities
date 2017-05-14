@@ -65,14 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ModelMediator.cs" />
+    <Compile Include="Controller\ViewMediator.cs" />
     <Compile Include="Model\FieldModel.cs" />
     <Compile Include="Model\Persistent\Activity.cs" />
     <Compile Include="Model\Persistent\ActivityCategory.cs" />
     <Compile Include="Model\Persistent\ActivityItem.cs" />
     <Compile Include="Model\Persistent\ActivityPortfolio.cs" />
     <Compile Include="Model\FilterOrderCriteria.cs" />
-    <Compile Include="Model\Persistent\IPersistentObjectModel.cs" />
-    <Compile Include="Model\Persistent\PersistentObjectModelType.cs" />
+    <Compile Include="Model\Persistent\DatabaseObject.cs" />
     <Compile Include="Model\Persistent\Rule.cs" />
     <Compile Include="Model\Persistent\Student.cs" />
     <Compile Include="Supporting Files\Program.cs" />

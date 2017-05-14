@@ -9,16 +9,23 @@ namespace AdditionalActivities.Model
 {
     public class FieldModel
     {
-        public string title;
-        public Control control;
-        public Enum prop;
+        public string Title { get; private set; }
+        public Control Control { get; private set; }
+        private Action<object> ctrlGetter;
+        private Action<object> propSetter;
 
-        public FieldModel(Enum prop, string title, Control control)
+        public FieldModel(string title, Control control, Action<object> controlGetter, Action<object> propertySetter)
         {
-            this.prop = prop;
-            this.title = title;
-            this.control = control;
-            this.control.Dock = DockStyle.Fill;
+            ctrlGetter = controlGetter;
+            propSetter = propertySetter;
+            Title = title;
+            Control = control;
+            Control.Dock = DockStyle.Fill;
+        }
+
+        public void Save()
+        {
+            propSetter(ctrlGetter);
         }
     }
 }
