@@ -8,90 +8,39 @@ namespace AdditionalActivities.Model.Persistent
 {
     class ActivityCategory : DatabaseObject
     {
-        private string title;
-        private int id;
-        private Rule rule;
-        private List<Activity> activities;
+        public string Title { get; set; }
+        public int Id { get; set; }
+        public Rule Rule { get; set; }
+        public List<Activity> Activities { get; set; }
 
         public ActivityCategory() { }
 
         public ActivityCategory(string title, Rule rule)
         {
-            this.Title = title;
-            this.Rule = rule;
-            this.Activities = new List<Activity>();
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
-            }
-        }
-
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
-
-        internal Rule Rule
-        {
-            get
-            {
-                return rule;
-            }
-
-            set
-            {
-                rule = value;
-            }
-        }
-
-        internal List<Activity> Activities
-        {
-            get
-            {
-                return activities;
-            }
-
-            set
-            {
-                activities = value;
-            }
+            Title = title;
+            Rule = rule;
+            Activities = new List<Activity>();
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public void AddActivity(Activity activity)
         {
-            this.Activities.Add(activity);
+            Activities.Add(activity);
         }
 
         public void RemoveActivity(Activity activity)
         {
-            this.Activities.Remove(activity);
+            Activities.Remove(activity);
         }
 
         public Activity GetActivity(int index)
         {
-            return this.Activities[index];
+            return Activities[index];
         }
 
         public void SetActivity(int index, Activity activity)
         {
-            this.Activities[index] = activity;
+            Activities[index] = activity;
         }
 
         public override FieldModel GetTitle(bool editingMode)

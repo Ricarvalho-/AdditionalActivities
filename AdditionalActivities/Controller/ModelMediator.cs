@@ -29,7 +29,7 @@ namespace AdditionalActivities.Controller
 
             List<DatabaseObject> objs = new List<DatabaseObject>();
 
-            while(false)//TODO: db.nextLine()
+            while(false)//UNDONE: db.nextLine()
                 objs.Add(Create(objType).SetupFromDB(/*param*/));//TBD
 
             return objs;

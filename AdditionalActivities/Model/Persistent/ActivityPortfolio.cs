@@ -23,6 +23,7 @@ namespace AdditionalActivities.Model.Persistent
             this.DeliveryDate = deliveryDate;
             this.Student = student;
             this.Items = new List<ActivityItem>();
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public int Id

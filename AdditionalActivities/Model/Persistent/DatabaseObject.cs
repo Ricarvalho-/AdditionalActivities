@@ -8,10 +8,10 @@ namespace AdditionalActivities.Model.Persistent
 {
     public abstract class DatabaseObject
     {
-        public List<ActionType> Actions { get; protected set; }
-        public List<Property> Properties { get; protected set; }
-        protected List<FieldModel> fields;
-        protected List<FieldModel> editingFields;
+        public List<ActionType> Actions { get; protected set; } = new List<ActionType>();
+        public List<Property> Properties { get; protected set; } = new List<Property>();
+        protected List<FieldModel> fields = new List<FieldModel>();
+        protected List<FieldModel> editingFields = new List<FieldModel>();
         
         public abstract FieldModel GetTitle(bool editingMode);
         public abstract FieldModel GetSubtitle(bool editingMode);

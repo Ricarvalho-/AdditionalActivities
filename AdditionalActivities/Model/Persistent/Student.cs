@@ -23,7 +23,8 @@ namespace AdditionalActivities.Model.Persistent
             this.Hours = 0;
             this.Rule = rule;
             this.Portfolios = new List<ActivityPortfolio>();
-        }
+            //TODO: set actions, properties, field, editingFields lists
+    }
 
         public string Name
         {

@@ -54,7 +54,7 @@ namespace AdditionalActivities.View.Controls.Headers
             //TODO: Show objType name and detail (TBD)
             //titleLabel.Text = ;
             //detailLabel.Text = ;
-            //TODO: hide nav up button
+            navUpButton.Hide();
         }
 
         public void DidClickCell(ICell cell)
@@ -80,7 +80,10 @@ namespace AdditionalActivities.View.Controls.Headers
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ViewMediator.Add(parentObj.GetType());
+            if(parentObj != null)
+                ViewMediator.Add(parentObj.GetType());
+            else
+                ViewMediator.Add(null);
         }
 
         private void filterOrderMenuItem_Click(object sender, EventArgs e)

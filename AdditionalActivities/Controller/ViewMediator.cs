@@ -98,6 +98,8 @@ namespace AdditionalActivities.Controller
 
         public static void Add(Type objType)
         {
+            if (objType == null)
+                objType = rootType;
             if(typeof(DatabaseObject).IsAssignableFrom(objType))
                 ShowDetails(ModelMediator.Create(objType));
         }

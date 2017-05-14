@@ -22,6 +22,7 @@ namespace AdditionalActivities.Model.Persistent
             this.Year = year;
             this.Hours = hours;
             this.categories = new List<ActivityCategory>();
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public string Title

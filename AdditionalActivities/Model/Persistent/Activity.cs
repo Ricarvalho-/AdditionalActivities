@@ -8,149 +8,40 @@ namespace AdditionalActivities.Model.Persistent
 {
     class Activity : DatabaseObject
     {
-        private string title, description, observation, certificate;
-        private int id, minHours, maxHours, hourStep;
-        private ActivityCategory category;
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Observation { get; set; }
+        public string Certificate { get; set; }
+        public int Id { get; set; }
+        public int MinHours { get; set; }
+        public int MaxHours { get; set; }
+        public int HourStep { get; set; }
+        public ActivityCategory Category { get; set; }
 
         public Activity() { }
 
         public Activity(string title, string certificate, int minHours, int maxHours, ActivityCategory category)
         {
-            this.Title = title;
-            this.Certificate = certificate;
-            this.MinHours = minHours;
-            this.MaxHours = maxHours;
-            this.HourStep = 1;
-            this.Category = category;
+            Title = title;
+            Certificate = certificate;
+            MinHours = minHours;
+            MaxHours = maxHours;
+            HourStep = 1;
+            Category = category;
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public Activity(string name, string description, string observation, string certificate, int minHours, int maxHours, int hourStep, ActivityCategory category)
         {
-            this.Title = name;
-            this.Description = description;
-            this.Observation = observation;
-            this.Certificate = certificate;
-            this.MinHours = minHours;
-            this.MaxHours = maxHours;
-            this.HourStep = hourStep;
-            this.Category = category;
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-
-            set
-            {
-                description = value;
-            }
-        }
-
-        public string Observation
-        {
-            get
-            {
-                return observation;
-            }
-
-            set
-            {
-                observation = value;
-            }
-        }
-
-        public string Certificate
-        {
-            get
-            {
-                return certificate;
-            }
-
-            set
-            {
-                certificate = value;
-            }
-        }
-
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
-
-        public int MinHours
-        {
-            get
-            {
-                return minHours;
-            }
-
-            set
-            {
-                minHours = value;
-            }
-        }
-
-        public int MaxHours
-        {
-            get
-            {
-                return maxHours;
-            }
-
-            set
-            {
-                maxHours = value;
-            }
-        }
-
-        public int HourStep
-        {
-            get
-            {
-                return hourStep;
-            }
-
-            set
-            {
-                hourStep = value;
-            }
-        }
-
-        internal ActivityCategory Category
-        {
-            get
-            {
-                return category;
-            }
-
-            set
-            {
-                category = value;
-            }
+            Title = name;
+            Description = description;
+            Observation = observation;
+            Certificate = certificate;
+            MinHours = minHours;
+            MaxHours = maxHours;
+            HourStep = hourStep;
+            Category = category;
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public override FieldModel GetTitle(bool editingMode)

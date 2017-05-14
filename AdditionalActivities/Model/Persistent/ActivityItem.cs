@@ -23,6 +23,7 @@ namespace AdditionalActivities.Model.Persistent
             this.Activity = activity;
             this.Portfolio = portfolio;
             this.Approved = false;
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public ActivityItem(string name, string observation, int scheduledHours, Activity activity, ActivityPortfolio portfolio)
@@ -33,6 +34,7 @@ namespace AdditionalActivities.Model.Persistent
             this.Activity = activity;
             this.Portfolio = portfolio;
             this.Approved = false;
+            //TODO: set actions, properties, field, editingFields lists
         }
 
         public int Id
