@@ -25,15 +25,20 @@ namespace AdditionalActivities.View.Controls.Cells
             this.parent = parent;
             this.obj = obj;
 
-            this.titleLabel.Text = this.obj.GetTitle().Control.Text;
-            this.detailLabel.Text = this.obj.GetSubtitle().Control.Text;
+            titleLabel.Text = this.obj.GetTitle(false).Control.Text;
+            detailLabel.Text = this.obj.GetSubtitle(false).Control.Text;
             object image = this.obj.IsParent() ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject("");
-            this.pictureBox.Image = (Image)image;
+            pictureBox.Image = (Image)image;
         }
 
         private void SimpleCell_Click(object sender, EventArgs e)
         {
             parent.DidClickCell(this);
+        }
+
+        public DatabaseObject GetObject()
+        {
+            return obj;
         }
     }
 }

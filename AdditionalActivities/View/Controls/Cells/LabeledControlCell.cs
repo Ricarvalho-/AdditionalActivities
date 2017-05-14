@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.Model;
+using AdditionalActivities.Model.Persistent;
 
 namespace AdditionalActivities.View.Controls.Cells
 {
@@ -30,6 +31,11 @@ namespace AdditionalActivities.View.Controls.Cells
             {
                 return field;
             }
+        }
+
+        public DatabaseObject GetObject()
+        {
+            return null;
         }
     }
 }

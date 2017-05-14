@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Controls.FilterOrder;
 using AdditionalActivities.Model;
+using AdditionalActivities.Model.Persistent;
 
 namespace AdditionalActivities.View.Controls.Cells
 {
@@ -19,7 +20,7 @@ namespace AdditionalActivities.View.Controls.Cells
         public SegmentedControlCell(IFilterOrder parent)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
         }
 
@@ -30,13 +31,18 @@ namespace AdditionalActivities.View.Controls.Cells
 
         public FilterOrderCriteria GetCriteria()
         {
-            //return this.child.GetCriteria();
+            //TODO: return this.child.GetCriteria();
             throw new NotImplementedException();
+        }
+
+        public DatabaseObject GetObject()
+        {
+            return null;
         }
 
         public void Remove(IFilterOrder filterOrder)
         {
-            parent.Remove(filterOrder);//TBD: Or this
+            parent.Remove(this);
         }
 
         //TODO: SwitchToFilter()
