@@ -92,7 +92,6 @@ namespace AdditionalActivities.Controller
                     "Erro", 
                     System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.None);
-                ShowDetails(obj);
             }
         }
 
