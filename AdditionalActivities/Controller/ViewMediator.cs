@@ -86,7 +86,14 @@ namespace AdditionalActivities.Controller
                 ShowNav(navStack.Peek());
             }
             else
-                ;//UNDONE: Show can't save alert
+            {
+                System.Windows.Forms.MessageBox.Show(
+                    "Não foi possível salvar.", 
+                    "Erro", 
+                    System.Windows.Forms.MessageBoxButtons.OK,
+                    System.Windows.Forms.MessageBoxIcon.None);
+                ShowDetails(obj);
+            }
         }
 
         public static void Delete(DatabaseObject obj)
