@@ -61,6 +61,15 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horas acumuladas.
+        /// </summary>
+        internal static string accHours {
+            get {
+                return ResourceManager.GetString("accHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Atividades.
         /// </summary>
         internal static string activities {
@@ -88,11 +97,47 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aprovação.
+        /// </summary>
+        internal static string approvation {
+            get {
+                return ResourceManager.GetString("approvation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Certificado.
         /// </summary>
         internal static string certif {
             get {
                 return ResourceManager.GetString("certif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Curso.
+        /// </summary>
+        internal static string course {
+            get {
+                return ResourceManager.GetString("course", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horas deferidas.
+        /// </summary>
+        internal static string defHours {
+            get {
+                return ResourceManager.GetString("defHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data da entrega.
+        /// </summary>
+        internal static string delDate {
+            get {
+                return ResourceManager.GetString("delDate", resourceCulture);
             }
         }
         
@@ -124,11 +169,38 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data da avaliação.
+        /// </summary>
+        internal static string evalDate {
+            get {
+                return ResourceManager.GetString("evalDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avaliador.
+        /// </summary>
+        internal static string evaluator {
+            get {
+                return ResourceManager.GetString("evaluator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horas.
+        /// </summary>
+        internal static string hours {
+            get {
+                return ResourceManager.GetString("hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passo de horas.
         /// </summary>
-        internal static string hrStep {
+        internal static string hourStep {
             get {
-                return ResourceManager.GetString("hrStep", resourceCulture);
+                return ResourceManager.GetString("hourStep", resourceCulture);
             }
         }
         
@@ -144,18 +216,18 @@ namespace AdditionalActivities.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Horas máximas.
         /// </summary>
-        internal static string maxHr {
+        internal static string maxHours {
             get {
-                return ResourceManager.GetString("maxHr", resourceCulture);
+                return ResourceManager.GetString("maxHours", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Horas mínimas.
         /// </summary>
-        internal static string minHr {
+        internal static string minHours {
             get {
-                return ResourceManager.GetString("minHr", resourceCulture);
+                return ResourceManager.GetString("minHours", resourceCulture);
             }
         }
         
@@ -187,6 +259,24 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prontuário.
+        /// </summary>
+        internal static string regNumber {
+            get {
+                return ResourceManager.GetString("regNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estado da matrícula.
+        /// </summary>
+        internal static string regState {
+            get {
+                return ResourceManager.GetString("regState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Regras.
         /// </summary>
         internal static string rules {
@@ -205,6 +295,24 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horas pleiteadas.
+        /// </summary>
+        internal static string schedHours {
+            get {
+                return ResourceManager.GetString("schedHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Semestre.
+        /// </summary>
+        internal static string semester {
+            get {
+                return ResourceManager.GetString("semester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alunos.
         /// </summary>
         internal static string students {
@@ -219,6 +327,15 @@ namespace AdditionalActivities.Properties {
         internal static string title {
             get {
                 return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ano.
+        /// </summary>
+        internal static string year {
+            get {
+                return ResourceManager.GetString("year", resourceCulture);
             }
         }
     }

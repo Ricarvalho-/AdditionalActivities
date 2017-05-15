@@ -16,7 +16,9 @@ namespace AdditionalActivities.Model.Persistent
 
         public ActivityCategory() {
             actions = new List<ActionType> { };
-            properties = new List<Property> { };
+            properties = new List<Property> {
+                new Property(Resources.ResourceManager.GetString("title"), null, Property.PropertyType.Textual)
+            };
             fields = new List<FieldModel> { };
             editingFields = new List<FieldModel> { };
         }

@@ -21,7 +21,13 @@ namespace AdditionalActivities.Model.Persistent
         public ActivityPortfolio()
         {
             actions = new List<ActionType> { };
-            properties = new List<Property> { };
+            properties = new List<Property> {
+                new Property(Resources.ResourceManager.GetString("title"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("semester"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("evaluator"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("delDate"), null, Property.PropertyType.Date),
+                new Property(Resources.ResourceManager.GetString("evalDate"), null, Property.PropertyType.Date)
+            };
             fields = new List<FieldModel> { };
             editingFields = new List<FieldModel> { };
         }

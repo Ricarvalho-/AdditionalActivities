@@ -18,7 +18,12 @@ namespace AdditionalActivities.Model.Persistent
         public Rule()
         {
             actions = new List<ActionType> { };
-            properties = new List<Property> { };
+            properties = new List<Property> {
+                new Property(Resources.ResourceManager.GetString("title"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("course"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("year"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("hours"), null, Property.PropertyType.Numeric)
+            };
             fields = new List<FieldModel> { };
             editingFields = new List<FieldModel> { };
         }

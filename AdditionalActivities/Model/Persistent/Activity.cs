@@ -33,9 +33,9 @@ namespace AdditionalActivities.Model.Persistent
             properties = new List<Property> {
                 new Property(Resources.ResourceManager.GetString("title"), null, Property.PropertyType.Textual),
                 new Property(Resources.ResourceManager.GetString("certif"), null, Property.PropertyType.Textual),
-                new Property(Resources.ResourceManager.GetString("minHr"), null, Property.PropertyType.Numeric),
-                new Property(Resources.ResourceManager.GetString("maxHr"), null, Property.PropertyType.Numeric),
-                new Property(Resources.ResourceManager.GetString("hrStep"), null, Property.PropertyType.Numeric)
+                new Property(Resources.ResourceManager.GetString("minHours"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("maxHours"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("hourStep"), null, Property.PropertyType.Numeric)
             };
 
             //TODO: Define editable fields and readable fields, any type of control can be added (even buttons, or also a header! huahuahuah)

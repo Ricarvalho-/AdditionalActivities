@@ -75,7 +75,9 @@ namespace AdditionalActivities.Model.Persistent
         public enum PropertyType
         {
             Numeric,
-            Textual
+            Textual,
+            Date,
+            Boolean
         }
     }
 }

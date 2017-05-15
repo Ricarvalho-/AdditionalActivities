@@ -100,7 +100,7 @@ namespace AdditionalActivities.Controller
         public static void Delete(DatabaseObject obj)
         {
             ShowDetails(obj.GetType());
-            ShowNav(obj == navStack.Peek() ? navStack.Pop() : navStack.Peek());
+            ShowNav(obj == navStack.Peek() ? navStack.Pop() : navStack.Peek());//TODO: Fix empty stack
             ModelMediator.Delete(obj);
         }
 

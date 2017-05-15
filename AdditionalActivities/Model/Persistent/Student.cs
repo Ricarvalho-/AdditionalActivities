@@ -19,7 +19,12 @@ namespace AdditionalActivities.Model.Persistent
         public Student()
         {
             actions = new List<ActionType> { };
-            properties = new List<Property> { };
+            properties = new List<Property> {
+                new Property(Resources.ResourceManager.GetString("name"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("regNumber"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("regState"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("accHours"), null, Property.PropertyType.Numeric)
+            };
 
             Label nameLabel = new Label();//HACK: Mock
             fields = new List<FieldModel> {

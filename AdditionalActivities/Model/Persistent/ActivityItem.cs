@@ -22,7 +22,13 @@ namespace AdditionalActivities.Model.Persistent
         public ActivityItem()
         {
             actions = new List<ActionType> { };
-            properties = new List<Property> { };
+            properties = new List<Property> {
+                new Property(Resources.ResourceManager.GetString("title"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("obs"), null, Property.PropertyType.Textual),
+                new Property(Resources.ResourceManager.GetString("schedHours"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("defHours"), null, Property.PropertyType.Numeric),
+                new Property(Resources.ResourceManager.GetString("approvation"), null, Property.PropertyType.Boolean)
+            };
             fields = new List<FieldModel> { };
             editingFields = new List<FieldModel> { };
         }
