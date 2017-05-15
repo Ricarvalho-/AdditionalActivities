@@ -51,8 +51,7 @@ namespace AdditionalActivities.View.Controls.Headers
 
             this.parent.TableCells = cells;
 
-            titleLabel.Text = ""; //UNDONE: Get obj type title or hide (TBD)
-
+            titleLabel.Hide();//UNDONE: Get obj type title or hide (TBD)
             deleteButton.Hide();
             editButton.Hide();
             moreButton.Hide();

@@ -30,10 +30,10 @@ namespace AdditionalActivities.View.Controls.FilterOrder
 
         public FilterOrderCriteria GetCriteria()
         {//FIXME:
-            if (((Property)this.propertyComboBox.SelectedItem).Type == Property.PropertyType.Numeric)
-                return new NumericFilterCriteriaType((Property)this.propertyComboBox.SelectedItem, (NumericFilterCriteriaType.NumericFilterCriteria)this.criteriaComboBox.SelectedItem, decimal.Parse(this.parameterTextBox.Text));//TODO: TryParse
-            else if (((Property)this.propertyComboBox.SelectedItem).Type == Property.PropertyType.Textual)
-                return new TextualFilterCriteriaType((Property)this.propertyComboBox.SelectedItem, (TextualFilterCriteriaType.TextualFilterCriteria)this.criteriaComboBox.SelectedItem, this.parameterTextBox.Text);
+            if (((Property)propertyComboBox.SelectedItem).Type == Property.PropertyType.Numeric)
+                return new NumericFilterCriteriaType((Property)propertyComboBox.SelectedItem, (NumericFilterCriteriaType.NumericFilterCriteria)criteriaComboBox.SelectedItem, decimal.Parse(parameterTextBox.Text));//TODO: TryParse
+            else if (((Property)propertyComboBox.SelectedItem).Type == Property.PropertyType.Textual)
+                return new TextualFilterCriteriaType((Property)propertyComboBox.SelectedItem, (TextualFilterCriteriaType.TextualFilterCriteria)criteriaComboBox.SelectedItem, parameterTextBox.Text);
             throw new NotImplementedException();
         }
 

@@ -34,7 +34,8 @@ namespace AdditionalActivities.View.Controls.Headers
 
             this.parent.TableCells = cells;
 
-            titlePanel.Controls.Add(obj.GetTitle(true).Control);
+            //HACK: Mock
+            //titlePanel.Controls.Add(obj.GetTitle(true).Control);
         }
 
         public void DidClickCell(ICell cell) { }

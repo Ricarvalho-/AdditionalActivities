@@ -11,10 +11,10 @@ namespace AdditionalActivities.Model
     {
         public string Title { get; private set; }
         public Control Control { get; private set; }
-        private Action<object> ctrlGetter;
+        private Func<object> ctrlGetter;
         private Action<object> propSetter;
 
-        public FieldModel(string title, Control control, Action<object> controlGetter, Action<object> propertySetter)
+        public FieldModel(string title, Control control, Func<object> controlGetter, Action<object> propertySetter)
         {
             ctrlGetter = controlGetter;
             propSetter = propertySetter;

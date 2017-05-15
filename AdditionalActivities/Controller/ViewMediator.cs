@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AdditionalActivities.Model.Persistent;
 using AdditionalActivities.View.Controls.Headers;
 using AdditionalActivities.View.Controls;
+using AdditionalActivities.Properties;
 
 namespace AdditionalActivities.Controller
 {
@@ -83,16 +84,17 @@ namespace AdditionalActivities.Controller
             if (ModelMediator.CanSave(obj))
             {
                 ShowDetails(obj);
-                ShowNav(navStack.Peek());
+                if (navStack.Count != 0)
+                    ShowNav(navStack.Peek());
+                else
+                    ShowRootNav();
             }
             else
-            {
                 System.Windows.Forms.MessageBox.Show(
-                    "Não foi possível salvar.", 
-                    "Erro", 
+                    Resources.ResourceManager.GetString("saveError"),
+                    Resources.ResourceManager.GetString("error"),
                     System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.None);
-            }
         }
 
         public static void Delete(DatabaseObject obj)
@@ -106,7 +108,7 @@ namespace AdditionalActivities.Controller
         {
             if (objType == null)
                 objType = rootType;
-            if(typeof(DatabaseObject).IsAssignableFrom(objType))
+            if (typeof(DatabaseObject).IsAssignableFrom(objType))
                 EditDetails(ModelMediator.Create(objType));
         }
 
@@ -114,9 +116,9 @@ namespace AdditionalActivities.Controller
         {
             if (childrenObjsSubSet.Count == 0)
                 return;
-            
+
             actions = childrenObjsSubSet.First().Actions.ToList();
-            deleteAction = new ActionType("Excluir", null);
+            deleteAction = new ActionType(Resources.ResourceManager.GetString("delete"), null);
             actions.Add(deleteAction);
 
             if (parentObj != null)

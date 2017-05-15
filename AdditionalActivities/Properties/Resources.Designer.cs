@@ -59,5 +59,167 @@ namespace AdditionalActivities.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Atividades.
+        /// </summary>
+        internal static string activities {
+            get {
+                return ResourceManager.GetString("activities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categorias.
+        /// </summary>
+        internal static string activityCategories {
+            get {
+                return ResourceManager.GetString("activityCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Atividades.
+        /// </summary>
+        internal static string activityItems {
+            get {
+                return ResourceManager.GetString("activityItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificado.
+        /// </summary>
+        internal static string certif {
+            get {
+                return ResourceManager.GetString("certif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excluir.
+        /// </summary>
+        internal static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição.
+        /// </summary>
+        internal static string desc {
+            get {
+                return ResourceManager.GetString("desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passo de horas.
+        /// </summary>
+        internal static string hrStep {
+            get {
+                return ResourceManager.GetString("hrStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string id {
+            get {
+                return ResourceManager.GetString("id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horas máximas.
+        /// </summary>
+        internal static string maxHr {
+            get {
+                return ResourceManager.GetString("maxHr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horas mínimas.
+        /// </summary>
+        internal static string minHr {
+            get {
+                return ResourceManager.GetString("minHr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome.
+        /// </summary>
+        internal static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observação.
+        /// </summary>
+        internal static string obs {
+            get {
+                return ResourceManager.GetString("obs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portifólios.
+        /// </summary>
+        internal static string portfolios {
+            get {
+                return ResourceManager.GetString("portfolios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regras.
+        /// </summary>
+        internal static string rules {
+            get {
+                return ResourceManager.GetString("rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível salvar..
+        /// </summary>
+        internal static string saveError {
+            get {
+                return ResourceManager.GetString("saveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alunos.
+        /// </summary>
+        internal static string students {
+            get {
+                return ResourceManager.GetString("students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Título.
+        /// </summary>
+        internal static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
     }
 }

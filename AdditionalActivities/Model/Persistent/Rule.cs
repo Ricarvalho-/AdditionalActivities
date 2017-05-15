@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdditionalActivities.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,36 +15,34 @@ namespace AdditionalActivities.Model.Persistent
         public int Year { get; set; }
         public int Hours { get; set; }
 
-        public Rule() { }
+        public Rule()
+        {
+            actions = new List<ActionType> { };
+            properties = new List<Property> { };
+            fields = new List<FieldModel> { };
+            editingFields = new List<FieldModel> { };
+        }
 
         public override bool IsParent { get { return true; } }
 
-        public override List<ActionType> Actions { get { throw new NotImplementedException(); } }
-
-        public override List<Property> Properties { get { throw new NotImplementedException(); } }
-
-        protected override List<FieldModel> Fields { get { throw new NotImplementedException(); } }
-
-        protected override List<FieldModel> EditingFields { get { throw new NotImplementedException(); } }
-
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return Resources.ResourceManager.GetString("rules");
         }
 
         public override FieldModel GetTitle(bool editingMode)
         {
-            throw new NotImplementedException();
+            return editingMode ? editingFields[0] : fields[0];//UNDONE: set indexes TDB
         }
 
         public override FieldModel GetSubtitle(bool editingMode)
         {
-            throw new NotImplementedException();
+            return editingMode ? editingFields[0] : fields[0];//UNDONE: set indexes TDB
         }
 
         public override bool ShouldSave()
         {
-            throw new NotImplementedException();
+            return false;//HACK: Mock save error message
         }
     }
 }

@@ -8,11 +8,14 @@ namespace AdditionalActivities.Model.Persistent
 {
     public abstract class DatabaseObject
     {
+        protected List<ActionType> actions = new List<ActionType>();
+        protected List<Property> properties = new List<Property>();
+        protected List<FieldModel> fields = new List<FieldModel>();
+        protected List<FieldModel> editingFields = new List<FieldModel>();
+
+        public List<ActionType> Actions { get { return actions; } }
+        public List<Property> Properties { get { return properties; } }
         public abstract bool IsParent { get; }
-        public abstract List<ActionType> Actions { get; }
-        public abstract List<Property> Properties { get; }
-        protected abstract List<FieldModel> Fields { get; }
-        protected abstract List<FieldModel> EditingFields { get; }
 
         public abstract override string ToString();
         public abstract FieldModel GetTitle(bool editingMode);
@@ -28,7 +31,7 @@ namespace AdditionalActivities.Model.Persistent
 
         public List<FieldModel> GetFields(bool editingMode)
         {
-            return editingMode ? EditingFields : Fields;
+            return editingMode ? editingFields : fields;
         }
     }
 

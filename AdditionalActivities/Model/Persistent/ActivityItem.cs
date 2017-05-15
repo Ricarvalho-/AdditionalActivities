@@ -1,8 +1,10 @@
-﻿using System;
+﻿using AdditionalActivities.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AdditionalActivities.Model.Persistent
 {
@@ -17,31 +19,29 @@ namespace AdditionalActivities.Model.Persistent
         public Activity Activity { get; set; }
         public ActivityPortfolio Portfolio { get; set; }
 
-        public ActivityItem() { }
+        public ActivityItem()
+        {
+            actions = new List<ActionType> { };
+            properties = new List<Property> { };
+            fields = new List<FieldModel> { };
+            editingFields = new List<FieldModel> { };
+        }
 
         public override bool IsParent { get { return false; } }
 
-        public override List<ActionType> Actions { get { throw new NotImplementedException(); } }
-
-        public override List<Property> Properties { get { throw new NotImplementedException(); } }
-
-        protected override List<FieldModel> Fields { get { throw new NotImplementedException(); } }
-
-        protected override List<FieldModel> EditingFields { get { throw new NotImplementedException(); } }
-
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return Resources.ResourceManager.GetString("activityItems");
         }
 
         public override FieldModel GetTitle(bool editingMode)
         {
-            throw new NotImplementedException();
+            return editingMode ? editingFields[0] : fields[0];//UNDONE: set indexes TDB
         }
 
         public override FieldModel GetSubtitle(bool editingMode)
         {
-            throw new NotImplementedException();
+            return editingMode ? editingFields[0] : fields[0];//UNDONE: set indexes TDB
         }
 
         public override bool ShouldSave()

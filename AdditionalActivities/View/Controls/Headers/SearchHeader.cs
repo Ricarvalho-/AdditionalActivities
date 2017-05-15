@@ -34,8 +34,9 @@ namespace AdditionalActivities.View.Controls.Headers
 
             this.parent.TableCells = cells;
 
-            titleLabel.Text = parentObj.GetTitle(false).Control.Text;
-            detailLabel.Text = parentObj.GetSubtitle(false).Control.Text;
+            //titleLabel.Text = parentObj.GetTitle(false).Control.Text;
+            titleLabel.Text = parentObj.ToString();
+            detailLabel.Text = parentObj.GetTitle(false).Control.Text;
         }
 
         public SearchHeader(TableControl parent, Type objsType, List<DatabaseObject> objs)
@@ -51,9 +52,8 @@ namespace AdditionalActivities.View.Controls.Headers
                 cells.Add(new SimpleCell(obj, this));
 
             this.parent.TableCells = cells;
-            //TODO: Show objType name and detail (TBD)
-            //titleLabel.Text = ;
-            //detailLabel.Text = ;
+            titleLabel.Text = ModelMediator.Create(objsType).ToString();
+            detailLabel.Hide();
             navUpButton.Hide();
         }
 

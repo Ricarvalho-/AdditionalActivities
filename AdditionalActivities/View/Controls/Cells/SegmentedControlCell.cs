@@ -26,7 +26,7 @@ namespace AdditionalActivities.View.Controls.Cells
 
         public void AddNew()
         {
-            this.parent.AddNew();
+            parent.AddNew();
         }
 
         public FilterOrderCriteria GetCriteria()
