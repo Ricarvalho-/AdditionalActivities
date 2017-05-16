@@ -17,15 +17,20 @@ namespace AdditionalActivities.View.Controls.Cells
     {
         IFilterOrder parent;
 
+        public bool IsLast { get; set; }
+
         public SegmentedControlCell(IFilterOrder parent)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             this.parent = parent;
+            IsLast = true;
+            panel.Controls.Add(new FilterControl(this));
         }
 
         public void AddNew()
         {
+            IsLast = false;
             parent.AddNew();
         }
 
@@ -43,6 +48,18 @@ namespace AdditionalActivities.View.Controls.Cells
         public void Remove(IFilterOrder filterOrder)
         {
             parent.Remove(this);
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(new FilterControl(this));
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(new OrderControl(this));
         }
 
         //TODO: SwitchToFilter()

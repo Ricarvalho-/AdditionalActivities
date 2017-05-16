@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.segmentedTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.orderButton = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.segmentedTableLayout.SuspendLayout();
             this.SuspendLayout();
@@ -40,8 +40,8 @@
             this.segmentedTableLayout.ColumnCount = 2;
             this.segmentedTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.segmentedTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.segmentedTableLayout.Controls.Add(this.button1, 0, 0);
-            this.segmentedTableLayout.Controls.Add(this.button2, 1, 0);
+            this.segmentedTableLayout.Controls.Add(this.filterButton, 0, 0);
+            this.segmentedTableLayout.Controls.Add(this.orderButton, 1, 0);
             this.segmentedTableLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.segmentedTableLayout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             this.segmentedTableLayout.Location = new System.Drawing.Point(8, 8);
@@ -51,27 +51,29 @@
             this.segmentedTableLayout.Size = new System.Drawing.Size(295, 29);
             this.segmentedTableLayout.TabIndex = 0;
             // 
-            // button1
+            // filterButton
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.filterButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filterButton.Location = new System.Drawing.Point(3, 3);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(144, 23);
+            this.filterButton.TabIndex = 0;
+            this.filterButton.Text = "Filter";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
-            // button2
+            // orderButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(147, 3);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.orderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderButton.Location = new System.Drawing.Point(147, 3);
+            this.orderButton.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(145, 23);
+            this.orderButton.TabIndex = 1;
+            this.orderButton.Text = "Order";
+            this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // panel
             // 
@@ -98,8 +100,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel segmentedTableLayout;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Panel panel;
     }
 }

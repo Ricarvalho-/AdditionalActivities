@@ -32,7 +32,7 @@
             this.propertyComboBox = new System.Windows.Forms.ComboBox();
             this.criteriaComboBox = new System.Windows.Forms.ComboBox();
             this.parameterTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addRemoveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,21 +82,22 @@
             this.parameterTextBox.Size = new System.Drawing.Size(159, 20);
             this.parameterTextBox.TabIndex = 2;
             // 
-            // button1
+            // addRemoveButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(168, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addRemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addRemoveButton.Location = new System.Drawing.Point(168, 30);
+            this.addRemoveButton.Name = "addRemoveButton";
+            this.addRemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.addRemoveButton.TabIndex = 3;
+            this.addRemoveButton.Text = "Add";
+            this.addRemoveButton.UseVisualStyleBackColor = true;
+            this.addRemoveButton.Click += new System.EventHandler(this.addRemoveButton_Click);
             // 
             // FilterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addRemoveButton);
             this.Controls.Add(this.parameterTextBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FilterControl";
@@ -113,6 +114,6 @@
         private System.Windows.Forms.ComboBox propertyComboBox;
         private System.Windows.Forms.ComboBox criteriaComboBox;
         private System.Windows.Forms.TextBox parameterTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addRemoveButton;
     }
 }

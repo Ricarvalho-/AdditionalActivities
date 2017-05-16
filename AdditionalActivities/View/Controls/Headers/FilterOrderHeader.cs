@@ -20,6 +20,9 @@ namespace AdditionalActivities.View.Controls.Headers
         TableControl parent;
         DatabaseObject parentObj;
         List<DatabaseObject> childrenObjs;
+        List<ICell> segmentedCells = new List<ICell>();
+
+        public bool IsLast { get; set; }
 
         public FilterOrderHeader(TableControl parent, DatabaseObject parentObj, List<DatabaseObject> childrenObjs)
         {
@@ -29,23 +32,20 @@ namespace AdditionalActivities.View.Controls.Headers
             this.parentObj = parentObj;
             this.childrenObjs = childrenObjs;
 
-            List<ICell> cells = new List<ICell>();
-
-            //foreach (DatabaseObject obj in childrenObjs)
-            //    cells.Add(new SimpleCell(obj, this));
-            //TODO: Show first segmentedControlCell
-
-            this.parent.TableCells = cells;
+            segmentedCells.Add(new SegmentedControlCell(this));
+            this.parent.TableCells = segmentedCells;
         }
 
         public void AddNew()
         {
-            //TODO: Add new segmentedControlCell
+            segmentedCells.Add(new SegmentedControlCell(this));
+            this.parent.TableCells = segmentedCells;
         }
 
         public void Remove(IFilterOrder filterOrder)
         {
-            //TODO: Remove segmentedControlCell
+            segmentedCells.Remove((SegmentedControlCell)filterOrder);
+            this.parent.TableCells = segmentedCells;
         }
 
         public FilterOrderCriteria GetCriteria()

@@ -16,15 +16,20 @@ namespace AdditionalActivities.View.Controls.FilterOrder
     {
         IFilterOrder parent;
 
+        public bool IsLast { get; set; }
+
         public FilterControl(IFilterOrder parent)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
+            if (!parent.IsLast)
+                addRemoveButton.Text = "Remove";
         }
 
         public void AddNew()
         {
+            addRemoveButton.Text = "Remove";
             parent.AddNew();
         }
 
@@ -39,7 +44,15 @@ namespace AdditionalActivities.View.Controls.FilterOrder
 
         public void Remove(IFilterOrder filterOrder)
         {
-            parent.Remove(this);
+            parent.Remove(filterOrder);
+        }
+
+        private void addRemoveButton_Click(object sender, EventArgs e)
+        {
+            if (parent.IsLast)
+                AddNew();
+            else
+                Remove(this);
         }
     }
 }
