@@ -8,6 +8,7 @@ namespace AdditionalActivities.Model.Persistent
 {
     public abstract class DatabaseObject
     {
+        public static int objN = 0;
         protected List<ActionType> actions = new List<ActionType>();
         protected List<Property> properties = new List<Property>();
         protected List<FieldModel> fields = new List<FieldModel>();

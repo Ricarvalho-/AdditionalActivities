@@ -24,8 +24,25 @@ namespace AdditionalActivities.Model.Persistent
                 new Property(Resources.ResourceManager.GetString("year"), null, Property.PropertyType.Numeric),
                 new Property(Resources.ResourceManager.GetString("hours"), null, Property.PropertyType.Numeric)
             };
-            fields = new List<FieldModel> { };
-            editingFields = new List<FieldModel> { };
+
+            Title = "Regra " + ++objN;
+            Course = "Curso " + objN;
+
+            Label nameLabel = new Label();//HACK: Mock
+            Label regNL = new Label();//HACK: Mock
+            nameLabel.Text = Title;
+            regNL.Text = Course;
+            fields = new List<FieldModel> {
+                new FieldModel(Resources.ResourceManager.GetString("title"), nameLabel, () => nameLabel.Text, value => Title = value.ToString()),//HACK: Mock
+                new FieldModel(Resources.ResourceManager.GetString("course"), regNL, () => regNL.Text, value => Course = value.ToString()),//HACK: Mock
+            };
+
+            TextBox nameTextBox = new TextBox();//HACK: Mock
+            TextBox regNTB = new TextBox();//HACK: Mock
+            editingFields = new List<FieldModel> {
+                new FieldModel(Resources.ResourceManager.GetString("title"), nameTextBox, () => nameTextBox.Text, value => Title = value.ToString()),//HACK: Mock
+                new FieldModel(Resources.ResourceManager.GetString("course"), regNTB, () => regNTB.Text, value => Course = value.ToString()),//HACK: Mock
+            };
         }
 
         public override bool IsParent { get { return true; } }
@@ -42,7 +59,7 @@ namespace AdditionalActivities.Model.Persistent
 
         public override FieldModel GetSubtitle(bool editingMode)
         {
-            return editingMode ? editingFields[0] : fields[0];//UNDONE: set indexes TDB
+            return editingMode ? editingFields[1] : fields[1];//UNDONE: set indexes TDB
         }
 
         public override bool ShouldSave()

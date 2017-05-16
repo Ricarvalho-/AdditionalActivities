@@ -158,6 +158,12 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PlaceholderUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PlaceholderUI.Designer.cs">
+      <DependentUpon>PlaceholderUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -207,6 +213,9 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PlaceholderUI.resx">
+      <DependentUpon>PlaceholderUI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +228,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AddAct icon.jpg" />
+    <None Include="Resources\AddAct icon.png" />
     <Content Include="Supporting Files\AddAct icon.ico" />
   </ItemGroup>
   <ItemGroup>

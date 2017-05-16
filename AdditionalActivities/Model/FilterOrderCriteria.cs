@@ -9,23 +9,12 @@ namespace AdditionalActivities.Model
 {
     public abstract class FilterOrderCriteria
     {
-        Property property;
+        public Property Property { get; protected set; }
 
-        public Property Property
-        {
-            get
-            {
-                return property;
-            }
-
-            protected set
-            {
-                property = value;
-            }
-        }
-
-        public abstract string ToPersistentCriteria();
+        public abstract string ToPersistentCriteria();//TODO: Define Regex/Query builders in each subclass
     }
+
+    //TODO: Create Date and Boolean FilterCriteriaTypes
 
     public class NumericFilterCriteriaType : FilterOrderCriteria
     {
@@ -34,22 +23,23 @@ namespace AdditionalActivities.Model
 
         public NumericFilterCriteriaType(Property property, NumericFilterCriteria criteria, decimal parameter)
         {
-            this.Property = property;
+            Property = property;
             this.criteria = criteria;
             this.parameter = parameter;
         }
 
         public override string ToPersistentCriteria()
         {
+            //TODO: Build criteria
             throw new NotImplementedException();
         }
 
         public enum NumericFilterCriteria
         {
-            Greater,
-            Lesser,
-            Equal,
-            Different
+            Greater,//>
+            Lesser,//<
+            Equal,//=
+            Different//NOT =
         }
     }
 
@@ -60,7 +50,7 @@ namespace AdditionalActivities.Model
 
         public TextualFilterCriteriaType(Property property, TextualFilterCriteria criteria, string parameter)
         {
-            this.Property = property;
+            Property = property;
             this.criteria = criteria;
             this.parameter = parameter;
         }
@@ -69,6 +59,7 @@ namespace AdditionalActivities.Model
         {
             //SELECT <...> FROM <...> WHERE <...> LIKE <...>;
             //build "like" string in switch case
+            //TODO: Build criteria
             throw new NotImplementedException();
         }
 
@@ -91,12 +82,13 @@ namespace AdditionalActivities.Model
 
         public OrderCriteriaType(Property property, OrderCriteria criteria)
         {
-            this.Property = property;
+            Property = property;
             this.criteria = criteria;
         }
 
         public override string ToPersistentCriteria()
         {
+            //TODO: Build criteria
             throw new NotImplementedException();
         }
 

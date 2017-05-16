@@ -14,23 +14,15 @@ namespace AdditionalActivities.View.Controls.Cells
 {
     public partial class LabeledControlCell : UserControl, ICell
     {
-        FieldModel field;
+        public FieldModel Field { get; private set; }
 
         public LabeledControlCell(FieldModel field)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            this.titleLabel.Text = field.Title;
-            this.field = field;
-            this.panel.Controls.Add(field.Control);
-        }
-
-        public FieldModel Field
-        {
-            get
-            {
-                return field;
-            }
+            Dock = DockStyle.Fill;
+            titleLabel.Text = field.Title;
+            Field = field;
+            panel.Controls.Add(field.Control);
         }
 
         public DatabaseObject GetObject()

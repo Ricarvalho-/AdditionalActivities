@@ -33,7 +33,10 @@ namespace AdditionalActivities.Controller
         public static void NavUp()
         {
             ShowDetails(navStack.Pop());
-            ShowNav(navStack.Peek());
+            if (navStack.Count == 0)
+                ShowRootNav();
+            else
+                ShowNav(navStack.Peek());
         }
 
         public static void NavInto(DatabaseObject obj)
@@ -41,7 +44,7 @@ namespace AdditionalActivities.Controller
             if (obj != null)
             {
                 ShowDetails(obj);
-                if (obj.IsParent && navStack.Peek() != obj)
+                if (navStack.Count == 0 || obj.IsParent && navStack.Peek() != obj)
                 {
                     navStack.Push(obj);
                     ShowNav(obj);
@@ -53,15 +56,21 @@ namespace AdditionalActivities.Controller
 
         private static void ShowNav(DatabaseObject parentObj)
         {
+            List<DatabaseObject> objs = new List<DatabaseObject>();
+            for (int i = 1; i <= 10; i++)
+                objs.Add(ModelMediator.Create(typeof(ActivityPortfolio)));
             if (parentObj == null)
                 ShowRootNav();
             else
-                NavTable.HeaderControl = new SearchHeader(NavTable, parentObj, ModelMediator.ReadChildren(parentObj));
+                NavTable.HeaderControl = new SearchHeader(NavTable, parentObj, objs);//ModelMediator.ReadChildren(parentObj));
         }
 
         private static void ShowRootNav()
         {
-            NavTable.HeaderControl = new SearchHeader(NavTable, rootType, ModelMediator.ReadAll(rootType));
+            List<DatabaseObject> objs = new List<DatabaseObject>();
+            for (int i = 1; i <= 10; i++)
+                objs.Add(ModelMediator.Create(rootType));
+            NavTable.HeaderControl = new SearchHeader(NavTable, rootType, objs);//ModelMediator.ReadAll(rootType));
         }
 
         public static void ShowDetails(DatabaseObject obj)
@@ -100,7 +109,8 @@ namespace AdditionalActivities.Controller
         public static void Delete(DatabaseObject obj)
         {
             ShowDetails(obj.GetType());
-            ShowNav(obj == navStack.Peek() ? navStack.Pop() : navStack.Peek());//TODO: Fix empty stack
+            //TODO: Fix empty stack
+            //ShowNav(obj == navStack.Peek() ? navStack.Pop() : navStack.Peek());
             ModelMediator.Delete(obj);
         }
 

@@ -21,13 +21,13 @@ namespace AdditionalActivities.View.Controls.Cells
         public SimpleCell(DatabaseObject obj, IHeader parent)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
             this.parent = parent;
             this.obj = obj;
 
-            titleLabel.Text = this.obj.GetTitle(false).Control.Text;
-            detailLabel.Text = this.obj.GetSubtitle(false).Control.Text;
-            object image = this.obj.IsParent ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject(""); //UNDONE: Set images
+            titleLabel.Text = obj.GetTitle(false).Control.Text;
+            detailLabel.Text = obj.GetSubtitle(false).Control.Text;
+            object image = obj.IsParent ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject(""); //UNDONE: Set images
             pictureBox.Image = (Image)image;
         }
 

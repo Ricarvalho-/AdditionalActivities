@@ -26,17 +26,29 @@ namespace AdditionalActivities.View.Controls
 
         private void studentsButton_Click(object sender, EventArgs e)
         {
+            mainForm.HidePlaceholderUI();
             ViewMediator.RootType = typeof(Student);
         }
 
         private void rulesButton_Click(object sender, EventArgs e)
         {
+            mainForm.HidePlaceholderUI();
             ViewMediator.RootType = typeof(Rule);
         }
 
         private void toggleSizeButton_Click(object sender, EventArgs e)
         {
             mainForm.ToggleMainMenuSize(expanded = !expanded);
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowPlaceholderUI();
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowPlaceholderUI();
         }
 
         //TBD: Settings()

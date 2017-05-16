@@ -14,6 +14,7 @@ namespace AdditionalActivities.View
 {
     public partial class MainForm : Form
     {
+        PlaceholderUI placeholder = new PlaceholderUI();
         public MainForm()
         {
             InitializeComponent();
@@ -28,11 +29,26 @@ namespace AdditionalActivities.View
 
             ViewMediator.NavTable = navControl;
             ViewMediator.DetTable = detControl;
+
+            mainSplitContainer.Panel2.Controls.Clear();
+            mainSplitContainer.Panel2.Controls.Add(placeholder);
+            mainSplitContainer.Panel2.Controls.Add(subSplitContainer);
+            placeholder.Hide();
         }
 
         public void ToggleMainMenuSize(bool expanded)
         {
 
+        }
+
+        public void ShowPlaceholderUI()
+        {
+            placeholder.Show();
+        }
+
+        public void HidePlaceholderUI()
+        {
+            placeholder.Hide();
         }
     }
 }

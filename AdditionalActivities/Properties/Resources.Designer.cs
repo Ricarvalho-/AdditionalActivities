@@ -97,6 +97,26 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddAct_icon {
+            get {
+                object obj = ResourceManager.GetObject("AddAct icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddAct_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("AddAct icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aprovação.
         /// </summary>
         internal static string approvation {

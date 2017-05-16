@@ -61,8 +61,5 @@ namespace AdditionalActivities.View.Controls.Cells
             panel.Controls.Clear();
             panel.Controls.Add(new OrderControl(this));
         }
-
-        //TODO: SwitchToFilter()
-        //TODO: SwitchToOrder()
     }
 }
