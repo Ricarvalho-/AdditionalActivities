@@ -29,6 +29,11 @@ namespace AdditionalActivities.View.Controls.Headers
             foreach (ActionType action in obj.Actions)
                 actionsContextMenu.Items.Add(action.Label, null, action.ActionHandler);
 
+            actionsContextMenu.Items.Add("Imprimir");//HACK: Mock
+            actionsContextMenu.Items.Add("Exportar");//HACK: Mock
+            actionsContextMenu.Items.Add("Aprovar");//HACK: Mock
+            actionsContextMenu.Items.Add("Reprovar");//HACK: Mock
+
             List<ICell> cells = new List<ICell>();
 
             foreach (FieldModel field in obj.GetFields(false))

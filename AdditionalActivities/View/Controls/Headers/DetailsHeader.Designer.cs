@@ -83,7 +83,8 @@
             // actionsContextMenu
             // 
             this.actionsContextMenu.Name = "actionsContextMenu";
-            this.actionsContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.actionsContextMenu.ShowImageMargin = false;
+            this.actionsContextMenu.Size = new System.Drawing.Size(128, 26);
             // 
             // DetailsHeader
             // 

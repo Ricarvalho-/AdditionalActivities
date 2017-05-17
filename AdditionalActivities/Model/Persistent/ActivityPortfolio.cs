@@ -68,7 +68,7 @@ namespace AdditionalActivities.Model.Persistent
 
         public override bool ShouldSave()
         {
-            throw new NotImplementedException();
+            return false;//throw new NotImplementedException();
         }
     }
 }

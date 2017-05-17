@@ -230,6 +230,8 @@
   <ItemGroup>
     <None Include="Resources\AddAct icon.jpg" />
     <None Include="Resources\AddAct icon.png" />
+    <None Include="Resources\ic_keyboard_arrow_down_black_24dp.png" />
+    <None Include="Resources\ic_keyboard_arrow_right_black_24dp.png" />
     <Content Include="Supporting Files\AddAct icon.ico" />
   </ItemGroup>
   <ItemGroup>

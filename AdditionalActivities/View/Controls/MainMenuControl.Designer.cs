@@ -40,7 +40,7 @@
             this.toggleSizeButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.toggleSizeButton.Location = new System.Drawing.Point(0, 0);
             this.toggleSizeButton.Name = "toggleSizeButton";
-            this.toggleSizeButton.Size = new System.Drawing.Size(100, 23);
+            this.toggleSizeButton.Size = new System.Drawing.Size(80, 35);
             this.toggleSizeButton.TabIndex = 0;
             this.toggleSizeButton.Text = "Toggle Size";
             this.toggleSizeButton.UseVisualStyleBackColor = true;
@@ -49,9 +49,9 @@
             // studentsButton
             // 
             this.studentsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studentsButton.Location = new System.Drawing.Point(0, 23);
+            this.studentsButton.Location = new System.Drawing.Point(0, 35);
             this.studentsButton.Name = "studentsButton";
-            this.studentsButton.Size = new System.Drawing.Size(100, 23);
+            this.studentsButton.Size = new System.Drawing.Size(80, 35);
             this.studentsButton.TabIndex = 1;
             this.studentsButton.Text = "Students";
             this.studentsButton.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // rulesButton
             // 
             this.rulesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rulesButton.Location = new System.Drawing.Point(0, 46);
+            this.rulesButton.Location = new System.Drawing.Point(0, 70);
             this.rulesButton.Name = "rulesButton";
-            this.rulesButton.Size = new System.Drawing.Size(100, 23);
+            this.rulesButton.Size = new System.Drawing.Size(80, 35);
             this.rulesButton.TabIndex = 2;
             this.rulesButton.Text = "Rules";
             this.rulesButton.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // helpButton
             // 
             this.helpButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.helpButton.Location = new System.Drawing.Point(0, 177);
+            this.helpButton.Location = new System.Drawing.Point(0, 165);
             this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(100, 23);
+            this.helpButton.Size = new System.Drawing.Size(80, 35);
             this.helpButton.TabIndex = 4;
             this.helpButton.Text = "Help";
             this.helpButton.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // settingsButton
             // 
             this.settingsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settingsButton.Location = new System.Drawing.Point(0, 154);
+            this.settingsButton.Location = new System.Drawing.Point(0, 130);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(100, 23);
+            this.settingsButton.Size = new System.Drawing.Size(80, 35);
             this.settingsButton.TabIndex = 3;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
@@ -100,8 +100,9 @@
             this.Controls.Add(this.rulesButton);
             this.Controls.Add(this.studentsButton);
             this.Controls.Add(this.toggleSizeButton);
+            this.MinimumSize = new System.Drawing.Size(80, 200);
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(100, 200);
+            this.Size = new System.Drawing.Size(80, 200);
             this.ResumeLayout(false);
 
         }

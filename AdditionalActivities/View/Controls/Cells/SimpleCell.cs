@@ -27,8 +27,8 @@ namespace AdditionalActivities.View.Controls.Cells
 
             titleLabel.Text = obj.GetTitle(false).Control.Text;
             detailLabel.Text = obj.GetSubtitle(false).Control.Text;
-            object image = obj.IsParent ? Resources.ResourceManager.GetObject("") : Resources.ResourceManager.GetObject(""); //UNDONE: Set images
-            pictureBox.Image = (Image)image;
+            //object image = obj.IsParent ? Resources.ResourceManager.GetObject("arrowDown") : Resources.ResourceManager.GetObject("arrowRight"); //UNDONE: Set images
+            //pictureBox.Image = (Image)image;
         }
 
         private void SimpleCell_Click(object sender, EventArgs e)
