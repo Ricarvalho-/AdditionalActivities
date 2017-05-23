@@ -14,11 +14,9 @@ namespace AdditionalActivities.View.Controls.FilterOrder
 {
     public partial class FilterControl : UserControl, IFilterOrder
     {
-        IFilterOrder parent;
+        SegmentedControlCell parent;
 
-        public bool IsLast { get; set; }
-
-        public FilterControl(IFilterOrder parent)
+        public FilterControl(SegmentedControlCell parent)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
@@ -34,11 +32,7 @@ namespace AdditionalActivities.View.Controls.FilterOrder
         }
 
         public FilterOrderCriteria GetCriteria()
-        {//FIXME:
-            if (((Property)propertyComboBox.SelectedItem).Type == Property.PropertyType.Numeric)
-                return new NumericFilterCriteriaType((Property)propertyComboBox.SelectedItem, (NumericFilterCriteriaType.NumericFilterCriteria)criteriaComboBox.SelectedItem, decimal.Parse(parameterTextBox.Text));//TODO: TryParse
-            else if (((Property)propertyComboBox.SelectedItem).Type == Property.PropertyType.Textual)
-                return new TextualFilterCriteriaType((Property)propertyComboBox.SelectedItem, (TextualFilterCriteriaType.TextualFilterCriteria)criteriaComboBox.SelectedItem, parameterTextBox.Text);
+        {
             throw new NotImplementedException();
         }
 

@@ -9,7 +9,7 @@ namespace AdditionalActivities.Model
 {
     public abstract class FilterOrderCriteria
     {
-        public Property Property { get; protected set; }
+        //public Property Property { get; protected set; }
 
         public abstract string ToPersistentCriteria();//TODO: Define Regex/Query builders in each subclass
     }
@@ -21,9 +21,9 @@ namespace AdditionalActivities.Model
         NumericFilterCriteria criteria;
         decimal parameter;
 
-        public NumericFilterCriteriaType(Property property, NumericFilterCriteria criteria, decimal parameter)
+        public NumericFilterCriteriaType(/*Property property,*/ NumericFilterCriteria criteria, decimal parameter)
         {
-            Property = property;
+            //Property = property;
             this.criteria = criteria;
             this.parameter = parameter;
         }
@@ -48,9 +48,9 @@ namespace AdditionalActivities.Model
         TextualFilterCriteria criteria;
         string parameter;
 
-        public TextualFilterCriteriaType(Property property, TextualFilterCriteria criteria, string parameter)
+        public TextualFilterCriteriaType(/*Property property,*/ TextualFilterCriteria criteria, string parameter)
         {
-            Property = property;
+            //Property = property;
             this.criteria = criteria;
             this.parameter = parameter;
         }
@@ -80,9 +80,9 @@ namespace AdditionalActivities.Model
     {
         OrderCriteria criteria;
 
-        public OrderCriteriaType(Property property, OrderCriteria criteria)
+        public OrderCriteriaType(/*Property property,*/ OrderCriteria criteria)
         {
-            Property = property;
+            //Property = property;
             this.criteria = criteria;
         }
 

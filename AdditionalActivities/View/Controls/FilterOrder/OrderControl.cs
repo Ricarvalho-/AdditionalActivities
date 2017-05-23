@@ -13,11 +13,11 @@ namespace AdditionalActivities.View.Controls.FilterOrder
 {
     public partial class OrderControl : UserControl, IFilterOrder
     {
-        IFilterOrder parent;
+        SegmentedControlCell parent;
 
         public bool IsLast { get; set; }
 
-        public OrderControl(IFilterOrder parent)
+        public OrderControl(SegmentedControlCell parent)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
@@ -49,5 +49,6 @@ namespace AdditionalActivities.View.Controls.FilterOrder
             else
                 Remove(this);
         }
+
     }
 }
