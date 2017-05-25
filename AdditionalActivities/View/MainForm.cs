@@ -7,67 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AdditionalActivities.View.Controls;
-using AdditionalActivities.View.Controls.CRUDs;
-using AdditionalActivities.View.Controls.FilterOrder;
+using AdditionalActivities.View.Screen;
+using AdditionalActivities.View.Screen.Misc;
 
 namespace AdditionalActivities.View
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private IScreen ActualScreen { get; set; }
+
+        private static MainForm SharedInstance { get; set; }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == Program.WM_SHOW)
+            {
+                if (WindowState == FormWindowState.Minimized)
+                    WindowState = FormWindowState.Normal;
+                bool top = TopMost;
+                TopMost = true;
+                TopMost = top;
+            }
+            base.WndProc(ref m);
+        }
+
+        private MainForm()
         {
             InitializeComponent();
-            //NOTE: Will be changed to dashboard
-            splitContainer.Panel1.Controls.Add(new AboutScreen());//HACK: Mock
-            splitContainer.Panel2.Controls.Add(new FilterOrderTableControl());//HACK: Mock
-            //NOTE: Will start collapsed and should be opened by filter button in CRUDs, if previously activated in settings
-            //splitContainer.Panel2Collapsed = true;
+            ActualScreen = new DashboardScreen();
+            SwapToScreen(ActualScreen);
         }
 
-        private void dashboardButton_Click(object sender, EventArgs e)
+        public static MainForm Shared()
         {
-            SwapToScreen(new DashboardScreen());
+            if (SharedInstance == null)
+                SharedInstance = new MainForm();
+            return SharedInstance;
         }
 
-        private void coursesButton_Click(object sender, EventArgs e)
+        internal void SwapToScreen(IScreen newScreen)
         {
-            SwapToScreen(new CourseCrud());
-        }
-
-        private void rulesButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new RuleCrud());
-        }
-
-        private void activitiesButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new ActivityCrud());
-        }
-
-        private void studentsButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new StudentCrud());
-        }
-
-        private void activityPortfoliosButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new ActivityPortfolioCrud());
-        }
-
-        private void activityItemsButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new ActivityItemCrud());
-        }
-
-        private void settingsButton_Click(object sender, EventArgs e)
-        {
-            SwapToScreen(new SettingsScreen());
-        }
-
-        private void SwapToScreen(UserControl newScreen)
-        {
-            if(true)//UNDONE: if(editing)
+            if(ActualScreen.IsEditing)
                 switch (MessageBox.Show("Suas alterações serão descartadas.", "Sair sem salvar?", MessageBoxButtons.OKCancel))
                 {
                     case DialogResult.OK:
@@ -75,9 +55,34 @@ namespace AdditionalActivities.View
                     default:
                         return;
                 }
-            splitContainer.Panel2Collapsed = true;
-            splitContainer.Panel1.Controls.Clear();
-            splitContainer.Panel1.Controls.Add(newScreen);
+            panel.Controls.Clear();
+            panel.Controls.Add((UserControl)newScreen);
+            ActualScreen = newScreen;
+        }
+
+        private void dashButton_Click(object sender, EventArgs e)
+        {
+            SwapToScreen(new DashboardScreen());
+        }
+
+        private void coursesButton_Click(object sender, EventArgs e)
+        {
+            SwapToScreen(new CourseListScreen());
+        }
+
+        private void studentsButton_Click(object sender, EventArgs e)
+        {
+            SwapToScreen(new StudentListScreen());
+        }
+
+        private void regPortfolioButton_Click(object sender, EventArgs e)
+        {
+            SwapToScreen(new RegPortfolioScreen());
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            SwapToScreen(new SettingsScreen());
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using AdditionalActivities.View.Screen.Course;
+
+namespace AdditionalActivities.View.Screen
+{
+    public partial class CourseListScreen : UserControl, IScreen
+    {
+        public bool IsEditing { get { return false; } }
+
+        public CourseListScreen()
+        {
+            InitializeComponent();
+            Dock = DockStyle.Fill;
+        }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            MainForm.Shared().SwapToScreen(new CourseDetScreen());//UNDONE: Pass object
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            MainForm.Shared().SwapToScreen(new CourseDetScreen());
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

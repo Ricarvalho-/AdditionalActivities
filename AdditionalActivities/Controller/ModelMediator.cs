@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AdditionalActivities.Model.Persistent;
+using AdditionalActivities.Model.DAO;
 
 namespace AdditionalActivities.Controller
 {

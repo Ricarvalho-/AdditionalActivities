@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,124 +66,81 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ModelMediator.cs" />
-    <Compile Include="Model\Persistent\Activity.cs" />
-    <Compile Include="Model\Persistent\ActivityCategory.cs" />
-    <Compile Include="Model\Persistent\ActivityItem.cs" />
-    <Compile Include="Model\Persistent\ActivityPortfolio.cs" />
-    <Compile Include="Model\FilterOrderCriteria.cs" />
-    <Compile Include="Model\Persistent\DatabaseObject.cs" />
-    <Compile Include="Model\Persistent\Rule.cs" />
-    <Compile Include="Model\Persistent\Student.cs" />
+    <Compile Include="Model\DTO\Activity.cs" />
+    <Compile Include="Model\DTO\Course.cs" />
+    <Compile Include="Model\DTO\ActivityItem.cs" />
+    <Compile Include="Model\DTO\ActivityPortfolio.cs" />
+    <Compile Include="Model\DAO\DatabaseObject.cs" />
+    <Compile Include="Model\DTO\Rule.cs" />
+    <Compile Include="Model\DTO\Student.cs" />
     <Compile Include="Supporting Files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Controls\CRUDs\ActivityCrud.cs">
+    <Compile Include="View\Screen\Course\ActivityDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\ActivityCrud.Designer.cs">
-      <DependentUpon>ActivityCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\Course\ActivityDetScreen.Designer.cs">
+      <DependentUpon>ActivityDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\ActivityItemCrud.cs">
+    <Compile Include="View\Screen\IScreen.cs" />
+    <Compile Include="View\Screen\Student\ActivityItemDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\ActivityItemCrud.Designer.cs">
-      <DependentUpon>ActivityItemCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\Student\ActivityItemDetScreen.Designer.cs">
+      <DependentUpon>ActivityItemDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\ActivityPortfolioCrud.cs">
+    <Compile Include="View\Screen\CourseListScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\ActivityPortfolioCrud.Designer.cs">
-      <DependentUpon>ActivityPortfolioCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\CourseListScreen.Designer.cs">
+      <DependentUpon>CourseListScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\CourseCrud.cs">
+    <Compile Include="View\Screen\Course\CourseDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\CourseCrud.Designer.cs">
-      <DependentUpon>CourseCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\Course\CourseDetScreen.Designer.cs">
+      <DependentUpon>CourseDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\RuleCrud.cs">
+    <Compile Include="View\Screen\Student\PortfolioDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\RuleCrud.Designer.cs">
-      <DependentUpon>RuleCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\Student\PortfolioDetScreen.Designer.cs">
+      <DependentUpon>PortfolioDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\StudentCrud.cs">
+    <Compile Include="View\Screen\RegPortfolioScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\CRUDs\StudentCrud.Designer.cs">
-      <DependentUpon>StudentCrud.cs</DependentUpon>
+    <Compile Include="View\Screen\RegPortfolioScreen.Designer.cs">
+      <DependentUpon>RegPortfolioScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\DashboardScreen.cs">
+    <Compile Include="View\Screen\Course\RuleDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\DashboardScreen.Designer.cs">
+    <Compile Include="View\Screen\Course\RuleDetScreen.Designer.cs">
+      <DependentUpon>RuleDetScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Student\StudentDetScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Student\StudentDetScreen.Designer.cs">
+      <DependentUpon>StudentDetScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\StudentListScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Screen\StudentListScreen.Designer.cs">
+      <DependentUpon>StudentListScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Misc\DashboardScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Misc\DashboardScreen.Designer.cs">
       <DependentUpon>DashboardScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\Details\ActivityDet.cs">
+    <Compile Include="View\Screen\Misc\SettingsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\Details\ActivityDet.Designer.cs">
-      <DependentUpon>ActivityDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Details\ActivityItemDet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Details\ActivityItemDet.Designer.cs">
-      <DependentUpon>ActivityItemDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Details\ActivityPortfolioDet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Details\ActivityPortfolioDet.Designer.cs">
-      <DependentUpon>ActivityPortfolioDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Details\CourseDet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Details\CourseDet.Designer.cs">
-      <DependentUpon>CourseDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\OrderControl.Designer.cs">
-      <DependentUpon>OrderControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\SegmentedControlCell.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\SegmentedControlCell.Designer.cs">
-      <DependentUpon>SegmentedControlCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\FilterControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\FilterControl.Designer.cs">
-      <DependentUpon>FilterControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\IFilterOrder.cs" />
-    <Compile Include="View\Controls\FilterOrder\OrderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\FilterOrderTableControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\FilterOrder\FilterOrderTableControl.Designer.cs">
-      <DependentUpon>FilterOrderTableControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Details\RuleDet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Details\RuleDet.Designer.cs">
-      <DependentUpon>RuleDet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\SettingsScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\SettingsScreen.Designer.cs">
+    <Compile Include="View\Screen\Misc\SettingsScreen.Designer.cs">
       <DependentUpon>SettingsScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Details\StudentDet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Controls\Details\StudentDet.Designer.cs">
-      <DependentUpon>StudentDet.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -190,10 +148,10 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\AboutScreen.cs">
+    <Compile Include="View\Screen\Misc\AboutScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\AboutScreen.Designer.cs">
+    <Compile Include="View\Screen\Misc\AboutScreen.Designer.cs">
       <DependentUpon>AboutScreen.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -206,41 +164,44 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Controls\CRUDs\ActivityCrud.resx">
-      <DependentUpon>ActivityCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\CRUDs\ActivityItemCrud.resx">
-      <DependentUpon>ActivityItemCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\CRUDs\ActivityPortfolioCrud.resx">
-      <DependentUpon>ActivityPortfolioCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\CRUDs\CourseCrud.resx">
-      <DependentUpon>CourseCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\CRUDs\RuleCrud.resx">
-      <DependentUpon>RuleCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\CRUDs\StudentCrud.resx">
-      <DependentUpon>StudentCrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\FilterOrder\SegmentedControlCell.resx">
-      <DependentUpon>SegmentedControlCell.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\FilterOrder\FilterControl.resx">
-      <DependentUpon>FilterControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\FilterOrder\OrderControl.resx">
-      <DependentUpon>OrderControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\FilterOrder\FilterOrderTableControl.resx">
-      <DependentUpon>FilterOrderTableControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Controls\AboutScreen.resx">
+    <EmbeddedResource Include="View\Screen\CourseListScreen.resx">
+      <DependentUpon>CourseListScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Course\ActivityDetScreen.resx">
+      <DependentUpon>ActivityDetScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Course\CourseDetScreen.resx">
+      <DependentUpon>CourseDetScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Course\RuleDetScreen.resx">
+      <DependentUpon>RuleDetScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Misc\AboutScreen.resx">
       <DependentUpon>AboutScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Misc\DashboardScreen.resx">
+      <DependentUpon>DashboardScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Misc\SettingsScreen.resx">
+      <DependentUpon>SettingsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\RegPortfolioScreen.resx">
+      <DependentUpon>RegPortfolioScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\StudentListScreen.resx">
+      <DependentUpon>StudentListScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Student\ActivityItemDetScreen.resx">
+      <DependentUpon>ActivityItemDetScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Student\PortfolioDetScreen.resx">
+      <DependentUpon>PortfolioDetScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen\Student\StudentDetScreen.resx">
+      <DependentUpon>StudentDetScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
