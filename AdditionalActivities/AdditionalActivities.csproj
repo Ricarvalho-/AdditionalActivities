@@ -215,7 +215,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AddAct icon.png" />
+    <None Include="Resources\icon_slogan.png" />
     <Content Include="Supporting Files\AddAct icon.ico" />
   </ItemGroup>
   <ItemGroup>

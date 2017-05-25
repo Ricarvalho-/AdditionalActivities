@@ -63,9 +63,9 @@ namespace AdditionalActivities.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon {
+        internal static System.Drawing.Bitmap icon_slogan {
             get {
-                object obj = ResourceManager.GetObject("icon", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_slogan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
