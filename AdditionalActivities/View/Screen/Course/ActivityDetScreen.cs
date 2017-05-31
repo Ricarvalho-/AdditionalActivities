@@ -24,5 +24,10 @@ namespace AdditionalActivities.View.Screen.Course
         {
 
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            MainForm.Shared().PopScreen();
+        }
     }
 }
