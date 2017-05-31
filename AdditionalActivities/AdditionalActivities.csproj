@@ -67,8 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ModelMediator.cs" />
+    <Compile Include="Model\DAO\DAOException.cs" />
+    <Compile Include="Model\DAO\EvaluatorDAO.cs" />
     <Compile Include="Model\DAO\IDAO.cs" />
     <Compile Include="Model\DatabaseManager.cs" />
+    <Compile Include="Model\Domain\Evaluator.cs" />
     <Compile Include="Model\DTO\Activity.cs" />
     <Compile Include="Model\DTO\Course.cs" />
     <Compile Include="Model\DTO\ActivityItem.cs" />
@@ -224,9 +227,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
