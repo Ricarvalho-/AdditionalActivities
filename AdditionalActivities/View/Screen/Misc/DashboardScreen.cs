@@ -19,5 +19,10 @@ namespace AdditionalActivities.View.Screen.Misc
             InitializeComponent();
             Dock = DockStyle.Fill;
         }
+
+        public void ScreenWillApear()
+        {
+
+        }
     }
 }

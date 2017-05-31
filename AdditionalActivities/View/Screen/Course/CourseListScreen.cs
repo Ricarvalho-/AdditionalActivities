@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AdditionalActivities.View.Screen.Student;
 
-namespace AdditionalActivities.View.Screen
+namespace AdditionalActivities.View.Screen.Course
 {
-    public partial class StudentListScreen : UserControl, IScreen
+    public partial class CourseListScreen : UserControl, IScreen
     {
         public bool IsEditing { get { return false; } }
 
-        public StudentListScreen()
+        public CourseListScreen()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
@@ -23,15 +22,20 @@ namespace AdditionalActivities.View.Screen
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(new StudentDetScreen());//UNDONE: Pass object
+            MainForm.Shared().PresentScreen(new CourseDetScreen());//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(new StudentDetScreen());
+            MainForm.Shared().PresentScreen(new CourseDetScreen());
         }
 
         private void removeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ScreenWillApear()
         {
 
         }

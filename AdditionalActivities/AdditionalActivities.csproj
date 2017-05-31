@@ -85,16 +85,10 @@
       <DependentUpon>ActivityDetScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Screen\IScreen.cs" />
-    <Compile Include="View\Screen\Student\ActivityItemDetScreen.cs">
+    <Compile Include="View\Screen\Course\CourseListScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Screen\Student\ActivityItemDetScreen.Designer.cs">
-      <DependentUpon>ActivityItemDetScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Screen\CourseListScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Screen\CourseListScreen.Designer.cs">
+    <Compile Include="View\Screen\Course\CourseListScreen.Designer.cs">
       <DependentUpon>CourseListScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Screen\Course\CourseDetScreen.cs">
@@ -103,17 +97,17 @@
     <Compile Include="View\Screen\Course\CourseDetScreen.Designer.cs">
       <DependentUpon>CourseDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Screen\Student\PortfolioDetScreen.cs">
+    <Compile Include="View\Screen\Portfolio\PortfolioDetScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Screen\Student\PortfolioDetScreen.Designer.cs">
+    <Compile Include="View\Screen\Portfolio\PortfolioDetScreen.Designer.cs">
       <DependentUpon>PortfolioDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Screen\RegPortfolioScreen.cs">
+    <Compile Include="View\Screen\Portfolio\PortfolioListScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Screen\RegPortfolioScreen.Designer.cs">
-      <DependentUpon>RegPortfolioScreen.cs</DependentUpon>
+    <Compile Include="View\Screen\Portfolio\PortfolioListScreen.Designer.cs">
+      <DependentUpon>PortfolioListScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Screen\Course\RuleDetScreen.cs">
       <SubType>UserControl</SubType>
@@ -127,10 +121,10 @@
     <Compile Include="View\Screen\Student\StudentDetScreen.Designer.cs">
       <DependentUpon>StudentDetScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Screen\StudentListScreen.cs">
+    <Compile Include="View\Screen\Student\StudentListScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Screen\StudentListScreen.Designer.cs">
+    <Compile Include="View\Screen\Student\StudentListScreen.Designer.cs">
       <DependentUpon>StudentListScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Screen\Misc\DashboardScreen.cs">
@@ -170,7 +164,7 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Screen\CourseListScreen.resx">
+    <EmbeddedResource Include="View\Screen\Course\CourseListScreen.resx">
       <DependentUpon>CourseListScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Screen\Course\ActivityDetScreen.resx">
@@ -191,16 +185,13 @@
     <EmbeddedResource Include="View\Screen\Misc\SettingsScreen.resx">
       <DependentUpon>SettingsScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Screen\RegPortfolioScreen.resx">
-      <DependentUpon>RegPortfolioScreen.cs</DependentUpon>
+    <EmbeddedResource Include="View\Screen\Portfolio\PortfolioListScreen.resx">
+      <DependentUpon>PortfolioListScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Screen\StudentListScreen.resx">
+    <EmbeddedResource Include="View\Screen\Student\StudentListScreen.resx">
       <DependentUpon>StudentListScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Screen\Student\ActivityItemDetScreen.resx">
-      <DependentUpon>ActivityItemDetScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Screen\Student\PortfolioDetScreen.resx">
+    <EmbeddedResource Include="View\Screen\Portfolio\PortfolioDetScreen.resx">
       <DependentUpon>PortfolioDetScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Screen\Student\StudentDetScreen.resx">

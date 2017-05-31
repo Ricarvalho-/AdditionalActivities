@@ -22,15 +22,20 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(new ActivityDetScreen());//UNDONE: Pass object
+            MainForm.Shared().PresentScreen(new ActivityDetScreen());//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(new ActivityDetScreen());
+            MainForm.Shared().PresentScreen(new ActivityDetScreen());
         }
 
         private void removeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ScreenWillApear()
         {
 
         }

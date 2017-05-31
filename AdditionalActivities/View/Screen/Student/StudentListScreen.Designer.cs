@@ -1,4 +1,4 @@
-﻿namespace AdditionalActivities.View.Screen
+﻿namespace AdditionalActivities.View.Screen.Student
 {
     partial class StudentListScreen
     {

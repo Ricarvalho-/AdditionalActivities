@@ -33,7 +33,7 @@
             this.dashButton = new System.Windows.Forms.Button();
             this.coursesButton = new System.Windows.Forms.Button();
             this.studentsButton = new System.Windows.Forms.Button();
-            this.regPortfolioButton = new System.Windows.Forms.Button();
+            this.portfoliosButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dashButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.coursesButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.studentsButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.regPortfolioButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.portfoliosButton, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.settingsButton, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -97,17 +97,17 @@
             this.studentsButton.UseVisualStyleBackColor = true;
             this.studentsButton.Click += new System.EventHandler(this.studentsButton_Click);
             // 
-            // regPortfolioButton
+            // portfoliosButton
             // 
-            this.regPortfolioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.regPortfolioButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.regPortfolioButton.Location = new System.Drawing.Point(3, 183);
-            this.regPortfolioButton.Name = "regPortfolioButton";
-            this.regPortfolioButton.Size = new System.Drawing.Size(75, 54);
-            this.regPortfolioButton.TabIndex = 3;
-            this.regPortfolioButton.Text = "Cadastrar Portifólio";
-            this.regPortfolioButton.UseVisualStyleBackColor = true;
-            this.regPortfolioButton.Click += new System.EventHandler(this.regPortfolioButton_Click);
+            this.portfoliosButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.portfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.portfoliosButton.Location = new System.Drawing.Point(3, 183);
+            this.portfoliosButton.Name = "portfoliosButton";
+            this.portfoliosButton.Size = new System.Drawing.Size(75, 54);
+            this.portfoliosButton.TabIndex = 3;
+            this.portfoliosButton.Text = "Portifólios";
+            this.portfoliosButton.UseVisualStyleBackColor = true;
+            this.portfoliosButton.Click += new System.EventHandler(this.portfoliosButton_Click);
             // 
             // settingsButton
             // 
@@ -153,7 +153,7 @@
         private System.Windows.Forms.Button dashButton;
         private System.Windows.Forms.Button coursesButton;
         private System.Windows.Forms.Button studentsButton;
-        private System.Windows.Forms.Button regPortfolioButton;
+        private System.Windows.Forms.Button portfoliosButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Panel panel;
     }

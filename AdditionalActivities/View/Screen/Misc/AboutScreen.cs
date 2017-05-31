@@ -13,18 +13,21 @@ namespace AdditionalActivities.View.Screen.Misc
     public partial class AboutScreen : UserControl, IScreen
     {
         public bool IsEditing { get { return false; } }
-        private IScreen PreviousScreen {get; set;}
 
-        public AboutScreen(IScreen previousScreen)
+        public AboutScreen()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            PreviousScreen = previousScreen;
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(PreviousScreen);
+            MainForm.Shared().PopScreen();
+        }
+
+        public void ScreenWillApear()
+        {
+
         }
     }
 }

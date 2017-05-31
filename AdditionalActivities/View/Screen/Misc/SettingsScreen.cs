@@ -22,7 +22,12 @@ namespace AdditionalActivities.View.Screen.Misc
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().SwapToScreen(new AboutScreen(this));
+            MainForm.Shared().PresentScreen(new AboutScreen());
+        }
+
+        public void ScreenWillApear()
+        {
+
         }
     }
 }

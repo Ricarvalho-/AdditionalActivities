@@ -7,12 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.View.Screen.Portfolio;
 
 namespace AdditionalActivities.View.Screen.Student
 {
     public partial class StudentDetScreen : UserControl, IScreen
     {
-        public bool IsEditing { get; private set; }
+        private bool ShouldSwap { get; set; }
+        private bool isEditing;
+
+        public bool IsEditing {
+            get
+            {
+                return isEditing;
+            }
+            private set
+            {
+                isEditing = value;
+                editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
+                //TODO: Change fields mode
+            }
+        }
 
         public StudentDetScreen()
         {
@@ -20,19 +35,34 @@ namespace AdditionalActivities.View.Screen.Student
             Dock = DockStyle.Fill;
         }
 
-        private void openButton_Click(object sender, EventArgs e)
+        public StudentDetScreen(bool startEditing)//UNDONE: receive Student also
         {
-            MainForm.Shared().SwapToScreen(new PortfolioDetScreen());//UNDONE: Pass object
+            InitializeComponent();
+            Dock = DockStyle.Fill;
+            ShouldSwap = startEditing;
+            IsEditing = startEditing;
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        public void ScreenWillApear()
         {
-            MainForm.Shared().SwapToScreen(new PortfolioDetScreen());
+
         }
 
-        private void removeButton_Click(object sender, EventArgs e)
+        private void editSaveButton_Click(object sender, EventArgs e)
         {
-
+            if (IsEditing)
+            {
+                if (true)//UNDONE: Could save object
+                {
+                    IsEditing = false;
+                    if (ShouldSwap)
+                        MainForm.Shared().SwapLastWithScreen(new PortfolioDetScreen());//UNDONE: Pass object
+                    else
+                        MainForm.Shared().PopScreen();
+                }
+            }
+            else
+                IsEditing = true;
         }
     }
 }

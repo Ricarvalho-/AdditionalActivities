@@ -10,5 +10,6 @@ namespace AdditionalActivities.View.Screen
     public interface IScreen
     {
         bool IsEditing { get; }
+        void ScreenWillApear();
     }
 }

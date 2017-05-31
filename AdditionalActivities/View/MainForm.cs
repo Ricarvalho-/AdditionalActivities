@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Screen;
 using AdditionalActivities.View.Screen.Misc;
+using AdditionalActivities.View.Screen.Course;
+using AdditionalActivities.View.Screen.Portfolio;
+using AdditionalActivities.View.Screen.Student;
 
 namespace AdditionalActivities.View
 {
     public partial class MainForm : Form
     {
-        private IScreen ActualScreen { get; set; }
+        private Stack<IScreen> screenStack = new Stack<IScreen>();
 
         private static MainForm SharedInstance { get; set; }
 
@@ -34,8 +37,8 @@ namespace AdditionalActivities.View
         private MainForm()
         {
             InitializeComponent();
-            ActualScreen = new DashboardScreen();
-            SwapToScreen(ActualScreen);
+            screenStack.Push(new DashboardScreen());
+            ReplaceAllWithScreen(screenStack.Peek());
         }
 
         public static MainForm Shared()
@@ -45,44 +48,85 @@ namespace AdditionalActivities.View
             return SharedInstance;
         }
 
-        internal void SwapToScreen(IScreen newScreen)
+        public void ReplaceAllWithScreen(IScreen screen)
         {
-            if(ActualScreen.IsEditing)
+            if (!ShouldChangeScreen())
+                return;
+            screenStack.Clear();
+            screenStack.Push(screen);
+            ShowTopScreen();
+        }
+
+        private void ShowTopScreen()
+        {
+            if (screenStack.Count == 0)
+                return;
+            panel.Controls.Clear();
+            screenStack.Peek().ScreenWillApear();
+            panel.Controls.Add((UserControl)screenStack.Peek());
+        }
+
+        private bool ShouldChangeScreen()
+        {
+            if (screenStack.Count > 0 && screenStack.Peek().IsEditing)
                 switch (MessageBox.Show("Suas alterações serão descartadas.", "Sair sem salvar?", MessageBoxButtons.OKCancel))
                 {
                     case DialogResult.OK:
-                        break;
+                        return true;
                     default:
-                        return;
+                        return false;
                 }
-            panel.Controls.Clear();
-            panel.Controls.Add((UserControl)newScreen);
-            ActualScreen = newScreen;
+            return true;
+        }
+
+        public void PresentScreen(IScreen screen)
+        {
+            if (!ShouldChangeScreen())
+                return;
+            screenStack.Push(screen);
+            ShowTopScreen();
+        }
+
+        public void PopScreen()
+        {
+            if (!ShouldChangeScreen() || screenStack.Count <= 1)
+                return;
+            screenStack.Pop();
+            ShowTopScreen();
+        }
+
+        public void SwapLastWithScreen(IScreen screen)
+        {
+            if (!ShouldChangeScreen() || screenStack.Count == 0)
+                return;
+            screenStack.Pop();
+            screenStack.Push(screen);
+            ShowTopScreen();
         }
 
         private void dashButton_Click(object sender, EventArgs e)
         {
-            SwapToScreen(new DashboardScreen());
+            ReplaceAllWithScreen(new DashboardScreen());
         }
 
         private void coursesButton_Click(object sender, EventArgs e)
         {
-            SwapToScreen(new CourseListScreen());
+            ReplaceAllWithScreen(new CourseListScreen());
         }
 
         private void studentsButton_Click(object sender, EventArgs e)
         {
-            SwapToScreen(new StudentListScreen());
+            ReplaceAllWithScreen(new StudentListScreen());
         }
 
-        private void regPortfolioButton_Click(object sender, EventArgs e)
+        private void portfoliosButton_Click(object sender, EventArgs e)
         {
-            SwapToScreen(new RegPortfolioScreen());
+            ReplaceAllWithScreen(new PortfolioListScreen());
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            SwapToScreen(new SettingsScreen());
+            ReplaceAllWithScreen(new SettingsScreen());
         }
     }
 }
