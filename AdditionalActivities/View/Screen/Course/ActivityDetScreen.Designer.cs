@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new System.Windows.Forms.Button();
+            this.editSaveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,6 +40,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.backButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.editSaveButton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -58,6 +60,16 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // editSaveButton
+            // 
+            this.editSaveButton.Location = new System.Drawing.Point(253, 3);
+            this.editSaveButton.Name = "editSaveButton";
+            this.editSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.editSaveButton.TabIndex = 3;
+            this.editSaveButton.Text = "Editar";
+            this.editSaveButton.UseVisualStyleBackColor = true;
+            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
+            // 
             // ActivityDetScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -74,5 +86,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button editSaveButton;
     }
 }

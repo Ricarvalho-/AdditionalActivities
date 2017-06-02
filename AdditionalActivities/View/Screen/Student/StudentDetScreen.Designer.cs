@@ -39,6 +39,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.backButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.editSaveButton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -61,7 +62,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(0, 0);
+            this.backButton.Location = new System.Drawing.Point(3, 3);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
@@ -73,7 +74,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.backButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "StudentDetScreen";
             this.Size = new System.Drawing.Size(500, 500);

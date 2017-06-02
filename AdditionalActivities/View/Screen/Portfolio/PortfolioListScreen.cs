@@ -13,7 +13,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 {
     public partial class PortfolioListScreen : UserControl, IScreen
     {
-        public bool IsEditing { get; private set; }
+        public bool IsEditing { get { return false; } }
 
         public PortfolioListScreen()
         {

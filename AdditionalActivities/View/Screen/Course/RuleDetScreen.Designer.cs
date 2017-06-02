@@ -39,6 +39,7 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new System.Windows.Forms.Button();
+            this.editSaveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -172,6 +173,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.backButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.editSaveButton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -190,6 +192,16 @@
             this.backButton.Text = "Voltar";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // editSaveButton
+            // 
+            this.editSaveButton.Location = new System.Drawing.Point(126, 3);
+            this.editSaveButton.Name = "editSaveButton";
+            this.editSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.editSaveButton.TabIndex = 3;
+            this.editSaveButton.Text = "Editar";
+            this.editSaveButton.UseVisualStyleBackColor = true;
+            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
             // 
             // RuleDetScreen
             // 
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button editSaveButton;
     }
 }
