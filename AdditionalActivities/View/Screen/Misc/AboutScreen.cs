@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace AdditionalActivities.View.Screen.Misc
 {
@@ -18,6 +20,7 @@ namespace AdditionalActivities.View.Screen.Misc
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            versionLabel.Text = "Versão " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion + " Debug";
         }
 
         private void backButton_Click(object sender, EventArgs e)
