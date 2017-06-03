@@ -14,6 +14,7 @@ namespace AdditionalActivities.Model.DTO
         public int DeferredHours { get; set; }
         public string Title { get; set; }
         public string Observation { get; set; }
+        public string Certificate { get; set; }
         public bool Approved { get; set; }
         public Activity Activity { get; set; }
         public ActivityPortfolio Portfolio { get; set; }

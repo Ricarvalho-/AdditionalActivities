@@ -8,7 +8,7 @@ using AdditionalActivities.Model.DAO;
 namespace AdditionalActivities.Controller
 {
     public static class ModelMediator
-    {
+    {/*
         public static bool CanSave(DatabaseObject obj)
         {
             if (obj.ShouldSave()) {
@@ -55,6 +55,6 @@ namespace AdditionalActivities.Controller
         public static void Delete(DatabaseObject obj)
         {
             //UNDONE: obj.GetDeleteSqlCmd();
-        }
+        }*/
     }
 }

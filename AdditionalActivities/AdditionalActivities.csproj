@@ -88,6 +88,7 @@
     <Compile Include="Model\DTO\Course.cs" />
     <Compile Include="Model\DTO\ActivityItem.cs" />
     <Compile Include="Model\DTO\ActivityPortfolio.cs" />
+    <Compile Include="Model\DTO\Evaluator.cs" />
     <Compile Include="Model\DTO\Rule.cs" />
     <Compile Include="Model\DTO\Student.cs" />
     <Compile Include="Supporting Files\Program.cs" />

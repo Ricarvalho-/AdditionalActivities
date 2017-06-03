@@ -11,13 +11,11 @@ namespace AdditionalActivities.Model.DTO
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Observation { get; set; }
-        public string Certificate { get; set; }
         public int Id { get; set; }
         public int MinHours { get; set; }
         public int MaxHours { get; set; }
         public int HourStep { get; set; }
-        public Course Category { get; set; }
+        public Rule Rule { get; set; }
 
         public Activity() { }
     }
