@@ -17,7 +17,7 @@ create table rule (
 	id int not null auto_increment,
 	reqHours int,
 	courseID int,
-	primary key(id)
+	primary key(id),
 	foreign key(courseID) references course(id)
 );
 

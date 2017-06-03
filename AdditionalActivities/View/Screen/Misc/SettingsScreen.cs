@@ -22,7 +22,7 @@ namespace AdditionalActivities.View.Screen.Misc
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new AboutScreen());
+            MainForm.Instance.PresentScreen(new AboutScreen());
         }
 
         public void ScreenWillApear()

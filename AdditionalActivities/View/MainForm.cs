@@ -17,10 +17,8 @@ namespace AdditionalActivities.View
 {
     public partial class MainForm : Form
     {
-        private Stack<IScreen> screenStack = new Stack<IScreen>();
-
-        private static MainForm SharedInstance { get; set; }
-
+        #region Single instance application handler
+        ///<summary> Single instance application callback handler.</summary>
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == Program.WM_SHOW)
@@ -33,6 +31,10 @@ namespace AdditionalActivities.View
             }
             base.WndProc(ref m);
         }
+        #endregion
+
+        #region Singleton
+        private static MainForm instance;
 
         private MainForm()
         {
@@ -41,13 +43,22 @@ namespace AdditionalActivities.View
             ReplaceAllWithScreen(screenStack.Peek());
         }
 
-        public static MainForm Shared()
+        /// <summary> MainForms's Singleton instance getter.</summary>
+        public static MainForm Instance
         {
-            if (SharedInstance == null)
-                SharedInstance = new MainForm();
-            return SharedInstance;
+            get
+            {
+                if (instance == null)
+                    instance = new MainForm();
+                return instance;
+            }
         }
+        #endregion
 
+        #region Navigation
+        private Stack<IScreen> screenStack = new Stack<IScreen>();
+
+        ///<summary> Clears the navigation stack and presents an IScreen.</summary>
         public void ReplaceAllWithScreen(IScreen screen)
         {
             if (!ShouldChangeScreen())
@@ -56,7 +67,8 @@ namespace AdditionalActivities.View
             screenStack.Push(screen);
             ShowTopScreen();
         }
-
+        
+        /// <summary> Presents the top IScreen in navigation stack.</summary>
         private void ShowTopScreen()
         {
             if (screenStack.Count == 0)
@@ -66,6 +78,7 @@ namespace AdditionalActivities.View
             panel.Controls.Add((UserControl)screenStack.Peek());
         }
 
+        /// <summary> Asks user to save if actual screen is in editing mode.</summary>
         private bool ShouldChangeScreen()
         {
             if (screenStack.Count > 0 && screenStack.Peek().IsEditing)
@@ -79,6 +92,7 @@ namespace AdditionalActivities.View
             return true;
         }
 
+        /// <summary> Presents an IScreen, preserving actual presented IScreen in navigation stack.</summary>
         public void PresentScreen(IScreen screen)
         {
             if (!ShouldChangeScreen())
@@ -87,6 +101,7 @@ namespace AdditionalActivities.View
             ShowTopScreen();
         }
 
+        ///<summary> Presents previous IScreen in navigation stack, discarding actual presented IScreen</summary>
         public void PopScreen()
         {
             if (!ShouldChangeScreen() || screenStack.Count <= 1)
@@ -95,6 +110,7 @@ namespace AdditionalActivities.View
             ShowTopScreen();
         }
 
+        /// <summary> Presents an IScreen, discarding actual presented IScreen.</summary>
         public void SwapLastWithScreen(IScreen screen)
         {
             if (!ShouldChangeScreen() || screenStack.Count == 0)
@@ -103,7 +119,9 @@ namespace AdditionalActivities.View
             screenStack.Push(screen);
             ShowTopScreen();
         }
+        #endregion
 
+        #region MainMenu callbacks
         private void dashButton_Click(object sender, EventArgs e)
         {
             ReplaceAllWithScreen(new DashboardScreen());
@@ -128,5 +146,6 @@ namespace AdditionalActivities.View
         {
             ReplaceAllWithScreen(new SettingsScreen());
         }
+        #endregion
     }
 }

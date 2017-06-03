@@ -56,7 +56,7 @@ namespace AdditionalActivities.View.Screen.Student
                 {
                     IsEditing = false;
                     if (ShouldSwap)
-                        MainForm.Shared().SwapLastWithScreen(new PortfolioDetScreen());//UNDONE: Pass object
+                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen());//UNDONE: Pass object
                 }
             }
             else
@@ -65,7 +65,7 @@ namespace AdditionalActivities.View.Screen.Student
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PopScreen();
+            MainForm.Instance.PopScreen();
         }
     }
 }

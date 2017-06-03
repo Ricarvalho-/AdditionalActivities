@@ -11,9 +11,8 @@ namespace AdditionalActivities
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
+        #region Single instance application props
         public const int BROADCAST = 0xffff;
         public static readonly int WM_SHOW = RegisterWindowMessage("WM_SHOW");
         [DllImport("user32")]
@@ -22,7 +21,9 @@ namespace AdditionalActivities
         public static extern int RegisterWindowMessage(string message);
 
         static Mutex mutex = new Mutex(true, "AKR AddAct SingleInstanceApp Mutex");
+        #endregion
 
+        ///<summary> The main entry point for the application (single instance).</summary>
         [STAThread]
         static void Main()
         {
@@ -30,7 +31,7 @@ namespace AdditionalActivities
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(MainForm.Shared());
+                Application.Run(MainForm.Instance);
                 mutex.ReleaseMutex();
             }
             else

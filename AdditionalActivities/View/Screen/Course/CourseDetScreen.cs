@@ -37,12 +37,12 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new RuleDetScreen());//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new RuleDetScreen());//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new RuleDetScreen());
+            MainForm.Instance.PresentScreen(new RuleDetScreen());
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PopScreen();
+            MainForm.Instance.PopScreen();
         }
 
         private void editSaveButton_Click(object sender, EventArgs e)

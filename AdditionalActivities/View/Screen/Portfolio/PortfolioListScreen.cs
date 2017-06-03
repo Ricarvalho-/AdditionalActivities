@@ -28,12 +28,12 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new PortfolioDetScreen());//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new PortfolioDetScreen());//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new PortfolioDetScreen());
+            MainForm.Instance.PresentScreen(new PortfolioDetScreen());
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void newStudentButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PresentScreen(new StudentDetScreen(true));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new StudentDetScreen(true));//UNDONE: Pass object
         }
     }
 }

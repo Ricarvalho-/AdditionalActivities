@@ -52,7 +52,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PopScreen();
+            MainForm.Instance.PopScreen();
         }
 
         private void editSaveButton_Click(object sender, EventArgs e)

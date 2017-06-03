@@ -25,7 +25,7 @@ namespace AdditionalActivities.View.Screen.Misc
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Shared().PopScreen();
+            MainForm.Instance.PopScreen();
         }
 
         public void ScreenWillApear()
