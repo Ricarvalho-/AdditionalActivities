@@ -61,15 +61,6 @@ namespace AdditionalActivities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=localhost; Database=activities; Uid=ifsp; Pwd=ifsp.
-        /// </summary>
-        internal static string databaseConnection {
-            get {
-                return ResourceManager.GetString("databaseConnection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap icon_slogan {

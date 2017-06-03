@@ -1,5 +1,4 @@
-﻿using AdditionalActivities.Properties;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace AdditionalActivities.Model
         private static DatabaseManager instance;
 
         private static MySqlConnection connection;
-        private static string connectionString = Resources.ResourceManager.GetString("databaseConnection");
+        private static string connectionString = "Server=localhost; Database=activities; Uid=ifsp; Pwd=ifsp";
 
         private DatabaseManager()
         {
