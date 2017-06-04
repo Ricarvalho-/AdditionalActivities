@@ -12,6 +12,7 @@ namespace AdditionalActivities.View.Screen.Course
 {
     public partial class CourseDetScreen : UserControl, IScreen
     {
+        private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
 
         public bool IsEditing
@@ -33,20 +34,22 @@ namespace AdditionalActivities.View.Screen.Course
             }
         }
 
-        public CourseDetScreen()
+        public CourseDetScreen(bool startEditing)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            IsEditing = startEditing;
+            ShouldPopOnCancel = startEditing;
         }
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new RuleDetScreen());//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new RuleDetScreen(false));//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new RuleDetScreen());
+            MainForm.Instance.PresentScreen(new RuleDetScreen(true));
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -61,7 +64,7 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (isEditing)
+            if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
                 //TODO: Discard changes
@@ -72,6 +75,7 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
+            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object

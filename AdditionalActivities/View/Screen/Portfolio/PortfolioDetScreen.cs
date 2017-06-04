@@ -12,13 +12,15 @@ namespace AdditionalActivities.View.Screen.Portfolio
 {
     public partial class PortfolioDetScreen : UserControl, IScreen
     {
+        private bool ShouldPopOnCancel { get; set; }
         private bool isEditing, isEditingActivity;
 
-        public PortfolioDetScreen()
+        public PortfolioDetScreen(bool startEditing)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            //TODO: Add editing parameter
+            IsEditing = startEditing;
+            ShouldPopOnCancel = startEditing;
         }
 
         public void ScreenWillAppear()
@@ -50,7 +52,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (isEditing)
+            if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
                 //TODO: Discard changes
@@ -61,6 +63,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
+            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
