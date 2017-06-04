@@ -24,6 +24,7 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
+                backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 //TODO: Change fields mode
             }
         }
@@ -34,14 +35,20 @@ namespace AdditionalActivities.View.Screen.Course
             Dock = DockStyle.Fill;
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PopScreen();
+            if (isEditing)
+            {
+                IsEditing = false;
+                //TODO: Discard changes
+            }
+            else
+                MainForm.Instance.PopScreen();
         }
 
         private void editSaveButton_Click(object sender, EventArgs e)
@@ -53,6 +60,12 @@ namespace AdditionalActivities.View.Screen.Course
             }
             else
                 IsEditing = true;
+        }
+
+        private void stepCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            stepHoursNumericUpDown.Value = 1;
+            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked;
         }
     }
 }

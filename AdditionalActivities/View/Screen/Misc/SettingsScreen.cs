@@ -25,7 +25,7 @@ namespace AdditionalActivities.View.Screen.Misc
             MainForm.Instance.PresentScreen(new AboutScreen());
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }

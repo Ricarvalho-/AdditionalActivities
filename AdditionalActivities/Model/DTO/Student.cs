@@ -12,7 +12,7 @@ namespace AdditionalActivities.Model.DTO
         public string Name { get; set; }
         public string RegisterNumber { get; set; }
         public string RegisterState { get; set; }
-        public int Hours { get; set; }
+        public int AchievedHours { get; set; }
         public Rule Rule { get; set; }
 
         public Student() { }

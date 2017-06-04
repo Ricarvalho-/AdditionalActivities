@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label3;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.newStudentButton = new System.Windows.Forms.Button();
@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,8 +59,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBox3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.newStudentButton, 1, 3);
@@ -75,25 +77,25 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(480, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Curso";
+            label1.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(label1, 2);
+            label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            label1.Location = new System.Drawing.Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(480, 13);
+            label1.TabIndex = 1;
+            label1.Text = "Curso";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(480, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Aluno";
+            label3.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(label3, 2);
+            label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            label3.Location = new System.Drawing.Point(3, 40);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(480, 13);
+            label3.TabIndex = 1;
+            label3.Text = "Aluno";
             // 
             // comboBox1
             // 
@@ -267,8 +269,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

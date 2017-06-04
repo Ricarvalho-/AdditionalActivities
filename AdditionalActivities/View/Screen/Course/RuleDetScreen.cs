@@ -24,6 +24,7 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
+                backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = IsEditing;
                 //TODO: Change fields mode
             }
@@ -50,14 +51,20 @@ namespace AdditionalActivities.View.Screen.Course
 
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PopScreen();
+            if (isEditing)
+            {
+                IsEditing = false;
+                //TODO: Discard changes
+            }
+            else
+                MainForm.Instance.PopScreen();
         }
 
         private void editSaveButton_Click(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
             Dock = DockStyle.Fill;
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }

@@ -20,7 +20,7 @@ namespace AdditionalActivities.View.Screen.Misc
             Dock = DockStyle.Fill;
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }

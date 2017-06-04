@@ -35,7 +35,7 @@ namespace AdditionalActivities.View.Screen.Student
 
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }

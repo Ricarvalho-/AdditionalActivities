@@ -39,6 +39,7 @@ namespace AdditionalActivities.View
         private MainForm()
         {
             InitializeComponent();
+            SelectedButton = dashButton;
             screenStack.Push(new DashboardScreen());
             ReplaceAllWithScreen(screenStack.Peek());
         }
@@ -57,6 +58,7 @@ namespace AdditionalActivities.View
 
         #region Navigation
         private Stack<IScreen> screenStack = new Stack<IScreen>();
+        private Button SelectedButton { get; set; }
 
         ///<summary> Clears the navigation stack and presents an IScreen.</summary>
         public void ReplaceAllWithScreen(IScreen screen)
@@ -74,8 +76,9 @@ namespace AdditionalActivities.View
             if (screenStack.Count == 0)
                 return;
             panel.Controls.Clear();
-            screenStack.Peek().ScreenWillApear();
+            screenStack.Peek().ScreenWillAppear();
             panel.Controls.Add((UserControl)screenStack.Peek());
+            SelectedButton.Select();
         }
 
         /// <summary> Asks user to save if actual screen is in editing mode.</summary>
@@ -124,26 +127,31 @@ namespace AdditionalActivities.View
         #region MainMenu callbacks
         private void dashButton_Click(object sender, EventArgs e)
         {
+            SelectedButton = dashButton;
             ReplaceAllWithScreen(new DashboardScreen());
         }
 
         private void coursesButton_Click(object sender, EventArgs e)
         {
+            SelectedButton = coursesButton;
             ReplaceAllWithScreen(new CourseListScreen());
         }
 
         private void studentsButton_Click(object sender, EventArgs e)
         {
+            SelectedButton = studentsButton;
             ReplaceAllWithScreen(new StudentListScreen());
         }
 
         private void portfoliosButton_Click(object sender, EventArgs e)
         {
+            SelectedButton = portfoliosButton;
             ReplaceAllWithScreen(new PortfolioListScreen());
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
+            SelectedButton = settingsButton;
             ReplaceAllWithScreen(new SettingsScreen());
         }
         #endregion

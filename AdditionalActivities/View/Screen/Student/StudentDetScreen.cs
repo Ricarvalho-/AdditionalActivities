@@ -25,6 +25,7 @@ namespace AdditionalActivities.View.Screen.Student
             {
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
+                backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 //TODO: Change fields mode
             }
         }
@@ -43,7 +44,7 @@ namespace AdditionalActivities.View.Screen.Student
             IsEditing = startEditing;
         }
 
-        public void ScreenWillApear()
+        public void ScreenWillAppear()
         {
 
         }
@@ -65,7 +66,13 @@ namespace AdditionalActivities.View.Screen.Student
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PopScreen();
+            if (isEditing)
+            {
+                IsEditing = false;
+                //TODO: Discard changes
+            }
+            else
+                MainForm.Instance.PopScreen();
         }
     }
 }
