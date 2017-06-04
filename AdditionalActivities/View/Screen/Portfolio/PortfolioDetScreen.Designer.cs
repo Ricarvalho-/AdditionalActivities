@@ -56,6 +56,9 @@
             this.editSaveButton = new System.Windows.Forms.Button();
             this.studentTextBox = new System.Windows.Forms.TextBox();
             this.evaluatorComboBox = new System.Windows.Forms.ComboBox();
+            this.schoolYearMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.deliveryDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.evaluationDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.activityCancelButton = new System.Windows.Forms.Button();
             this.activityEditSaveButton = new System.Windows.Forms.Button();
@@ -66,9 +69,6 @@
             this.activityApprovationComboBox = new System.Windows.Forms.ComboBox();
             this.activityObservationTextBox = new System.Windows.Forms.TextBox();
             this.activityScheduledHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.schoolYearMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.deliveryDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.evaluationDateTimePicker = new System.Windows.Forms.DateTimePicker();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -463,6 +463,40 @@
             this.evaluatorComboBox.Size = new System.Drawing.Size(266, 21);
             this.evaluatorComboBox.TabIndex = 13;
             // 
+            // schoolYearMaskedTextBox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.schoolYearMaskedTextBox, 4);
+            this.schoolYearMaskedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schoolYearMaskedTextBox.Location = new System.Drawing.Point(3, 84);
+            this.schoolYearMaskedTextBox.Mask = "0000-0";
+            this.schoolYearMaskedTextBox.Name = "schoolYearMaskedTextBox";
+            this.schoolYearMaskedTextBox.Size = new System.Drawing.Size(266, 20);
+            this.schoolYearMaskedTextBox.TabIndex = 7;
+            // 
+            // deliveryDateTimePicker
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.deliveryDateTimePicker, 2);
+            this.deliveryDateTimePicker.CustomFormat = "";
+            this.deliveryDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deliveryDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.deliveryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.deliveryDateTimePicker.Location = new System.Drawing.Point(3, 123);
+            this.deliveryDateTimePicker.Name = "deliveryDateTimePicker";
+            this.deliveryDateTimePicker.Size = new System.Drawing.Size(130, 20);
+            this.deliveryDateTimePicker.TabIndex = 9;
+            // 
+            // evaluationDateTimePicker
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.evaluationDateTimePicker, 2);
+            this.evaluationDateTimePicker.CustomFormat = "";
+            this.evaluationDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.evaluationDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.evaluationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.evaluationDateTimePicker.Location = new System.Drawing.Point(139, 123);
+            this.evaluationDateTimePicker.Name = "evaluationDateTimePicker";
+            this.evaluationDateTimePicker.Size = new System.Drawing.Size(130, 20);
+            this.evaluationDateTimePicker.TabIndex = 11;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
@@ -602,40 +636,6 @@
             this.activityScheduledHoursNumericUpDown.Size = new System.Drawing.Size(84, 20);
             this.activityScheduledHoursNumericUpDown.TabIndex = 10;
             this.activityScheduledHoursNumericUpDown.ThousandsSeparator = true;
-            // 
-            // schoolYearMaskedTextBox
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.schoolYearMaskedTextBox, 4);
-            this.schoolYearMaskedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schoolYearMaskedTextBox.Location = new System.Drawing.Point(3, 84);
-            this.schoolYearMaskedTextBox.Mask = "0000-0";
-            this.schoolYearMaskedTextBox.Name = "schoolYearMaskedTextBox";
-            this.schoolYearMaskedTextBox.Size = new System.Drawing.Size(266, 20);
-            this.schoolYearMaskedTextBox.TabIndex = 7;
-            // 
-            // deliveryDateTimePicker
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.deliveryDateTimePicker, 2);
-            this.deliveryDateTimePicker.CustomFormat = "";
-            this.deliveryDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deliveryDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.deliveryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.deliveryDateTimePicker.Location = new System.Drawing.Point(3, 123);
-            this.deliveryDateTimePicker.Name = "deliveryDateTimePicker";
-            this.deliveryDateTimePicker.Size = new System.Drawing.Size(130, 20);
-            this.deliveryDateTimePicker.TabIndex = 9;
-            // 
-            // evaluationDateTimePicker
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.evaluationDateTimePicker, 2);
-            this.evaluationDateTimePicker.CustomFormat = "";
-            this.evaluationDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.evaluationDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.evaluationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.evaluationDateTimePicker.Location = new System.Drawing.Point(139, 123);
-            this.evaluationDateTimePicker.Name = "evaluationDateTimePicker";
-            this.evaluationDateTimePicker.Size = new System.Drawing.Size(130, 20);
-            this.evaluationDateTimePicker.TabIndex = 11;
             // 
             // PortfolioDetScreen
             // 

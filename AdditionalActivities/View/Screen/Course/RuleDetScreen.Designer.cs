@@ -47,8 +47,8 @@
             this.editSaveButton = new System.Windows.Forms.Button();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.courseTextBox = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.requiredHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -63,8 +63,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.header.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requiredHoursNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -257,8 +257,8 @@
             this.tableLayoutPanel1.Controls.Add(label5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.courseTextBox, 0, 4);
             this.tableLayoutPanel1.Controls.Add(label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown2, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.requiredHoursNumericUpDown, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.yearNumericUpDown, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -314,40 +314,40 @@
             this.courseTextBox.Size = new System.Drawing.Size(242, 20);
             this.courseTextBox.TabIndex = 10;
             // 
-            // numericUpDown1
+            // requiredHoursNumericUpDown
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.numericUpDown1, 4);
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.tableLayoutPanel1.SetColumnSpan(this.requiredHoursNumericUpDown, 4);
+            this.requiredHoursNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.requiredHoursNumericUpDown.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 123);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.requiredHoursNumericUpDown.Location = new System.Drawing.Point(3, 123);
+            this.requiredHoursNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(242, 20);
-            this.numericUpDown1.TabIndex = 12;
+            this.requiredHoursNumericUpDown.Name = "requiredHoursNumericUpDown";
+            this.requiredHoursNumericUpDown.Size = new System.Drawing.Size(242, 20);
+            this.requiredHoursNumericUpDown.TabIndex = 12;
             // 
-            // numericUpDown2
+            // yearNumericUpDown
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.numericUpDown2, 2);
-            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown2.Location = new System.Drawing.Point(127, 45);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.tableLayoutPanel1.SetColumnSpan(this.yearNumericUpDown, 2);
+            this.yearNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.yearNumericUpDown.Location = new System.Drawing.Point(127, 45);
+            this.yearNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(118, 20);
-            this.numericUpDown2.TabIndex = 8;
-            this.numericUpDown2.ThousandsSeparator = true;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.yearNumericUpDown.Name = "yearNumericUpDown";
+            this.yearNumericUpDown.Size = new System.Drawing.Size(118, 20);
+            this.yearNumericUpDown.TabIndex = 8;
+            this.yearNumericUpDown.ThousandsSeparator = true;
+            this.yearNumericUpDown.Value = new decimal(new int[] {
             2000,
             0,
             0,
@@ -371,8 +371,8 @@
             this.header.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requiredHoursNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,7 +392,7 @@
         private System.Windows.Forms.Button editSaveButton;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox courseTextBox;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown requiredHoursNumericUpDown;
+        private System.Windows.Forms.NumericUpDown yearNumericUpDown;
     }
 }

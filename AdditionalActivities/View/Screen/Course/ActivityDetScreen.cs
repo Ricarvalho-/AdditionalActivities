@@ -26,6 +26,13 @@ namespace AdditionalActivities.View.Screen.Course
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 //TODO: Change fields mode
+                nameTextBox.ReadOnly = !IsEditing;
+                categoryComboBox.Enabled = IsEditing;
+                minHoursNumericUpDown.Enabled = IsEditing;
+                maxHoursNumericUpDown.Enabled = IsEditing;
+                stepCheckBox.Enabled = IsEditing;
+                stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
+                descriptionTextBox.ReadOnly = !IsEditing;
             }
         }
 
@@ -65,7 +72,7 @@ namespace AdditionalActivities.View.Screen.Course
         private void stepCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             stepHoursNumericUpDown.Value = 1;
-            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked;
+            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
         }
     }
 }

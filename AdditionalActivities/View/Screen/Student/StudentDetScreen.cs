@@ -26,7 +26,12 @@ namespace AdditionalActivities.View.Screen.Student
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
-                //TODO: Change fields mode
+
+                nameTextBox.ReadOnly = !IsEditing;
+                registerNumberTextBox.ReadOnly = !IsEditing;
+                courseComboBox.Enabled = IsEditing;
+                ruleComboBox.Enabled = IsEditing;
+                registerStateComboBox.Enabled = IsEditing;
             }
         }
 

@@ -26,7 +26,10 @@ namespace AdditionalActivities.View.Screen.Course
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = IsEditing;
-                //TODO: Change fields mode
+
+                nameTextBox.ReadOnly = !IsEditing;
+                yearNumericUpDown.Enabled = IsEditing;
+                requiredHoursNumericUpDown.Enabled = IsEditing;
             }
         }
 

@@ -40,7 +40,11 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = isEditing;
                 splitContainer2.Panel2Collapsed = isEditing || activitiesDataGridView.SelectedCells.Count != 1;
-                //TODO: Change fields mode
+
+                schoolYearMaskedTextBox.ReadOnly = !IsEditing;
+                deliveryDateTimePicker.Enabled = IsEditing;
+                evaluationDateTimePicker.Enabled = IsEditing;
+                evaluatorComboBox.Enabled = IsEditing;
             }
         }
 
