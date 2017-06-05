@@ -22,12 +22,12 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new CourseDetScreen());//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new CourseDetScreen(false));//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new CourseDetScreen());
+            MainForm.Instance.PresentScreen(new CourseDetScreen(true));
         }
 
         private void removeButton_Click(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace AdditionalActivities.View.Screen.Course
 {
     public partial class ActivityDetScreen : UserControl, IScreen
     {
+        private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
 
         public bool IsEditing
@@ -25,14 +26,23 @@ namespace AdditionalActivities.View.Screen.Course
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
-                //TODO: Change fields mode
+
+                nameTextBox.ReadOnly = !IsEditing;
+                categoryComboBox.Enabled = IsEditing;
+                minHoursNumericUpDown.Enabled = IsEditing;
+                maxHoursNumericUpDown.Enabled = IsEditing;
+                stepCheckBox.Enabled = IsEditing;
+                stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
+                descriptionTextBox.ReadOnly = !IsEditing;
             }
         }
 
-        public ActivityDetScreen()
+        public ActivityDetScreen(bool startEditing)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            IsEditing = startEditing;
+            ShouldPopOnCancel = startEditing;
         }
 
         public void ScreenWillAppear()
@@ -42,7 +52,7 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (isEditing)
+            if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
                 //TODO: Discard changes
@@ -53,6 +63,7 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
+            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
@@ -65,7 +76,7 @@ namespace AdditionalActivities.View.Screen.Course
         private void stepCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             stepHoursNumericUpDown.Value = 1;
-            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked;
+            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
         }
     }
 }

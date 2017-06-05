@@ -35,6 +35,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new System.Windows.Forms.Button();
             this.editSaveButton = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.minHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.maxHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.stepHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -53,6 +55,7 @@
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minHoursNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxHoursNumericUpDown)).BeginInit();
@@ -108,10 +111,10 @@
             // 
             label5.AutoSize = true;
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            label5.Location = new System.Drawing.Point(3, 146);
+            label5.Location = new System.Drawing.Point(3, 186);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(160, 17);
-            label5.TabIndex = 11;
+            label5.TabIndex = 13;
             label5.Text = "Mínimo de horas";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -119,10 +122,10 @@
             // 
             label6.AutoSize = true;
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            label6.Location = new System.Drawing.Point(169, 146);
+            label6.Location = new System.Drawing.Point(169, 186);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(160, 17);
-            label6.TabIndex = 13;
+            label6.TabIndex = 15;
             label6.Text = "Máximo de horas";
             label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -131,11 +134,22 @@
             label7.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label7, 3);
             label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            label7.Location = new System.Drawing.Point(3, 189);
+            label7.Location = new System.Drawing.Point(3, 229);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(494, 13);
-            label7.TabIndex = 18;
+            label7.Size = new System.Drawing.Size(494, 20);
+            label7.TabIndex = 19;
             label7.Text = "Descrição";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(label8, 3);
+            label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            label8.Location = new System.Drawing.Point(3, 146);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(494, 13);
+            label8.TabIndex = 11;
+            label8.Text = "Categoria";
             // 
             // tableLayoutPanel1
             // 
@@ -152,18 +166,20 @@
             this.tableLayoutPanel1.Controls.Add(this.courseTextBox, 0, 4);
             this.tableLayoutPanel1.Controls.Add(label4, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.ruleTextBox, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(label5, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(label6, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.stepCheckBox, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(label7, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.descriptionTextBox, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.minHoursNumericUpDown, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.maxHoursNumericUpDown, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.stepHoursNumericUpDown, 2, 8);
+            this.tableLayoutPanel1.Controls.Add(label5, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(label6, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.stepCheckBox, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(label7, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.descriptionTextBox, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.minHoursNumericUpDown, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.maxHoursNumericUpDown, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.stepHoursNumericUpDown, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(label8, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.categoryComboBox, 0, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -175,6 +191,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 500);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -233,11 +251,11 @@
             // 
             this.stepCheckBox.AutoSize = true;
             this.stepCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stepCheckBox.Location = new System.Drawing.Point(335, 146);
+            this.stepCheckBox.Location = new System.Drawing.Point(335, 186);
             this.stepCheckBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.stepCheckBox.Name = "stepCheckBox";
             this.stepCheckBox.Size = new System.Drawing.Size(162, 17);
-            this.stepCheckBox.TabIndex = 16;
+            this.stepCheckBox.TabIndex = 17;
             this.stepCheckBox.Text = "Passo";
             this.stepCheckBox.UseVisualStyleBackColor = true;
             this.stepCheckBox.CheckedChanged += new System.EventHandler(this.stepCheckBox_CheckedChanged);
@@ -246,11 +264,11 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.descriptionTextBox, 3);
             this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.descriptionTextBox.Location = new System.Drawing.Point(3, 205);
+            this.descriptionTextBox.Location = new System.Drawing.Point(3, 252);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(494, 292);
-            this.descriptionTextBox.TabIndex = 19;
+            this.descriptionTextBox.Size = new System.Drawing.Size(494, 245);
+            this.descriptionTextBox.TabIndex = 20;
             // 
             // minHoursNumericUpDown
             // 
@@ -260,7 +278,7 @@
             0,
             0,
             0});
-            this.minHoursNumericUpDown.Location = new System.Drawing.Point(3, 166);
+            this.minHoursNumericUpDown.Location = new System.Drawing.Point(3, 206);
             this.minHoursNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -273,7 +291,7 @@
             0});
             this.minHoursNumericUpDown.Name = "minHoursNumericUpDown";
             this.minHoursNumericUpDown.Size = new System.Drawing.Size(160, 20);
-            this.minHoursNumericUpDown.TabIndex = 12;
+            this.minHoursNumericUpDown.TabIndex = 14;
             this.minHoursNumericUpDown.ThousandsSeparator = true;
             this.minHoursNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -289,7 +307,7 @@
             0,
             0,
             0});
-            this.maxHoursNumericUpDown.Location = new System.Drawing.Point(169, 166);
+            this.maxHoursNumericUpDown.Location = new System.Drawing.Point(169, 206);
             this.maxHoursNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -302,7 +320,7 @@
             0});
             this.maxHoursNumericUpDown.Name = "maxHoursNumericUpDown";
             this.maxHoursNumericUpDown.Size = new System.Drawing.Size(160, 20);
-            this.maxHoursNumericUpDown.TabIndex = 14;
+            this.maxHoursNumericUpDown.TabIndex = 16;
             this.maxHoursNumericUpDown.ThousandsSeparator = true;
             this.maxHoursNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -319,7 +337,7 @@
             0,
             0,
             0});
-            this.stepHoursNumericUpDown.Location = new System.Drawing.Point(335, 166);
+            this.stepHoursNumericUpDown.Location = new System.Drawing.Point(335, 206);
             this.stepHoursNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -332,13 +350,23 @@
             0});
             this.stepHoursNumericUpDown.Name = "stepHoursNumericUpDown";
             this.stepHoursNumericUpDown.Size = new System.Drawing.Size(162, 20);
-            this.stepHoursNumericUpDown.TabIndex = 16;
+            this.stepHoursNumericUpDown.TabIndex = 18;
             this.stepHoursNumericUpDown.ThousandsSeparator = true;
             this.stepHoursNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            // 
+            // categoryComboBox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.categoryComboBox, 3);
+            this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(3, 162);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(494, 21);
+            this.categoryComboBox.TabIndex = 12;
             // 
             // ActivityDetScreen
             // 
@@ -369,5 +397,6 @@
         private System.Windows.Forms.NumericUpDown minHoursNumericUpDown;
         private System.Windows.Forms.NumericUpDown maxHoursNumericUpDown;
         private System.Windows.Forms.NumericUpDown stepHoursNumericUpDown;
+        private System.Windows.Forms.ComboBox categoryComboBox;
     }
 }

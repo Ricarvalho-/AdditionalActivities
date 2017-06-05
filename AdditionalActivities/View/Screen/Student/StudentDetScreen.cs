@@ -13,7 +13,8 @@ namespace AdditionalActivities.View.Screen.Student
 {
     public partial class StudentDetScreen : UserControl, IScreen
     {
-        private bool ShouldSwap { get; set; }
+        private bool ShouldSwapOnSave { get; set; }
+        private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
 
         public bool IsEditing {
@@ -26,22 +27,22 @@ namespace AdditionalActivities.View.Screen.Student
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
-                //TODO: Change fields mode
+
+                nameTextBox.ReadOnly = !IsEditing;
+                registerNumberTextBox.ReadOnly = !IsEditing;
+                courseComboBox.Enabled = IsEditing;
+                ruleComboBox.Enabled = IsEditing;
+                registerStateComboBox.Enabled = IsEditing;
             }
         }
 
-        public StudentDetScreen()
+        public StudentDetScreen(bool startEditing, bool fromPortfolioListContext)//UNDONE: Receive student
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-        }
-
-        public StudentDetScreen(bool startEditing)//UNDONE: receive Student also
-        {
-            InitializeComponent();
-            Dock = DockStyle.Fill;
-            ShouldSwap = startEditing;
+            ShouldSwapOnSave = fromPortfolioListContext;
             IsEditing = startEditing;
+            ShouldPopOnCancel = startEditing;
         }
 
         public void ScreenWillAppear()
@@ -49,30 +50,31 @@ namespace AdditionalActivities.View.Screen.Student
 
         }
 
-        private void editSaveButton_Click(object sender, EventArgs e)
-        {
-            if (IsEditing)
-            {
-                if (true)//UNDONE: Could save object
-                {
-                    IsEditing = false;
-                    if (ShouldSwap)
-                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen());//UNDONE: Pass object
-                }
-            }
-            else
-                IsEditing = true;
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (isEditing)
+            if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
                 //TODO: Discard changes
             }
             else
                 MainForm.Instance.PopScreen();
+        }
+
+        private void editSaveButton_Click(object sender, EventArgs e)
+        {
+            ShouldPopOnCancel = false;
+            if (IsEditing)
+            {
+                if (true)//UNDONE: Could save object
+                {
+                    IsEditing = false;
+                    if (ShouldSwapOnSave)
+                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true));//UNDONE: Pass prefilled object
+                }
+            }
+            else
+                IsEditing = true;
         }
     }
 }
