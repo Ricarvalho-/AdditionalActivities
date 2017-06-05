@@ -38,7 +38,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.portfoliosDataGridView = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.nameLabel = new System.Windows.Forms.Label();
             this.registerNumberLabel = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portfoliosDataGridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,6 +161,7 @@
             // removeButton
             // 
             this.removeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeButton.Enabled = false;
             this.removeButton.Location = new System.Drawing.Point(165, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(156, 23);
@@ -172,6 +173,7 @@
             // openButton
             // 
             this.openButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openButton.Enabled = false;
             this.openButton.Location = new System.Drawing.Point(327, 3);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(156, 23);
@@ -180,17 +182,18 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // dataGridView1
+            // portfoliosDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(486, 420);
-            this.dataGridView1.TabIndex = 0;
+            this.portfoliosDataGridView.AllowUserToAddRows = false;
+            this.portfoliosDataGridView.AllowUserToDeleteRows = false;
+            this.portfoliosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.portfoliosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.portfoliosDataGridView.Location = new System.Drawing.Point(0, 101);
+            this.portfoliosDataGridView.Name = "portfoliosDataGridView";
+            this.portfoliosDataGridView.ReadOnly = true;
+            this.portfoliosDataGridView.Size = new System.Drawing.Size(486, 420);
+            this.portfoliosDataGridView.TabIndex = 0;
+            this.portfoliosDataGridView.SelectionChanged += new System.EventHandler(this.portfoliosDataGridView_SelectionChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -249,7 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.portfoliosDataGridView);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -258,7 +261,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portfoliosDataGridView)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -276,7 +279,7 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button newStudentButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView portfoliosDataGridView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label registerNumberLabel;

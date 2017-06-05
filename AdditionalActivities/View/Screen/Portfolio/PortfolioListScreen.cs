@@ -38,12 +38,24 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            switch (MessageBox.Show("Todos os registros de atividades relacionadas a este portifólio também serão removidos.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
+            {
+                case DialogResult.OK:
+                    //TODO: Remove object
+                default:
+                    break;
+            }
         }
 
         private void newStudentButton_Click(object sender, EventArgs e)
         {
             MainForm.Instance.PresentScreen(new StudentDetScreen(true, true));//UNDONE: Pass object
+        }
+
+        private void portfoliosDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            openButton.Enabled = portfoliosDataGridView.SelectedRows.Count == 1;
+            removeButton.Enabled = portfoliosDataGridView.SelectedRows.Count > 0;
         }
     }
 }

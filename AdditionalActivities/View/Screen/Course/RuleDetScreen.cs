@@ -54,7 +54,13 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            switch (MessageBox.Show("Todas as atividades realizadas por alunos correspondentes a este item também serão removidas dos portifólios.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
+            {
+                case DialogResult.OK:
+                    //TODO: Remove object
+                default:
+                    break;
+            }
         }
 
         public void ScreenWillAppear()
@@ -83,6 +89,12 @@ namespace AdditionalActivities.View.Screen.Course
             }
             else
                 IsEditing = true;
+        }
+
+        private void activitiesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            openButton.Enabled = activitiesDataGridView.SelectedRows.Count == 1;
+            removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
         }
     }
 }

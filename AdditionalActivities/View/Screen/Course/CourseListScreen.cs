@@ -32,12 +32,24 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            switch (MessageBox.Show("Todas as regras, atividades e alunos relacionados também serão removidos.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
+            {
+                case DialogResult.OK:
+                    //TODO: Remove object
+                default:
+                    break;
+            }
         }
 
         public void ScreenWillAppear()
         {
 
+        }
+
+        private void coursesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            openButton.Enabled = coursesDataGridView.SelectedRows.Count == 1;
+            removeButton.Enabled = coursesDataGridView.SelectedRows.Count > 0;
         }
     }
 }

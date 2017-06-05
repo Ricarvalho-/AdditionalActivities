@@ -32,12 +32,24 @@ namespace AdditionalActivities.View.Screen.Student
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            switch (MessageBox.Show("Todos os portifólios e atividades relacionados também serão removidos.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
+            {
+                case DialogResult.OK:
+                    //TODO: Remove object
+                default:
+                    break;
+            }
         }
 
         public void ScreenWillAppear()
         {
 
+        }
+
+        private void studentsDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            openButton.Enabled = studentsDataGridView.SelectedRows.Count == 1;
+            removeButton.Enabled = studentsDataGridView.SelectedRows.Count > 0;
         }
     }
 }

@@ -35,12 +35,23 @@
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.studentsDataGridView = new System.Windows.Forms.DataGridView();
             label1 = new System.Windows.Forms.Label();
             this.header.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(307, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Buscar alunos";
             // 
             // header
             // 
@@ -57,17 +68,6 @@
             this.header.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.header.Size = new System.Drawing.Size(313, 41);
             this.header.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(307, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Buscar alunos";
             // 
             // searchTextBox
             // 
@@ -109,6 +109,7 @@
             // removeButton
             // 
             this.removeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeButton.Enabled = false;
             this.removeButton.Location = new System.Drawing.Point(107, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(98, 23);
@@ -120,6 +121,7 @@
             // openButton
             // 
             this.openButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openButton.Enabled = false;
             this.openButton.Location = new System.Drawing.Point(211, 3);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(99, 23);
@@ -128,23 +130,24 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // dataGridView1
+            // studentsDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(313, 315);
-            this.dataGridView1.TabIndex = 2;
+            this.studentsDataGridView.AllowUserToAddRows = false;
+            this.studentsDataGridView.AllowUserToDeleteRows = false;
+            this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 41);
+            this.studentsDataGridView.Name = "studentsDataGridView";
+            this.studentsDataGridView.ReadOnly = true;
+            this.studentsDataGridView.Size = new System.Drawing.Size(313, 315);
+            this.studentsDataGridView.TabIndex = 2;
+            this.studentsDataGridView.SelectionChanged += new System.EventHandler(this.studentsDataGridView_SelectionChanged);
             // 
             // StudentListScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.header);
             this.Name = "StudentListScreen";
@@ -152,7 +155,7 @@
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +165,7 @@
 
         private System.Windows.Forms.TableLayoutPanel header;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView studentsDataGridView;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;

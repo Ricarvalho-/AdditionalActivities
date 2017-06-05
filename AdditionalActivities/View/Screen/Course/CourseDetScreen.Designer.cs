@@ -34,7 +34,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rulesDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesDataGridView)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.header.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -129,7 +129,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel1.Controls.Add(this.rulesDataGridView);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel3);
             this.splitContainer1.Panel1.Controls.Add(this.header);
             // 
@@ -140,17 +140,18 @@
             this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.TabIndex = 0;
             // 
-            // dataGridView1
+            // rulesDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(248, 430);
-            this.dataGridView1.TabIndex = 2;
+            this.rulesDataGridView.AllowUserToAddRows = false;
+            this.rulesDataGridView.AllowUserToDeleteRows = false;
+            this.rulesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rulesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rulesDataGridView.Location = new System.Drawing.Point(0, 41);
+            this.rulesDataGridView.Name = "rulesDataGridView";
+            this.rulesDataGridView.ReadOnly = true;
+            this.rulesDataGridView.Size = new System.Drawing.Size(248, 430);
+            this.rulesDataGridView.TabIndex = 2;
+            this.rulesDataGridView.SelectionChanged += new System.EventHandler(this.rulesDataGridView_SelectionChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -184,6 +185,7 @@
             // removeButton
             // 
             this.removeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeButton.Enabled = false;
             this.removeButton.Location = new System.Drawing.Point(85, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(76, 23);
@@ -195,6 +197,7 @@
             // openButton
             // 
             this.openButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openButton.Enabled = false;
             this.openButton.Location = new System.Drawing.Point(167, 3);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(78, 23);
@@ -358,7 +361,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesDataGridView)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
@@ -373,7 +376,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView rulesDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel header;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

@@ -85,7 +85,7 @@ namespace AdditionalActivities.View
         private bool ShouldChangeScreen()
         {
             if (screenStack.Count > 0 && screenStack.Peek().IsEditing)
-                switch (MessageBox.Show("Suas alterações serão descartadas.", "Sair sem salvar?", MessageBoxButtons.OKCancel))
+                switch (MessageBox.Show("Suas alterações não salvas serão descartadas.", "Sair sem salvar?", MessageBoxButtons.OKCancel))
                 {
                     case DialogResult.OK:
                         return true;

@@ -106,7 +106,13 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            //TODO: Warn about deletion
+            switch (MessageBox.Show("Não será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
+            {
+                case DialogResult.OK:
+                    //TODO: Remove object
+                default:
+                    break;
+            }
         }
 
         private void activityCancelButton_Click(object sender, EventArgs e)
@@ -130,6 +136,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         private void activitiesDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             splitContainer2.Panel2Collapsed = activitiesDataGridView.SelectedRows.Count != 1;
+            removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
         }
         #endregion
     }
