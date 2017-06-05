@@ -83,7 +83,13 @@
     <Compile Include="Model\DAO\EvaluatorDAO.cs" />
     <Compile Include="Model\DAO\IDAO.cs" />
     <Compile Include="Model\DatabaseManager.cs" />
+    <Compile Include="Model\Domain\Activity.cs" />
+    <Compile Include="Model\Domain\ActivityCategory.cs" />
+    <Compile Include="Model\Domain\Course.cs" />
     <Compile Include="Model\Domain\Evaluator.cs" />
+    <Compile Include="Model\Domain\Period.cs" />
+    <Compile Include="Model\Domain\Rule.cs" />
+    <Compile Include="Model\Domain\Student.cs" />
     <Compile Include="Model\DTO\Activity.cs" />
     <Compile Include="Model\DTO\Course.cs" />
     <Compile Include="Model\DTO\ActivityItem.cs" />
