@@ -33,6 +33,8 @@ namespace AdditionalActivities.View.Screen.Student
                 courseComboBox.Enabled = IsEditing;
                 ruleComboBox.Enabled = IsEditing;
                 registerStateComboBox.Enabled = IsEditing;
+                yearNumericUpDown.Enabled = IsEditing;
+                semesterComboBox.Enabled = IsEditing;
             }
         }
 

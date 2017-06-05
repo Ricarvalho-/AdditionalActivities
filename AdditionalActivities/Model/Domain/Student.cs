@@ -13,9 +13,9 @@ namespace AdditionalActivities.Model.Domain
         public int RegistrationNumber { get; set; }
         public RegistrationState RegistrationState { get; set; }
         public Period RegistrationPeriod { get; set; }
-        public int AchivedHours { get; set; }
+        public int AchievedHours { get; set; }
         public Rule Rule { get; set; }
-        public Course Course { get; set; }
+        public Course Course { get; set; }//Would be get by rule
         //TODO: Portofolio list
         //TODO: Methods
 }

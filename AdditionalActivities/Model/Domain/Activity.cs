@@ -15,5 +15,6 @@ namespace AdditionalActivities.Model.Domain
         public int HourStep { get; set; }
         public ActivityCategory Category { get; set; }
         public Rule Rule { get; set; }
+        //Name
     }
 }

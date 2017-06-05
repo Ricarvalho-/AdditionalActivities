@@ -35,6 +35,8 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new System.Windows.Forms.Button();
             this.editSaveButton = new System.Windows.Forms.Button();
@@ -44,6 +46,8 @@
             this.ruleComboBox = new System.Windows.Forms.ComboBox();
             this.achievedHoursTextBox = new System.Windows.Forms.TextBox();
             this.registerStateComboBox = new System.Windows.Forms.ComboBox();
+            this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.semesterComboBox = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -51,7 +55,10 @@
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -103,10 +110,10 @@
             label5.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label5, 2);
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            label5.Location = new System.Drawing.Point(3, 187);
+            label5.Location = new System.Drawing.Point(253, 227);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(244, 13);
-            label5.TabIndex = 10;
+            label5.Size = new System.Drawing.Size(244, 20);
+            label5.TabIndex = 16;
             label5.Text = "Horas obtidas";
             // 
             // label6
@@ -114,10 +121,10 @@
             label6.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label6, 2);
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            label6.Location = new System.Drawing.Point(253, 187);
+            label6.Location = new System.Drawing.Point(3, 227);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(244, 13);
-            label6.TabIndex = 12;
+            label6.Size = new System.Drawing.Size(244, 20);
+            label6.TabIndex = 14;
             label6.Text = "Estado da matrícula";
             // 
             // label7
@@ -132,6 +139,28 @@
             label7.TabIndex = 14;
             label7.Text = "Aluno";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(label8, 2);
+            label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            label8.Location = new System.Drawing.Point(3, 187);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(244, 13);
+            label8.TabIndex = 10;
+            label8.Text = "Ano de ingresso";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(label9, 2);
+            label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            label9.Location = new System.Drawing.Point(253, 187);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(244, 13);
+            label9.TabIndex = 12;
+            label9.Text = "Semestre de ingresso";
             // 
             // tableLayoutPanel1
             // 
@@ -150,15 +179,19 @@
             this.tableLayoutPanel1.Controls.Add(this.courseComboBox, 0, 6);
             this.tableLayoutPanel1.Controls.Add(label4, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.ruleComboBox, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(label5, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.achievedHoursTextBox, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(label6, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(label5, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.achievedHoursTextBox, 2, 12);
+            this.tableLayoutPanel1.Controls.Add(label6, 0, 11);
             this.tableLayoutPanel1.Controls.Add(label7, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.registerStateComboBox, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.registerStateComboBox, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(label8, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.yearNumericUpDown, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(label9, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(this.semesterComboBox, 2, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -170,6 +203,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 500);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -239,11 +274,11 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.achievedHoursTextBox, 2);
             this.achievedHoursTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.achievedHoursTextBox.Location = new System.Drawing.Point(3, 203);
+            this.achievedHoursTextBox.Location = new System.Drawing.Point(253, 250);
             this.achievedHoursTextBox.Name = "achievedHoursTextBox";
             this.achievedHoursTextBox.ReadOnly = true;
             this.achievedHoursTextBox.Size = new System.Drawing.Size(244, 20);
-            this.achievedHoursTextBox.TabIndex = 11;
+            this.achievedHoursTextBox.TabIndex = 17;
             // 
             // registerStateComboBox
             // 
@@ -251,10 +286,45 @@
             this.registerStateComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.registerStateComboBox.FormattingEnabled = true;
-            this.registerStateComboBox.Location = new System.Drawing.Point(253, 203);
+            this.registerStateComboBox.Location = new System.Drawing.Point(3, 250);
             this.registerStateComboBox.Name = "registerStateComboBox";
             this.registerStateComboBox.Size = new System.Drawing.Size(244, 21);
             this.registerStateComboBox.TabIndex = 15;
+            // 
+            // yearNumericUpDown
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.yearNumericUpDown, 2);
+            this.yearNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.yearNumericUpDown.Location = new System.Drawing.Point(3, 203);
+            this.yearNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.yearNumericUpDown.Name = "yearNumericUpDown";
+            this.yearNumericUpDown.Size = new System.Drawing.Size(244, 20);
+            this.yearNumericUpDown.TabIndex = 11;
+            this.yearNumericUpDown.ThousandsSeparator = true;
+            this.yearNumericUpDown.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // semesterComboBox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.semesterComboBox, 2);
+            this.semesterComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterComboBox.FormattingEnabled = true;
+            this.semesterComboBox.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.semesterComboBox.Location = new System.Drawing.Point(253, 203);
+            this.semesterComboBox.Name = "semesterComboBox";
+            this.semesterComboBox.Size = new System.Drawing.Size(244, 21);
+            this.semesterComboBox.Sorted = true;
+            this.semesterComboBox.TabIndex = 13;
             // 
             // StudentDetScreen
             // 
@@ -265,6 +335,7 @@
             this.Size = new System.Drawing.Size(500, 500);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +351,7 @@
         private System.Windows.Forms.ComboBox ruleComboBox;
         private System.Windows.Forms.TextBox achievedHoursTextBox;
         private System.Windows.Forms.ComboBox registerStateComboBox;
+        private System.Windows.Forms.NumericUpDown yearNumericUpDown;
+        private System.Windows.Forms.ComboBox semesterComboBox;
     }
 }

@@ -60,7 +60,7 @@
             label1.Location = new System.Drawing.Point(3, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(480, 13);
-            label1.TabIndex = 1;
+            label1.TabIndex = 0;
             label1.Text = "Curso";
             // 
             // label3
@@ -71,7 +71,7 @@
             label3.Location = new System.Drawing.Point(3, 40);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(480, 13);
-            label3.TabIndex = 1;
+            label3.TabIndex = 2;
             label3.Text = "Aluno";
             // 
             // tableLayoutPanel1
@@ -106,7 +106,7 @@
             this.comboBox1.Location = new System.Drawing.Point(3, 16);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(480, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBox1.TabIndex = 1;
             // 
             // comboBox3
             // 
@@ -116,7 +116,7 @@
             this.comboBox3.Location = new System.Drawing.Point(3, 56);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(399, 21);
-            this.comboBox3.TabIndex = 4;
+            this.comboBox3.TabIndex = 3;
             // 
             // newStudentButton
             // 
@@ -124,7 +124,7 @@
             this.newStudentButton.Location = new System.Drawing.Point(408, 56);
             this.newStudentButton.Name = "newStudentButton";
             this.newStudentButton.Size = new System.Drawing.Size(75, 23);
-            this.newStudentButton.TabIndex = 0;
+            this.newStudentButton.TabIndex = 4;
             this.newStudentButton.Text = "Novo Aluno";
             this.newStudentButton.UseVisualStyleBackColor = true;
             this.newStudentButton.Click += new System.EventHandler(this.newStudentButton_Click);
@@ -145,7 +145,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(486, 29);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutPanel2.TabIndex = 3;
             // 
             // addButton
             // 
@@ -192,7 +192,7 @@
             this.portfoliosDataGridView.Name = "portfoliosDataGridView";
             this.portfoliosDataGridView.ReadOnly = true;
             this.portfoliosDataGridView.Size = new System.Drawing.Size(486, 420);
-            this.portfoliosDataGridView.TabIndex = 0;
+            this.portfoliosDataGridView.TabIndex = 2;
             this.portfoliosDataGridView.SelectionChanged += new System.EventHandler(this.portfoliosDataGridView_SelectionChanged);
             // 
             // flowLayoutPanel1
@@ -206,7 +206,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 19);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // nameLabel
             // 

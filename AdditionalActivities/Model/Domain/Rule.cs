@@ -13,5 +13,6 @@ namespace AdditionalActivities.Model.Domain
         public int RequiredHours { get; set; }
         public Course Course { get; set; }
         public List<Activity> Activities { get; set; }
+        //Year
     }
 }

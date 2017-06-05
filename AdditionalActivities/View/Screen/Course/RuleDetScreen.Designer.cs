@@ -146,10 +146,12 @@
             this.splitContainer1.Panel1.Controls.Add(this.activitiesDataGridView);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel3);
             this.splitContainer1.Panel1.Controls.Add(this.header);
+            this.splitContainer1.Panel1MinSize = 200;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel2MinSize = 200;
             this.splitContainer1.Size = new System.Drawing.Size(500, 500);
             this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.TabIndex = 0;

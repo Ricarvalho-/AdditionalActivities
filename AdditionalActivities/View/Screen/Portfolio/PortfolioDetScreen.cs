@@ -43,7 +43,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 splitContainer1.Panel1Collapsed = isEditing;
                 splitContainer2.Panel2Collapsed = isEditing || activitiesDataGridView.SelectedCells.Count != 1;
 
-                schoolYearMaskedTextBox.ReadOnly = !IsEditing;
+                yearNumericUpDown.Enabled = IsEditing;
+                semesterComboBox.Enabled = IsEditing;
                 deliveryDateTimePicker.Enabled = IsEditing;
                 evaluationDateTimePicker.Enabled = IsEditing;
                 evaluatorComboBox.Enabled = IsEditing;
