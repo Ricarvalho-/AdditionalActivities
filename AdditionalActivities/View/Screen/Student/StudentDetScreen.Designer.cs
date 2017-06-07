@@ -112,7 +112,7 @@
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
             label5.Location = new System.Drawing.Point(253, 227);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(244, 20);
+            label5.Size = new System.Drawing.Size(244, 13);
             label5.TabIndex = 16;
             label5.Text = "Horas obtidas";
             // 
@@ -123,7 +123,7 @@
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
             label6.Location = new System.Drawing.Point(3, 227);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(244, 20);
+            label6.Size = new System.Drawing.Size(244, 13);
             label6.TabIndex = 14;
             label6.Text = "Estado da matrícula";
             // 
@@ -203,8 +203,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 500);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -274,7 +274,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.achievedHoursTextBox, 2);
             this.achievedHoursTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.achievedHoursTextBox.Location = new System.Drawing.Point(253, 250);
+            this.achievedHoursTextBox.Location = new System.Drawing.Point(253, 243);
             this.achievedHoursTextBox.Name = "achievedHoursTextBox";
             this.achievedHoursTextBox.ReadOnly = true;
             this.achievedHoursTextBox.Size = new System.Drawing.Size(244, 20);
@@ -286,7 +286,7 @@
             this.registerStateComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.registerStateComboBox.FormattingEnabled = true;
-            this.registerStateComboBox.Location = new System.Drawing.Point(3, 250);
+            this.registerStateComboBox.Location = new System.Drawing.Point(3, 243);
             this.registerStateComboBox.Name = "registerStateComboBox";
             this.registerStateComboBox.Size = new System.Drawing.Size(244, 21);
             this.registerStateComboBox.TabIndex = 15;

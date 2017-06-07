@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Screen.Student;
+using Domain = AdditionalActivities.Model.Domain;
+using AdditionalActivities.Properties;
 
 namespace AdditionalActivities.View.Screen.Portfolio
 {
@@ -42,7 +44,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
             switch (MessageBox.Show("Todos os registros de atividades relacionadas a este portifólio também serão removidos.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
             {
                 case DialogResult.OK:
-                    //TODO: Remove object
+                //TODO: Remove object
                 default:
                     break;
             }
@@ -66,7 +68,12 @@ namespace AdditionalActivities.View.Screen.Portfolio
             studentDetFlowLayoutPanel.Controls.Add(registerNumberLabel);
             studentDetFlowLayoutPanel.Controls.Add(ruleLabel);
             studentDetFlowLayoutPanel.Controls.Add(registerStateLabel);
-            //TODO: Set labels texts from selected student properties
+
+            Domain.Student student = (Domain.Student)studentComboBox.SelectedItem;
+            nameLabel.Text = "Nome: " + student.Name;
+            registerNumberLabel.Text = "Prontuário: " + student.RegistrationNumber;
+            ruleLabel.Text = "Regra: " + student.Rule.Name;
+            registerStateLabel.Text = "Estado da matrícula: " + Enum.GetName(typeof(Domain.RegistrationState), student.RegistrationState);
         }
 
         private void studentComboBox_TextUpdate(object sender, EventArgs e)

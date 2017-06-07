@@ -33,7 +33,7 @@ namespace AdditionalActivities.Model.Domain
     //TODO: States
     public enum RegistrationState {
         Regular,
-        Locked,
-        Completed
+        Trancada,
+        Formado
     };
 }

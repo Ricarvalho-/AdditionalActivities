@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Portfolio
 {
@@ -21,6 +22,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
+            semesterComboBox.SelectedIndex = 0;
         }
 
         public void ScreenWillAppear()

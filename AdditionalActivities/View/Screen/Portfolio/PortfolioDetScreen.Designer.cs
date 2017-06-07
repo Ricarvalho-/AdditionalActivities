@@ -160,7 +160,7 @@
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(116, 13);
             label5.TabIndex = 6;
-            label5.Text = "Período letivo (Ano)";
+            label5.Text = "Ano";
             // 
             // label6
             // 
@@ -281,7 +281,7 @@
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(118, 13);
             label16.TabIndex = 8;
-            label16.Text = "(Semestre)";
+            label16.Text = "Semestre";
             // 
             // splitContainer1
             // 

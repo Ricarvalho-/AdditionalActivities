@@ -22,8 +22,8 @@ namespace AdditionalActivities.Model.Domain
 
     public enum ApprovationState
     {
-        Approved,
-        Disapproved,
-        Evaluating
+        Aprovado,
+        Reprovado,
+        Avaliando
     };
 }

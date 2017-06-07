@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Screen.Portfolio;
+using AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Student
 {
@@ -47,6 +48,8 @@ namespace AdditionalActivities.View.Screen.Student
             ShouldSwapOnSave = fromPortfolioListContext;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            registerStateComboBox.DataSource = Enum.GetValues(typeof(RegistrationState));
+            semesterComboBox.SelectedIndex = 0;
         }
 
         public void ScreenWillAppear()
