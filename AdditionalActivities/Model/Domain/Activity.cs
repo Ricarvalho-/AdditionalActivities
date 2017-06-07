@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    class Activity
+    public class Activity
     {
         public int? Id { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public int MinHours { get; set; }
         public int MaxHours { get; set; }
         public int HourStep { get; set; }
         public ActivityCategory Category { get; set; }
         public Rule Rule { get; set; }
-        //Name
+
+        public Activity()//UNDONE: Receive basic info, e.g.: Rule by previous screen
+        {
+            MinHours = 1;
+            MaxHours = 1;
+            HourStep = 1;
+            Category = new ActivityCategory();
+            Rule = new Rule();
+        }
     }
 }

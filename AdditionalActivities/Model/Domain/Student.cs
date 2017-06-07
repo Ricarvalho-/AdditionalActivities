@@ -6,19 +6,34 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    class Student
+    public class Student
     {
         public int? Id { get; set; }
         public string Name { get; set; }
         public int RegistrationNumber { get; set; }
         public RegistrationState RegistrationState { get; set; }
         public Period RegistrationPeriod { get; set; }
-        public int AchievedHours { get; set; }
         public Rule Rule { get; set; }
-        public Course Course { get; set; }//Would be get by rule
         //TODO: Portofolio list
         //TODO: Methods
-}
+
+        public int AchievedHours
+        {
+            get
+            {
+                /*
+                TODO: Calculate achieved hours
+                foreach item in ActivityItemDTO.GetActivitiesByStudentId(Id)
+
+                */
+                return 0;
+            }
+        }
+    }
     //TODO: States
-    enum RegistrationState { };
+    public enum RegistrationState {
+        Regular,
+        Locked,
+        Completed
+    };
 }

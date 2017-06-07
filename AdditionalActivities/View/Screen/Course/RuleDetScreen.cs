@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Course
 {
@@ -44,12 +45,12 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new ActivityDetScreen(false));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new ActivityDetScreen(false, new Activity()));//UNDONE: Pass selected object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new ActivityDetScreen(true));
+            MainForm.Instance.PresentScreen(new ActivityDetScreen(true, new Activity()));
         }
 
         private void removeButton_Click(object sender, EventArgs e)

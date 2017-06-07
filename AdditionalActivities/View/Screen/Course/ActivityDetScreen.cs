@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Course
 {
@@ -14,6 +15,7 @@ namespace AdditionalActivities.View.Screen.Course
     {
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
+        private Activity Activity { get; set; }
 
         public bool IsEditing
         {
@@ -25,7 +27,9 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
-                backButton.Text = isEditing ? "Cancelar" : "Voltar";
+                backButton.Text = IsEditing ? "Cancelar" : "Voltar";
+                if (!IsEditing)
+                    ShouldPopOnCancel = false;
 
                 nameTextBox.ReadOnly = !IsEditing;
                 categoryComboBox.Enabled = IsEditing;
@@ -37,17 +41,26 @@ namespace AdditionalActivities.View.Screen.Course
             }
         }
 
-        public ActivityDetScreen(bool startEditing)
+        public ActivityDetScreen(bool startEditing, Activity activity)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            Activity = activity;
         }
 
         public void ScreenWillAppear()
         {
-
+            nameTextBox.Text = Activity.Name;
+            courseTextBox.Text = Activity.Rule.Course.Name;
+            ruleTextBox.Text = Activity.Rule.Name;
+            categoryComboBox.SelectedValue = Activity.Category;
+            minHoursNumericUpDown.Value = Activity.MinHours;
+            maxHoursNumericUpDown.Value = Activity.MaxHours;
+            stepCheckBox.Checked = Activity.HourStep != 1;
+            stepHoursNumericUpDown.Value = Activity.HourStep;
+            descriptionTextBox.Text = Activity.Description;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -55,7 +68,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //TODO: Discard changes
+                ScreenWillAppear();//Reset fields
             }
             else
                 MainForm.Instance.PopScreen();
@@ -63,11 +76,21 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
-            ShouldPopOnCancel = false;
             if (IsEditing)
             {
+                //TODO: create temporary object with fields values to pass on trySave
                 if (true)//UNDONE: Could save object
+                {
                     IsEditing = false;
+                    Activity.Name = nameTextBox.Text;
+                    Activity.Category = (ActivityCategory)categoryComboBox.SelectedValue;
+                    Activity.MinHours = (int)minHoursNumericUpDown.Value;
+                    Activity.MaxHours = (int)maxHoursNumericUpDown.Value;
+                    Activity.HourStep = (int)stepHoursNumericUpDown.Value;
+                    Activity.Description = descriptionTextBox.Text;
+                }
+                else
+                    MessageBox.Show("Falha ao salvar atividade.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditing = true;

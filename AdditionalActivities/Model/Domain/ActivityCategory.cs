@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    class ActivityCategory
+    public class ActivityCategory
     {
         public int? Id { get; set; }
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

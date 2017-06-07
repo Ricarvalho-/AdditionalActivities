@@ -90,13 +90,8 @@
     <Compile Include="Model\Domain\Period.cs" />
     <Compile Include="Model\Domain\Rule.cs" />
     <Compile Include="Model\Domain\Student.cs" />
-    <Compile Include="Model\DTO\Activity.cs" />
-    <Compile Include="Model\DTO\Course.cs" />
-    <Compile Include="Model\DTO\ActivityItem.cs" />
-    <Compile Include="Model\DTO\ActivityPortfolio.cs" />
-    <Compile Include="Model\DTO\Evaluator.cs" />
-    <Compile Include="Model\DTO\Rule.cs" />
-    <Compile Include="Model\DTO\Student.cs" />
+    <Compile Include="Model\Domain\ActivityItem.cs" />
+    <Compile Include="Model\Domain\ActivityPortfolio.cs" />
     <Compile Include="Supporting Files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Screen\Course\ActivityDetScreen.cs">
@@ -219,6 +214,7 @@
       <DependentUpon>StudentDetScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

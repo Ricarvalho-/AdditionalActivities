@@ -5,18 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdditionalActivities.Model.DTO
+namespace AdditionalActivities.Model.Domain
 {
-    class ActivityPortfolio
+    public class ActivityPortfolio
     {
-        public int Id { get; set; }
-        public int Semester { get; set; }
-        public string Title { get; set; }
-        public string Evaluator { get; set; }
+        public int? Id { get; set; }
         public DateTime DeliveryDate { get; set; }
         public DateTime EvaluationDate { get; set; }
+        public Period SchoolYear { get; set; }
         public Student Student { get; set; }
-
-        public ActivityPortfolio() { }
+        public Evaluator Evaluator { get; set; }
     }
 }

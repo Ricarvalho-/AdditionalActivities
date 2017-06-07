@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    class Rule
+    public class Rule
     {
         public int? Id { get; set; }
         public string Name { get; set; }
         public int RequiredHours { get; set; }
+        public int Year { get; set; }
         public Course Course { get; set; }
-        public List<Activity> Activities { get; set; }
-        //Year
+        //public List<Activity> Activities { get; set; }
+
+        public Rule()//HACK: Only here to don't crash
+        {
+            Course = new Course();
+        }
     }
 }
