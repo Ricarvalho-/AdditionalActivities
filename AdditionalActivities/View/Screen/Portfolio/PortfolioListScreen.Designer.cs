@@ -31,15 +31,15 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label3;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.courseComboBox = new System.Windows.Forms.ComboBox();
+            this.studentComboBox = new System.Windows.Forms.ComboBox();
             this.newStudentButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
             this.portfoliosDataGridView = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.studentDetFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.nameLabel = new System.Windows.Forms.Label();
             this.registerNumberLabel = new System.Windows.Forms.Label();
             this.ruleLabel = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portfoliosDataGridView)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.studentDetFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -83,8 +83,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.courseComboBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.studentComboBox, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.newStudentButton, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -97,26 +97,28 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(486, 82);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // comboBox1
+            // courseComboBox
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.comboBox1, 2);
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(480, 21);
-            this.comboBox1.TabIndex = 1;
+            this.tableLayoutPanel1.SetColumnSpan(this.courseComboBox, 2);
+            this.courseComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.courseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.courseComboBox.FormattingEnabled = true;
+            this.courseComboBox.Location = new System.Drawing.Point(3, 16);
+            this.courseComboBox.Name = "courseComboBox";
+            this.courseComboBox.Size = new System.Drawing.Size(480, 21);
+            this.courseComboBox.TabIndex = 1;
             // 
-            // comboBox3
+            // studentComboBox
             // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 56);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(399, 21);
-            this.comboBox3.TabIndex = 3;
+            this.studentComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.studentComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentComboBox.FormattingEnabled = true;
+            this.studentComboBox.Location = new System.Drawing.Point(3, 56);
+            this.studentComboBox.Name = "studentComboBox";
+            this.studentComboBox.Size = new System.Drawing.Size(399, 21);
+            this.studentComboBox.TabIndex = 3;
+            this.studentComboBox.SelectedIndexChanged += new System.EventHandler(this.studentComboBox_SelectedIndexChanged);
+            this.studentComboBox.TextUpdate += new System.EventHandler(this.studentComboBox_TextUpdate);
             // 
             // newStudentButton
             // 
@@ -195,18 +197,18 @@
             this.portfoliosDataGridView.TabIndex = 2;
             this.portfoliosDataGridView.SelectionChanged += new System.EventHandler(this.portfoliosDataGridView_SelectionChanged);
             // 
-            // flowLayoutPanel1
+            // studentDetFlowLayoutPanel
             // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.nameLabel);
-            this.flowLayoutPanel1.Controls.Add(this.registerNumberLabel);
-            this.flowLayoutPanel1.Controls.Add(this.ruleLabel);
-            this.flowLayoutPanel1.Controls.Add(this.registerStateLabel);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 82);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 19);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.studentDetFlowLayoutPanel.AutoSize = true;
+            this.studentDetFlowLayoutPanel.Controls.Add(this.nameLabel);
+            this.studentDetFlowLayoutPanel.Controls.Add(this.registerNumberLabel);
+            this.studentDetFlowLayoutPanel.Controls.Add(this.ruleLabel);
+            this.studentDetFlowLayoutPanel.Controls.Add(this.registerStateLabel);
+            this.studentDetFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentDetFlowLayoutPanel.Location = new System.Drawing.Point(0, 82);
+            this.studentDetFlowLayoutPanel.Name = "studentDetFlowLayoutPanel";
+            this.studentDetFlowLayoutPanel.Size = new System.Drawing.Size(486, 19);
+            this.studentDetFlowLayoutPanel.TabIndex = 1;
             // 
             // nameLabel
             // 
@@ -253,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.portfoliosDataGridView);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.studentDetFlowLayoutPanel);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PortfolioListScreen";
@@ -262,8 +264,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.portfoliosDataGridView)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.studentDetFlowLayoutPanel.ResumeLayout(false);
+            this.studentDetFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,15 +274,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox courseComboBox;
+        private System.Windows.Forms.ComboBox studentComboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button newStudentButton;
         private System.Windows.Forms.DataGridView portfoliosDataGridView;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel studentDetFlowLayoutPanel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label registerNumberLabel;
         private System.Windows.Forms.Label ruleLabel;

@@ -42,6 +42,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = isEditing;
                 splitContainer2.Panel2Collapsed = isEditing || activitiesDataGridView.SelectedCells.Count != 1;
+                if (!isEditing)
+                    ShouldPopOnCancel = false;
 
                 yearNumericUpDown.Enabled = IsEditing;
                 semesterComboBox.Enabled = IsEditing;
@@ -56,7 +58,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //TODO: Discard changes
+                ScreenWillAppear();//Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();
@@ -64,7 +66,6 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
-            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object

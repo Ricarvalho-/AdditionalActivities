@@ -68,7 +68,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                ScreenWillAppear();//Reset fields
+                ScreenWillAppear();//Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();

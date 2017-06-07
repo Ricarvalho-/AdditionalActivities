@@ -19,6 +19,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            studentDetFlowLayoutPanel.Controls.Clear();
         }
 
         public void ScreenWillAppear()
@@ -56,6 +57,21 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             openButton.Enabled = portfoliosDataGridView.SelectedRows.Count == 1;
             removeButton.Enabled = portfoliosDataGridView.SelectedRows.Count > 0;
+        }
+
+        private void studentComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            studentDetFlowLayoutPanel.Controls.Clear();
+            studentDetFlowLayoutPanel.Controls.Add(nameLabel);
+            studentDetFlowLayoutPanel.Controls.Add(registerNumberLabel);
+            studentDetFlowLayoutPanel.Controls.Add(ruleLabel);
+            studentDetFlowLayoutPanel.Controls.Add(registerStateLabel);
+            //TODO: Set labels texts from selected student properties
+        }
+
+        private void studentComboBox_TextUpdate(object sender, EventArgs e)
+        {
+            studentDetFlowLayoutPanel.Controls.Clear();
         }
     }
 }

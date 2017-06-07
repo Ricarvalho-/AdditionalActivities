@@ -27,6 +27,8 @@ namespace AdditionalActivities.View.Screen.Course
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = IsEditing;
+                if (!IsEditing)
+                    ShouldPopOnCancel = false;
 
                 nameTextBox.ReadOnly = !IsEditing;
                 maxDurationNumericUpDown.Enabled = IsEditing;
@@ -73,7 +75,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //TODO: Discard changes
+                ScreenWillAppear();//Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();
@@ -81,7 +83,6 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
-            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object

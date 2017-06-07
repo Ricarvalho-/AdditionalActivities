@@ -27,6 +27,8 @@ namespace AdditionalActivities.View.Screen.Student
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
+                if (!IsEditing)
+                    ShouldPopOnCancel = false;
 
                 nameTextBox.ReadOnly = !IsEditing;
                 registerNumberTextBox.ReadOnly = !IsEditing;
@@ -57,7 +59,7 @@ namespace AdditionalActivities.View.Screen.Student
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //TODO: Discard changes
+                ScreenWillAppear();//Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();
@@ -65,7 +67,6 @@ namespace AdditionalActivities.View.Screen.Student
 
         private void editSaveButton_Click(object sender, EventArgs e)
         {
-            ShouldPopOnCancel = false;
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
