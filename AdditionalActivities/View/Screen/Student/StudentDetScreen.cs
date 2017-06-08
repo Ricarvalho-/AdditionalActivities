@@ -8,15 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Screen.Portfolio;
-using AdditionalActivities.Model.Domain;
+using Domain = AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Student
 {
     public partial class StudentDetScreen : UserControl, IScreen
     {
+        #region Properties
         private bool ShouldSwapOnSave { get; set; }
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
+        private Domain.Student student;
+        private Domain.Student WorkingCopyStudent { get; set; }
+
+        private Domain.Student Student
+        {
+            get { return student; }
+            set
+            {
+                student = value;
+                WorkingCopyStudent = (Domain.Student)Student.Copy();
+            }
+        }
 
         public bool IsEditing {
             get
@@ -33,24 +46,32 @@ namespace AdditionalActivities.View.Screen.Student
                     ShouldPopOnCancel = false;
             }
         }
+        #endregion
 
-        public StudentDetScreen(bool startEditing, bool fromPortfolioListContext)//UNDONE: Receive student
+        #region Init
+        public StudentDetScreen(bool startEditing, bool fromPortfolioListContext, Domain.Student student)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             ShouldSwapOnSave = fromPortfolioListContext;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
-            registerStateComboBox.DataSource = Enum.GetValues(typeof(RegistrationState));
+            Student = student;
+            registerStateComboBox.DataSource = Enum.GetValues(typeof(Domain.RegistrationState));
             semesterComboBox.SelectedIndex = 0;
+            SetupBindings();
         }
 
+        private void SetupBindings() { }
+        #endregion
+
+        #region Event handlers
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //Resets fields and discard changes
+                Student = Student;
             }
             else
                 MainForm.Instance.PopScreen();
@@ -63,13 +84,16 @@ namespace AdditionalActivities.View.Screen.Student
                 if (true)//UNDONE: Could save object
                 {
                     IsEditing = false;
-                    //Set original to WC here
+                    Student = WorkingCopyStudent;
                     if (ShouldSwapOnSave)
-                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true));//UNDONE: Pass prefilled object
+                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true, new Domain.ActivityPortfolio()));//UNDONE: Pass prefilled object
                 }
+                else
+                    MessageBox.Show("Falha ao salvar aluno.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditing = true;
         }
+        #endregion
     }
 }

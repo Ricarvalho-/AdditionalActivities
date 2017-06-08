@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdditionalActivities.View.Screen.Student;
 using Domain = AdditionalActivities.Model.Domain;
-using AdditionalActivities.Properties;
 
 namespace AdditionalActivities.View.Screen.Portfolio
 {
@@ -26,12 +25,12 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new PortfolioDetScreen(false));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new PortfolioDetScreen(false, new Domain.ActivityPortfolio()));//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new PortfolioDetScreen(true));
+            MainForm.Instance.PresentScreen(new PortfolioDetScreen(true, new Domain.ActivityPortfolio()));
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -47,7 +46,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
 
         private void newStudentButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new StudentDetScreen(true, true));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new StudentDetScreen(true, true, new Domain.Student()));//UNDONE: Pass object
         }
 
         private void portfoliosDataGridView_SelectionChanged(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace AdditionalActivities.View.Screen.Course
 {
     public partial class ActivityDetScreen : UserControl, IScreen
     {
+        #region Properties
         private bool ShouldPopOnCancel { get; set; }
         public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
         private bool isEditing;
@@ -45,7 +46,9 @@ namespace AdditionalActivities.View.Screen.Course
                     ShouldPopOnCancel = false;
             }
         }
+        #endregion
 
+        #region Init
         public ActivityDetScreen(bool startEditing, Activity activity)
         {
             InitializeComponent();
@@ -56,7 +59,7 @@ namespace AdditionalActivities.View.Screen.Course
             SetupBindings();
         }
 
-        public void SetupBindings()
+        private void SetupBindings()
         {
             stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
             stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
@@ -69,7 +72,9 @@ namespace AdditionalActivities.View.Screen.Course
             stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
             descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
         }
+        #endregion
 
+        #region Event handlers
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
@@ -101,5 +106,6 @@ namespace AdditionalActivities.View.Screen.Course
         {
             stepHoursNumericUpDown.Value = 1;
         }
+        #endregion
     }
 }

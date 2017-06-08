@@ -13,20 +13,42 @@ namespace AdditionalActivities.View.Screen.Portfolio
 {
     public partial class PortfolioDetScreen : UserControl, IScreen
     {
+        #region Properties
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing, isEditingActivity;
+        #endregion
 
-        public PortfolioDetScreen(bool startEditing)
+        #region Init
+        public PortfolioDetScreen(bool startEditing, ActivityPortfolio portfolio)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            Portfolio = portfolio;
             activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
             semesterComboBox.SelectedIndex = 0;
+            SetupBindings();
         }
 
+        private void SetupBindings() { }
+        #endregion
+
         #region Portfolio
+        #region Properties
+        private ActivityPortfolio portfolio;
+        private ActivityPortfolio WorkingCopyPortfolio { get; set; }
+
+        private ActivityPortfolio Portfolio
+        {
+            get { return portfolio; }
+            set
+            {
+                portfolio = value;
+                WorkingCopyPortfolio = (ActivityPortfolio)Portfolio.Copy();
+            }
+        }
+
         public bool IsEditing
         {
             get
@@ -45,13 +67,15 @@ namespace AdditionalActivities.View.Screen.Portfolio
                     ShouldPopOnCancel = false;
             }
         }
+        #endregion
 
+        #region Event handlers
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //Resets fields and discard changes
+                Portfolio = Portfolio;
             }
             else
                 MainForm.Instance.PopScreen();
@@ -62,14 +86,34 @@ namespace AdditionalActivities.View.Screen.Portfolio
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
+                {
                     IsEditing = false;
+                    Portfolio = WorkingCopyPortfolio;
+                }
+                else
+                    MessageBox.Show("Falha ao salvar portifólio.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditing = true;
         }
         #endregion
+        #endregion
 
         #region Activity
+        #region Properties
+        private ActivityItem actItem;
+        private ActivityItem WorkingCopyActItem { get; set; }
+
+        private ActivityItem ActItem
+        {
+            get { return actItem; }
+            set
+            {
+                actItem = value;
+                //WorkingCopyActItem = (ActivityItem)ActItem.Copy();//HACK: Prevent nullPointerException
+            }
+        }
+
         private bool IsEditingActivity
         {
             get
@@ -86,11 +130,14 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 tableLayoutPanel2.Enabled = IsEditingActivity;
             }
         }
+        #endregion
 
+        #region Event handlers
         private void addButton_Click(object sender, EventArgs e)
         {
             IsEditingActivity = true;
             //TODO: Clear all activity fields
+            ActItem = null;
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -108,7 +155,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             IsEditingActivity = false;
             splitContainer2.Panel2Collapsed = activitiesDataGridView.SelectedCells.Count != 1;
-            //TODO: Discard changes
+            ActItem = ActItem;
         }
 
         private void activityEditSaveButton_Click(object sender, EventArgs e)
@@ -116,7 +163,12 @@ namespace AdditionalActivities.View.Screen.Portfolio
             if (IsEditingActivity)
             {
                 if (true)//UNDONE: Could save object
+                {
                     IsEditingActivity = false;
+                    ActItem = WorkingCopyActItem;
+                }
+                else
+                    MessageBox.Show("Falha ao salvar atividade.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditingActivity = true;
@@ -126,7 +178,12 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             splitContainer2.Panel2Collapsed = activitiesDataGridView.SelectedRows.Count != 1;
             removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
+            if (activitiesDataGridView.SelectedRows.Count == 1)
+                ;//TODO: Item = ItemDTO.GetItem(activitiesDataGridView.SelectedRows[0].Cells[0]);
+            else
+                ActItem = null;
         }
+        #endregion
         #endregion
     }
 }

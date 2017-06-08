@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain = AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Student
 {
@@ -22,12 +23,12 @@ namespace AdditionalActivities.View.Screen.Student
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new StudentDetScreen(false, false));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new StudentDetScreen(false, false, new Domain.Student()));//UNDONE: Pass object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new StudentDetScreen(true, false));
+            MainForm.Instance.PresentScreen(new StudentDetScreen(true, false, new Domain.Student()));
         }
 
         private void removeButton_Click(object sender, EventArgs e)

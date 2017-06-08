@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain = AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Course
 {
@@ -20,14 +21,15 @@ namespace AdditionalActivities.View.Screen.Course
             Dock = DockStyle.Fill;
         }
 
+        #region Event handling
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new CourseDetScreen(false));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new CourseDetScreen(false, new Domain.Course()));//UNDONE: Pass selected object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new CourseDetScreen(true));
+            MainForm.Instance.PresentScreen(new CourseDetScreen(true, new Domain.Course()));
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -46,5 +48,6 @@ namespace AdditionalActivities.View.Screen.Course
             openButton.Enabled = coursesDataGridView.SelectedRows.Count == 1;
             removeButton.Enabled = coursesDataGridView.SelectedRows.Count > 0;
         }
+        #endregion
     }
 }

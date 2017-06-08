@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    public class Student
+    public class Student : DomainObject
     {
         public int? Id { get; set; }
         public string Name { get; set; }

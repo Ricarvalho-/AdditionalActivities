@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +12,21 @@ namespace AdditionalActivities.View.Screen.Course
 {
     public partial class RuleDetScreen : UserControl, IScreen
     {
+        #region Properties
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
+        private Rule rule;
+        private Rule WorkingCopyRule { get; set; }
+
+        private Rule Rule
+        {
+            get { return rule; }
+            set
+            {
+                rule = value;
+                WorkingCopyRule = (Rule)Rule.Copy();
+            }
+        }
 
         public bool IsEditing
         {
@@ -33,15 +45,23 @@ namespace AdditionalActivities.View.Screen.Course
                     ShouldPopOnCancel = false;
             }
         }
+        #endregion
 
-        public RuleDetScreen(bool startEditing)
+        #region Init
+        public RuleDetScreen(bool startEditing, Rule rule)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            Rule = rule;
+            SetupBindings();
         }
 
+        private void SetupBindings() { }
+        #endregion
+
+        #region Event handlers
         private void openButton_Click(object sender, EventArgs e)
         {
             MainForm.Instance.PresentScreen(new ActivityDetScreen(false, new Activity()));//UNDONE: Pass selected object
@@ -68,7 +88,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //Resets fields and discard changes
+                Rule = Rule;
             }
             else
                 MainForm.Instance.PopScreen();
@@ -79,7 +99,12 @@ namespace AdditionalActivities.View.Screen.Course
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
+                {
                     IsEditing = false;
+                    Rule = WorkingCopyRule;
+                }
+                else
+                    MessageBox.Show("Falha ao salvar regra.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditing = true;
@@ -90,5 +115,6 @@ namespace AdditionalActivities.View.Screen.Course
             openButton.Enabled = activitiesDataGridView.SelectedRows.Count == 1;
             removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
         }
+        #endregion
     }
 }

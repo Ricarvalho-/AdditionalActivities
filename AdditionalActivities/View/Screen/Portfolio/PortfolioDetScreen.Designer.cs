@@ -53,17 +53,16 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.backButton = new System.Windows.Forms.Button();
-            this.editSaveButton = new System.Windows.Forms.Button();
             this.studentTextBox = new System.Windows.Forms.TextBox();
             this.evaluatorComboBox = new System.Windows.Forms.ComboBox();
             this.deliveryDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.evaluationDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.backButton = new System.Windows.Forms.Button();
+            this.editSaveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.activityCancelButton = new System.Windows.Forms.Button();
-            this.activityEditSaveButton = new System.Windows.Forms.Button();
             this.activityNameTextBox = new System.Windows.Forms.TextBox();
             this.activityCertificateTextBox = new System.Windows.Forms.TextBox();
             this.activityComboBox = new System.Windows.Forms.ComboBox();
@@ -71,8 +70,9 @@
             this.activityApprovationComboBox = new System.Windows.Forms.ComboBox();
             this.activityObservationTextBox = new System.Windows.Forms.TextBox();
             this.activityScheduledHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.activityCancelButton = new System.Windows.Forms.Button();
+            this.activityEditSaveButton = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -102,9 +102,9 @@
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityScheduledHoursNumericUpDown)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,9 +124,9 @@
             label3.AutoSize = true;
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(84, 0);
+            label3.Location = new System.Drawing.Point(85, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(75, 29);
+            label3.Size = new System.Drawing.Size(76, 29);
             label3.TabIndex = 3;
             label3.Text = "Portifólio";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,9 +136,9 @@
             label2.AutoSize = true;
             label2.Dock = System.Windows.Forms.DockStyle.Fill;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(84, 0);
+            label2.Location = new System.Drawing.Point(85, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(75, 29);
+            label2.Size = new System.Drawing.Size(76, 29);
             label2.TabIndex = 1;
             label2.Text = "Atividade";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,28 +443,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 157);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // backButton
-            // 
-            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backButton.Location = new System.Drawing.Point(3, 3);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 0;
-            this.backButton.Text = "Voltar";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // editSaveButton
-            // 
-            this.editSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editSaveButton.Location = new System.Drawing.Point(165, 3);
-            this.editSaveButton.Name = "editSaveButton";
-            this.editSaveButton.Size = new System.Drawing.Size(78, 23);
-            this.editSaveButton.TabIndex = 2;
-            this.editSaveButton.Text = "Editar";
-            this.editSaveButton.UseVisualStyleBackColor = true;
-            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
-            // 
             // studentTextBox
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.studentTextBox, 4);
@@ -546,6 +524,48 @@
             this.semesterComboBox.Sorted = true;
             this.semesterComboBox.TabIndex = 9;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.AutoSize = true;
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.backButton, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(label3, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.editSaveButton, 3, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(246, 29);
+            this.tableLayoutPanel4.TabIndex = 16;
+            // 
+            // backButton
+            // 
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backButton.Location = new System.Drawing.Point(3, 3);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(76, 23);
+            this.backButton.TabIndex = 0;
+            this.backButton.Text = "Voltar";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // editSaveButton
+            // 
+            this.editSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editSaveButton.Location = new System.Drawing.Point(167, 3);
+            this.editSaveButton.Name = "editSaveButton";
+            this.editSaveButton.Size = new System.Drawing.Size(76, 23);
+            this.editSaveButton.TabIndex = 2;
+            this.editSaveButton.Text = "Editar";
+            this.editSaveButton.UseVisualStyleBackColor = true;
+            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
@@ -584,29 +604,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 227);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // activityCancelButton
-            // 
-            this.activityCancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityCancelButton.Location = new System.Drawing.Point(3, 3);
-            this.activityCancelButton.Name = "activityCancelButton";
-            this.activityCancelButton.Size = new System.Drawing.Size(75, 23);
-            this.activityCancelButton.TabIndex = 0;
-            this.activityCancelButton.Text = "Cancelar";
-            this.activityCancelButton.UseVisualStyleBackColor = true;
-            this.activityCancelButton.Visible = false;
-            this.activityCancelButton.Click += new System.EventHandler(this.activityCancelButton_Click);
-            // 
-            // activityEditSaveButton
-            // 
-            this.activityEditSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityEditSaveButton.Location = new System.Drawing.Point(165, 3);
-            this.activityEditSaveButton.Name = "activityEditSaveButton";
-            this.activityEditSaveButton.Size = new System.Drawing.Size(78, 23);
-            this.activityEditSaveButton.TabIndex = 2;
-            this.activityEditSaveButton.Text = "Editar";
-            this.activityEditSaveButton.UseVisualStyleBackColor = true;
-            this.activityEditSaveButton.Click += new System.EventHandler(this.activityEditSaveButton_Click);
             // 
             // activityNameTextBox
             // 
@@ -684,26 +681,6 @@
             this.activityScheduledHoursNumericUpDown.TabIndex = 10;
             this.activityScheduledHoursNumericUpDown.ThousandsSeparator = true;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Controls.Add(this.backButton, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(label3, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.editSaveButton, 3, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(246, 29);
-            this.tableLayoutPanel4.TabIndex = 16;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.AutoSize = true;
@@ -719,9 +696,32 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(246, 29);
             this.tableLayoutPanel5.TabIndex = 17;
+            // 
+            // activityCancelButton
+            // 
+            this.activityCancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.activityCancelButton.Location = new System.Drawing.Point(3, 3);
+            this.activityCancelButton.Name = "activityCancelButton";
+            this.activityCancelButton.Size = new System.Drawing.Size(76, 23);
+            this.activityCancelButton.TabIndex = 0;
+            this.activityCancelButton.Text = "Cancelar";
+            this.activityCancelButton.UseVisualStyleBackColor = true;
+            this.activityCancelButton.Visible = false;
+            this.activityCancelButton.Click += new System.EventHandler(this.activityCancelButton_Click);
+            // 
+            // activityEditSaveButton
+            // 
+            this.activityEditSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.activityEditSaveButton.Location = new System.Drawing.Point(167, 3);
+            this.activityEditSaveButton.Name = "activityEditSaveButton";
+            this.activityEditSaveButton.Size = new System.Drawing.Size(76, 23);
+            this.activityEditSaveButton.TabIndex = 2;
+            this.activityEditSaveButton.Text = "Editar";
+            this.activityEditSaveButton.UseVisualStyleBackColor = true;
+            this.activityEditSaveButton.Click += new System.EventHandler(this.activityEditSaveButton_Click);
             // 
             // PortfolioDetScreen
             // 
@@ -748,11 +748,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityScheduledHoursNumericUpDown)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);

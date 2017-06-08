@@ -7,13 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain = AdditionalActivities.Model.Domain;
 
 namespace AdditionalActivities.View.Screen.Course
 {
     public partial class CourseDetScreen : UserControl, IScreen
     {
+        #region Properties
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing;
+        private Domain.Course course;
+        private Domain.Course WorkingCopyCourse { get; set; }
+
+        private Domain.Course Course
+        {
+            get { return course; }
+            set
+            {
+                course = value;
+                WorkingCopyCourse = (Domain.Course)Course.Copy();
+            }
+        }
 
         public bool IsEditing
         {
@@ -32,23 +46,31 @@ namespace AdditionalActivities.View.Screen.Course
                     ShouldPopOnCancel = false;
             }
         }
+        #endregion
 
-        public CourseDetScreen(bool startEditing)
+        #region Init
+        public CourseDetScreen(bool startEditing, Domain.Course course)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            Course = course;
+            SetupBindings();
         }
 
+        private void SetupBindings() { }
+        #endregion
+
+        #region Event handlers
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new RuleDetScreen(false));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new RuleDetScreen(false, new Domain.Rule()));//UNDONE: Pass selected object
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new RuleDetScreen(true));
+            MainForm.Instance.PresentScreen(new RuleDetScreen(true, new Domain.Rule()));
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -67,7 +89,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //Resets fields and discard changes
+                Course = Course;
             }
             else
                 MainForm.Instance.PopScreen();
@@ -78,7 +100,12 @@ namespace AdditionalActivities.View.Screen.Course
             if (IsEditing)
             {
                 if (true)//UNDONE: Could save object
+                {
                     IsEditing = false;
+                    Course = WorkingCopyCourse;
+                }
+                else
+                    MessageBox.Show("Falha ao salvar curso.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
             }
             else
                 IsEditing = true;
@@ -89,5 +116,6 @@ namespace AdditionalActivities.View.Screen.Course
             openButton.Enabled = rulesDataGridView.SelectedRows.Count == 1;
             removeButton.Enabled = rulesDataGridView.SelectedRows.Count > 0;
         }
+        #endregion
     }
 }
