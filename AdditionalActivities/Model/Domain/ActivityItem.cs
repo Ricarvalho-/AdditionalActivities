@@ -9,7 +9,7 @@ namespace AdditionalActivities.Model.Domain
 {
     public class ActivityItem
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int ScheduledHours { get; set; }
         public int DeferredHours { get; set; }
         public string Name { get; set; }

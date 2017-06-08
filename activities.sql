@@ -4,6 +4,7 @@ drop table activity;
 drop table rule;
 drop table course;
 drop table evaluator;
+drop table category;
 
 create table course (
 	id int not null auto_increment,
@@ -33,6 +34,12 @@ create table activity (
 );
 
 create table evaluator (
+	id int not null auto_increment,
+	name varchar(255),
+	primary key(id)
+);
+
+create table category (
 	id int not null auto_increment,
 	name varchar(255),
 	primary key(id)

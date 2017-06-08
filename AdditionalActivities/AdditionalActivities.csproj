@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ModelMediator.cs" />
+    <Compile Include="Model\DAO\ActivityCategoryDAO.cs" />
     <Compile Include="Model\DAO\DAOException.cs" />
     <Compile Include="Model\DAO\EvaluatorDAO.cs" />
     <Compile Include="Model\DAO\IDAO.cs" />
