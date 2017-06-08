@@ -14,8 +14,10 @@ namespace AdditionalActivities.View.Screen.Course
     public partial class ActivityDetScreen : UserControl, IScreen
     {
         private bool ShouldPopOnCancel { get; set; }
+        public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
         private bool isEditing;
         private Activity Activity { get; set; }
+        private Activity WorkingCopyActivity { get; set; }
 
         public bool IsEditing
         {
@@ -30,14 +32,7 @@ namespace AdditionalActivities.View.Screen.Course
                 backButton.Text = IsEditing ? "Cancelar" : "Voltar";
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-
-                nameTextBox.ReadOnly = !IsEditing;
-                categoryComboBox.Enabled = IsEditing;
-                minHoursNumericUpDown.Enabled = IsEditing;
-                maxHoursNumericUpDown.Enabled = IsEditing;
-                stepCheckBox.Enabled = IsEditing;
-                stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
-                descriptionTextBox.ReadOnly = !IsEditing;
+                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 
@@ -48,19 +43,21 @@ namespace AdditionalActivities.View.Screen.Course
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
             Activity = activity;
+            SetupBindings();
         }
 
-        public void ScreenWillAppear()
+        public void SetupBindings()
         {
-            nameTextBox.Text = Activity.Name;
-            courseTextBox.Text = Activity.Rule.Course.Name;
-            ruleTextBox.Text = Activity.Rule.Name;
-            categoryComboBox.SelectedValue = Activity.Category;
-            minHoursNumericUpDown.Value = Activity.MinHours;
-            maxHoursNumericUpDown.Value = Activity.MaxHours;
-            stepCheckBox.Checked = Activity.HourStep != 1;
-            stepHoursNumericUpDown.Value = Activity.HourStep;
-            descriptionTextBox.Text = Activity.Description;
+            stepHoursNumericUpDown.DataBindings.Add(new Binding("Enabled", stepCheckBox, "Checked", true));
+            nameTextBox.DataBindings.Add("Text", Activity, "Name");
+            courseTextBox.DataBindings.Add("Text", Activity, "Rule.Course.Name");
+            ruleTextBox.DataBindings.Add("Text", Activity, "Rule.Name");
+            categoryComboBox.DataBindings.Add("SelectedValue", Activity, "Category");
+            minHoursNumericUpDown.DataBindings.Add("Value", Activity, "MinHours");
+            maxHoursNumericUpDown.DataBindings.Add("Value", Activity, "MaxHours");
+            stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
+            stepHoursNumericUpDown.DataBindings.Add("Value", "Activity", "HourStep");
+            descriptionTextBox.DataBindings.Add("Text", Activity, "Description");
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -68,7 +65,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                ScreenWillAppear();//Resets fields and discard changes
+                //TODO: Set working copy obj to a copy of original object
             }
             else
                 MainForm.Instance.PopScreen();
@@ -78,16 +75,10 @@ namespace AdditionalActivities.View.Screen.Course
         {
             if (IsEditing)
             {
-                //TODO: create temporary object with fields values to pass on trySave
                 if (true)//UNDONE: Could save object
                 {
                     IsEditing = false;
-                    Activity.Name = nameTextBox.Text;
-                    Activity.Category = (ActivityCategory)categoryComboBox.SelectedValue;
-                    Activity.MinHours = (int)minHoursNumericUpDown.Value;
-                    Activity.MaxHours = (int)maxHoursNumericUpDown.Value;
-                    Activity.HourStep = (int)stepHoursNumericUpDown.Value;
-                    Activity.Description = descriptionTextBox.Text;
+                    //TODO: set original object to a copy of working copy obj
                 }
                 else
                     MessageBox.Show("Falha ao salvar atividade.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error
@@ -99,7 +90,6 @@ namespace AdditionalActivities.View.Screen.Course
         private void stepCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             stepHoursNumericUpDown.Value = 1;
-            stepHoursNumericUpDown.Enabled = stepCheckBox.Checked && IsEditing;
         }
     }
 }

@@ -29,10 +29,7 @@ namespace AdditionalActivities.View.Screen.Course
                 splitContainer1.Panel1Collapsed = IsEditing;
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-
-                nameTextBox.ReadOnly = !IsEditing;
-                maxDurationNumericUpDown.Enabled = IsEditing;
-                minDurationNumericUpDown.Enabled = IsEditing;
+                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 

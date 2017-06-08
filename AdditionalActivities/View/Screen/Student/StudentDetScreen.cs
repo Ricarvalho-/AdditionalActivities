@@ -30,14 +30,7 @@ namespace AdditionalActivities.View.Screen.Student
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-
-                nameTextBox.ReadOnly = !IsEditing;
-                registerNumberTextBox.ReadOnly = !IsEditing;
-                courseComboBox.Enabled = IsEditing;
-                ruleComboBox.Enabled = IsEditing;
-                registerStateComboBox.Enabled = IsEditing;
-                yearNumericUpDown.Enabled = IsEditing;
-                semesterComboBox.Enabled = IsEditing;
+                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 

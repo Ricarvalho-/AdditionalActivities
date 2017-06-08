@@ -76,7 +76,6 @@ namespace AdditionalActivities.View
             if (screenStack.Count == 0)
                 return;
             panel.Controls.Clear();
-            screenStack.Peek().ScreenWillAppear();
             panel.Controls.Add((UserControl)screenStack.Peek());
             SelectedButton.Select();
         }

@@ -47,12 +47,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 splitContainer2.Panel2Collapsed = isEditing || activitiesDataGridView.SelectedCells.Count != 1;
                 if (!isEditing)
                     ShouldPopOnCancel = false;
-
-                yearNumericUpDown.Enabled = IsEditing;
-                semesterComboBox.Enabled = IsEditing;
-                deliveryDateTimePicker.Enabled = IsEditing;
-                evaluationDateTimePicker.Enabled = IsEditing;
-                evaluatorComboBox.Enabled = IsEditing;
+                tableLayoutPanel1.Enabled = isEditing;
             }
         }
 
@@ -93,13 +88,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 activityCancelButton.Visible = IsEditingActivity;
                 splitContainer1.Panel1Collapsed = IsEditingActivity;
                 splitContainer2.Panel1Collapsed = IsEditingActivity;
-
-                activityNameTextBox.ReadOnly = !IsEditingActivity;
-                activityCertificateTextBox.ReadOnly = !IsEditingActivity;
-                activityComboBox.Enabled = IsEditingActivity;
-                activityScheduledHoursNumericUpDown.Enabled = IsEditingActivity;
-                activityApprovationComboBox.Enabled = IsEditingActivity;
-                activityObservationTextBox.ReadOnly = !IsEditingActivity;
+                tableLayoutPanel2.Enabled = IsEditingActivity;
             }
         }
 

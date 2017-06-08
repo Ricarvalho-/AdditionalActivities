@@ -30,10 +30,7 @@ namespace AdditionalActivities.View.Screen.Course
                 splitContainer1.Panel1Collapsed = IsEditing;
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-
-                nameTextBox.ReadOnly = !IsEditing;
-                yearNumericUpDown.Enabled = IsEditing;
-                requiredHoursNumericUpDown.Enabled = IsEditing;
+                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 

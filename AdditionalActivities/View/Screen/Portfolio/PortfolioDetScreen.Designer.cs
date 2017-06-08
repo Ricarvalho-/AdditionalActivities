@@ -71,6 +71,8 @@
             this.activityApprovationComboBox = new System.Windows.Forms.ComboBox();
             this.activityObservationTextBox = new System.Windows.Forms.TextBox();
             this.activityScheduledHoursNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -102,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityScheduledHoursNumericUpDown)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -118,12 +122,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(label3, 2);
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(64, 0);
+            label3.Location = new System.Drawing.Point(84, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(116, 29);
+            label3.Size = new System.Drawing.Size(75, 29);
             label3.TabIndex = 3;
             label3.Text = "Portifólio";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,7 +138,7 @@
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new System.Drawing.Point(84, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(76, 29);
+            label2.Size = new System.Drawing.Size(75, 29);
             label2.TabIndex = 1;
             label2.Text = "Atividade";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,7 +148,7 @@
             label4.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label4, 4);
             label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            label4.Location = new System.Drawing.Point(3, 29);
+            label4.Location = new System.Drawing.Point(3, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(240, 13);
             label4.TabIndex = 4;
@@ -156,7 +159,7 @@
             label5.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label5, 2);
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            label5.Location = new System.Drawing.Point(3, 68);
+            label5.Location = new System.Drawing.Point(3, 39);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(116, 13);
             label5.TabIndex = 6;
@@ -167,7 +170,7 @@
             label6.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label6, 2);
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            label6.Location = new System.Drawing.Point(3, 108);
+            label6.Location = new System.Drawing.Point(3, 79);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(116, 13);
             label6.TabIndex = 10;
@@ -178,7 +181,7 @@
             label7.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label7, 2);
             label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            label7.Location = new System.Drawing.Point(125, 108);
+            label7.Location = new System.Drawing.Point(125, 79);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(118, 13);
             label7.TabIndex = 12;
@@ -189,7 +192,7 @@
             label8.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label8, 4);
             label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            label8.Location = new System.Drawing.Point(3, 147);
+            label8.Location = new System.Drawing.Point(3, 118);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(240, 13);
             label8.TabIndex = 14;
@@ -200,7 +203,7 @@
             label9.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(label9, 3);
             label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            label9.Location = new System.Drawing.Point(3, 29);
+            label9.Location = new System.Drawing.Point(3, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(240, 13);
             label9.TabIndex = 3;
@@ -211,7 +214,7 @@
             label10.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(label10, 3);
             label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            label10.Location = new System.Drawing.Point(3, 68);
+            label10.Location = new System.Drawing.Point(3, 39);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(240, 13);
             label10.TabIndex = 5;
@@ -222,7 +225,7 @@
             label11.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(label11, 3);
             label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            label11.Location = new System.Drawing.Point(3, 107);
+            label11.Location = new System.Drawing.Point(3, 78);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(240, 13);
             label11.TabIndex = 7;
@@ -232,7 +235,7 @@
             // 
             label12.AutoSize = true;
             label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            label12.Location = new System.Drawing.Point(3, 147);
+            label12.Location = new System.Drawing.Point(3, 118);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(75, 26);
             label12.TabIndex = 9;
@@ -243,7 +246,7 @@
             // 
             label13.AutoSize = true;
             label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            label13.Location = new System.Drawing.Point(84, 147);
+            label13.Location = new System.Drawing.Point(84, 118);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(76, 26);
             label13.TabIndex = 11;
@@ -254,7 +257,7 @@
             // 
             label14.AutoSize = true;
             label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            label14.Location = new System.Drawing.Point(166, 147);
+            label14.Location = new System.Drawing.Point(166, 118);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(77, 26);
             label14.TabIndex = 13;
@@ -266,7 +269,7 @@
             label15.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(label15, 3);
             label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            label15.Location = new System.Drawing.Point(3, 200);
+            label15.Location = new System.Drawing.Point(3, 171);
             label15.Name = "label15";
             label15.Size = new System.Drawing.Size(240, 13);
             label15.TabIndex = 15;
@@ -277,7 +280,7 @@
             label16.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(label16, 2);
             label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            label16.Location = new System.Drawing.Point(125, 68);
+            label16.Location = new System.Drawing.Point(125, 39);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(118, 13);
             label16.TabIndex = 8;
@@ -393,11 +396,13 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel4);
             this.splitContainer2.Panel1MinSize = 188;
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel5);
             this.splitContainer2.Size = new System.Drawing.Size(248, 450);
             this.splitContainer2.SplitterDistance = 188;
             this.splitContainer2.TabIndex = 4;
@@ -409,25 +414,22 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.backButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.editSaveButton, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(label3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(label4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.studentTextBox, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(label5, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(label7, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(label8, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.evaluatorComboBox, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.deliveryDateTimePicker, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.evaluationDateTimePicker, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.yearNumericUpDown, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.semesterComboBox, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(label16, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(label4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.studentTextBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(label6, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(label7, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(label8, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.evaluatorComboBox, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.deliveryDateTimePicker, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.evaluationDateTimePicker, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.yearNumericUpDown, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.semesterComboBox, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(label16, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 29);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -436,8 +438,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 186);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 157);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // backButton
@@ -445,7 +448,7 @@
             this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backButton.Location = new System.Drawing.Point(3, 3);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(55, 23);
+            this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
             this.backButton.Text = "Voltar";
             this.backButton.UseVisualStyleBackColor = true;
@@ -454,9 +457,9 @@
             // editSaveButton
             // 
             this.editSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editSaveButton.Location = new System.Drawing.Point(186, 3);
+            this.editSaveButton.Location = new System.Drawing.Point(165, 3);
             this.editSaveButton.Name = "editSaveButton";
-            this.editSaveButton.Size = new System.Drawing.Size(57, 23);
+            this.editSaveButton.Size = new System.Drawing.Size(78, 23);
             this.editSaveButton.TabIndex = 2;
             this.editSaveButton.Text = "Editar";
             this.editSaveButton.UseVisualStyleBackColor = true;
@@ -466,7 +469,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.studentTextBox, 4);
             this.studentTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentTextBox.Location = new System.Drawing.Point(3, 45);
+            this.studentTextBox.Location = new System.Drawing.Point(3, 16);
             this.studentTextBox.Name = "studentTextBox";
             this.studentTextBox.ReadOnly = true;
             this.studentTextBox.Size = new System.Drawing.Size(240, 20);
@@ -477,7 +480,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.evaluatorComboBox, 4);
             this.evaluatorComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.evaluatorComboBox.FormattingEnabled = true;
-            this.evaluatorComboBox.Location = new System.Drawing.Point(3, 163);
+            this.evaluatorComboBox.Location = new System.Drawing.Point(3, 134);
             this.evaluatorComboBox.Name = "evaluatorComboBox";
             this.evaluatorComboBox.Size = new System.Drawing.Size(240, 21);
             this.evaluatorComboBox.TabIndex = 15;
@@ -489,7 +492,7 @@
             this.deliveryDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deliveryDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.deliveryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.deliveryDateTimePicker.Location = new System.Drawing.Point(3, 124);
+            this.deliveryDateTimePicker.Location = new System.Drawing.Point(3, 95);
             this.deliveryDateTimePicker.Name = "deliveryDateTimePicker";
             this.deliveryDateTimePicker.Size = new System.Drawing.Size(116, 20);
             this.deliveryDateTimePicker.TabIndex = 11;
@@ -502,7 +505,7 @@
             this.evaluationDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.evaluationDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.evaluationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.evaluationDateTimePicker.Location = new System.Drawing.Point(125, 124);
+            this.evaluationDateTimePicker.Location = new System.Drawing.Point(125, 95);
             this.evaluationDateTimePicker.Name = "evaluationDateTimePicker";
             this.evaluationDateTimePicker.ShowCheckBox = true;
             this.evaluationDateTimePicker.Size = new System.Drawing.Size(118, 20);
@@ -512,7 +515,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.yearNumericUpDown, 2);
             this.yearNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yearNumericUpDown.Location = new System.Drawing.Point(3, 84);
+            this.yearNumericUpDown.Location = new System.Drawing.Point(3, 55);
             this.yearNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -537,7 +540,7 @@
             this.semesterComboBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.semesterComboBox.Location = new System.Drawing.Point(125, 84);
+            this.semesterComboBox.Location = new System.Drawing.Point(125, 55);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(118, 21);
             this.semesterComboBox.Sorted = true;
@@ -546,30 +549,27 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Controls.Add(this.activityCancelButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(label2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.activityEditSaveButton, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(label9, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.activityNameTextBox, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(label10, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.activityCertificateTextBox, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(label11, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.activityComboBox, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(label12, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(label13, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.activityDeferredHoursTextBox, 1, 8);
-            this.tableLayoutPanel2.Controls.Add(label14, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.activityApprovationComboBox, 2, 8);
-            this.tableLayoutPanel2.Controls.Add(label15, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.activityObservationTextBox, 0, 10);
-            this.tableLayoutPanel2.Controls.Add(this.activityScheduledHoursNumericUpDown, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(label9, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.activityNameTextBox, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(label10, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.activityCertificateTextBox, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(label11, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.activityComboBox, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(label12, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(label13, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.activityDeferredHoursTextBox, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(label14, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.activityApprovationComboBox, 2, 7);
+            this.tableLayoutPanel2.Controls.Add(label15, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.activityObservationTextBox, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.activityScheduledHoursNumericUpDown, 0, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 29);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 11;
+            this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -580,8 +580,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 256);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 227);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // activityCancelButton
@@ -599,9 +600,9 @@
             // activityEditSaveButton
             // 
             this.activityEditSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityEditSaveButton.Location = new System.Drawing.Point(166, 3);
+            this.activityEditSaveButton.Location = new System.Drawing.Point(165, 3);
             this.activityEditSaveButton.Name = "activityEditSaveButton";
-            this.activityEditSaveButton.Size = new System.Drawing.Size(77, 23);
+            this.activityEditSaveButton.Size = new System.Drawing.Size(78, 23);
             this.activityEditSaveButton.TabIndex = 2;
             this.activityEditSaveButton.Text = "Editar";
             this.activityEditSaveButton.UseVisualStyleBackColor = true;
@@ -611,7 +612,7 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.activityNameTextBox, 3);
             this.activityNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityNameTextBox.Location = new System.Drawing.Point(3, 45);
+            this.activityNameTextBox.Location = new System.Drawing.Point(3, 16);
             this.activityNameTextBox.Name = "activityNameTextBox";
             this.activityNameTextBox.Size = new System.Drawing.Size(240, 20);
             this.activityNameTextBox.TabIndex = 4;
@@ -620,7 +621,7 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.activityCertificateTextBox, 3);
             this.activityCertificateTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityCertificateTextBox.Location = new System.Drawing.Point(3, 84);
+            this.activityCertificateTextBox.Location = new System.Drawing.Point(3, 55);
             this.activityCertificateTextBox.Name = "activityCertificateTextBox";
             this.activityCertificateTextBox.Size = new System.Drawing.Size(240, 20);
             this.activityCertificateTextBox.TabIndex = 6;
@@ -631,7 +632,7 @@
             this.activityComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.activityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activityComboBox.FormattingEnabled = true;
-            this.activityComboBox.Location = new System.Drawing.Point(3, 123);
+            this.activityComboBox.Location = new System.Drawing.Point(3, 94);
             this.activityComboBox.Name = "activityComboBox";
             this.activityComboBox.Size = new System.Drawing.Size(240, 21);
             this.activityComboBox.TabIndex = 8;
@@ -639,7 +640,7 @@
             // activityDeferredHoursTextBox
             // 
             this.activityDeferredHoursTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityDeferredHoursTextBox.Location = new System.Drawing.Point(84, 176);
+            this.activityDeferredHoursTextBox.Location = new System.Drawing.Point(84, 147);
             this.activityDeferredHoursTextBox.Name = "activityDeferredHoursTextBox";
             this.activityDeferredHoursTextBox.ReadOnly = true;
             this.activityDeferredHoursTextBox.Size = new System.Drawing.Size(76, 20);
@@ -650,7 +651,7 @@
             this.activityApprovationComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.activityApprovationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activityApprovationComboBox.FormattingEnabled = true;
-            this.activityApprovationComboBox.Location = new System.Drawing.Point(166, 176);
+            this.activityApprovationComboBox.Location = new System.Drawing.Point(166, 147);
             this.activityApprovationComboBox.Name = "activityApprovationComboBox";
             this.activityApprovationComboBox.Size = new System.Drawing.Size(77, 21);
             this.activityApprovationComboBox.TabIndex = 14;
@@ -659,7 +660,7 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.activityObservationTextBox, 3);
             this.activityObservationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.activityObservationTextBox.Location = new System.Drawing.Point(3, 216);
+            this.activityObservationTextBox.Location = new System.Drawing.Point(3, 187);
             this.activityObservationTextBox.Multiline = true;
             this.activityObservationTextBox.Name = "activityObservationTextBox";
             this.activityObservationTextBox.Size = new System.Drawing.Size(240, 37);
@@ -672,7 +673,7 @@
             0,
             0,
             0});
-            this.activityScheduledHoursNumericUpDown.Location = new System.Drawing.Point(3, 176);
+            this.activityScheduledHoursNumericUpDown.Location = new System.Drawing.Point(3, 147);
             this.activityScheduledHoursNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -682,6 +683,45 @@
             this.activityScheduledHoursNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.activityScheduledHoursNumericUpDown.TabIndex = 10;
             this.activityScheduledHoursNumericUpDown.ThousandsSeparator = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.AutoSize = true;
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.backButton, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(label3, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.editSaveButton, 3, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(246, 29);
+            this.tableLayoutPanel4.TabIndex = 16;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.activityCancelButton, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(label2, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.activityEditSaveButton, 3, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(246, 29);
+            this.tableLayoutPanel5.TabIndex = 17;
             // 
             // PortfolioDetScreen
             // 
@@ -700,7 +740,9 @@
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -709,6 +751,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityScheduledHoursNumericUpDown)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -742,5 +788,7 @@
         private System.Windows.Forms.NumericUpDown activityScheduledHoursNumericUpDown;
         private System.Windows.Forms.NumericUpDown yearNumericUpDown;
         private System.Windows.Forms.ComboBox semesterComboBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }

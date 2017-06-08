@@ -11,7 +11,7 @@ namespace AdditionalActivities.Model.Domain
     {
         public int Id { get; set; }
         public int ScheduledHours { get; set; }
-        //public int DeferredHours { get; set; }
+        public int DeferredHours { get; set; }
         public string Name { get; set; }
         public string Observation { get; set; }
         public string Certificate { get; set; }
