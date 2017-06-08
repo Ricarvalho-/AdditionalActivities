@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    public class ActivityPortfolio
+    public class ActivityPortfolio : DomainObject
     {
         public int? Id { get; set; }
         public DateTime DeliveryDate { get; set; }

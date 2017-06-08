@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    public class ActivityCategory : DomainObject
+    public abstract class DomainObject
     {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-
-        public override string ToString()
+        public DomainObject Copy()
         {
-            return Name;
+            return (DomainObject)MemberwiseClone();
         }
     }
 }

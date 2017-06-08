@@ -16,8 +16,18 @@ namespace AdditionalActivities.View.Screen.Course
         private bool ShouldPopOnCancel { get; set; }
         public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
         private bool isEditing;
-        private Activity Activity { get; set; }
+        private Activity activity;
         private Activity WorkingCopyActivity { get; set; }
+
+        private Activity Activity
+        {
+            get { return activity; }
+            set
+            {
+                activity = value;
+                WorkingCopyActivity = (Activity)Activity.Copy();
+            }
+        }
 
         public bool IsEditing
         {
@@ -30,9 +40,9 @@ namespace AdditionalActivities.View.Screen.Course
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = IsEditing ? "Cancelar" : "Voltar";
+                tableLayoutPanel1.Enabled = IsEditing;
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 
@@ -49,15 +59,15 @@ namespace AdditionalActivities.View.Screen.Course
         public void SetupBindings()
         {
             stepHoursNumericUpDown.DataBindings.Add(new Binding("Enabled", stepCheckBox, "Checked", true));
-            nameTextBox.DataBindings.Add("Text", Activity, "Name");
-            courseTextBox.DataBindings.Add("Text", Activity, "Rule.Course.Name");
-            ruleTextBox.DataBindings.Add("Text", Activity, "Rule.Name");
-            categoryComboBox.DataBindings.Add("SelectedValue", Activity, "Category");
-            minHoursNumericUpDown.DataBindings.Add("Value", Activity, "MinHours");
-            maxHoursNumericUpDown.DataBindings.Add("Value", Activity, "MaxHours");
+            nameTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Name");
+            courseTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Course.Name");
+            ruleTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Name");
+            categoryComboBox.DataBindings.Add("SelectedValue", WorkingCopyActivity, "Category");
+            minHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MinHours");
+            maxHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MaxHours");
             stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
-            stepHoursNumericUpDown.DataBindings.Add("Value", "Activity", "HourStep");
-            descriptionTextBox.DataBindings.Add("Text", Activity, "Description");
+            stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
+            descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -65,7 +75,7 @@ namespace AdditionalActivities.View.Screen.Course
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                //TODO: Set working copy obj to a copy of original object
+                Activity = Activity;//Set working copy to a new copy
             }
             else
                 MainForm.Instance.PopScreen();
@@ -75,10 +85,10 @@ namespace AdditionalActivities.View.Screen.Course
         {
             if (IsEditing)
             {
-                if (true)//UNDONE: Could save object
+                if (true)//UNDONE: If could save working copy...
                 {
                     IsEditing = false;
-                    //TODO: set original object to a copy of working copy obj
+                    Activity = WorkingCopyActivity;
                 }
                 else
                     MessageBox.Show("Falha ao salvar atividade.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error

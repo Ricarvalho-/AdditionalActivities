@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    public class ActivityItem
+    public class ActivityItem : DomainObject
     {
         public int? Id { get; set; }
         public int ScheduledHours { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.Domain
 {
-    public class Rule
+    public class Rule : DomainObject
     {
         public int? Id { get; set; }
         public string Name { get; set; }
