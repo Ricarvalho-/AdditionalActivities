@@ -58,14 +58,14 @@ namespace AdditionalActivities.View.Screen.Course
 
         public void SetupBindings()
         {
-            stepHoursNumericUpDown.DataBindings.Add(new Binding("Enabled", stepCheckBox, "Checked", true));
+            stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
+            stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
             nameTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Name");
             courseTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Course.Name");
             ruleTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Name");
             categoryComboBox.DataBindings.Add("SelectedValue", WorkingCopyActivity, "Category");
             minHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MinHours");
             maxHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MaxHours");
-            stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
             stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
             descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
         }

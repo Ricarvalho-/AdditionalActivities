@@ -26,11 +26,6 @@ namespace AdditionalActivities.View.Screen.Portfolio
             semesterComboBox.SelectedIndex = 0;
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         #region Portfolio
         public bool IsEditing
         {
@@ -45,9 +40,9 @@ namespace AdditionalActivities.View.Screen.Portfolio
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = isEditing;
                 splitContainer2.Panel2Collapsed = isEditing || activitiesDataGridView.SelectedCells.Count != 1;
+                tableLayoutPanel1.Enabled = isEditing;
                 if (!isEditing)
                     ShouldPopOnCancel = false;
-                tableLayoutPanel1.Enabled = isEditing;
             }
         }
 
@@ -56,7 +51,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                ScreenWillAppear();//Resets fields and discard changes
+                //Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();

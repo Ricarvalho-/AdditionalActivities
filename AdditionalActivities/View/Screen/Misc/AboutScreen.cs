@@ -27,10 +27,5 @@ namespace AdditionalActivities.View.Screen.Misc
         {
             MainForm.Instance.PopScreen();
         }
-
-        public void ScreenWillAppear()
-        {
-
-        }
     }
 }

@@ -24,11 +24,6 @@ namespace AdditionalActivities.View.Screen.Portfolio
             studentDetFlowLayoutPanel.Controls.Clear();
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         private void openButton_Click(object sender, EventArgs e)
         {
             MainForm.Instance.PresentScreen(new PortfolioDetScreen(false));//UNDONE: Pass object

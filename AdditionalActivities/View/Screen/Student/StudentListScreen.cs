@@ -41,11 +41,6 @@ namespace AdditionalActivities.View.Screen.Student
             }
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         private void studentsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             openButton.Enabled = studentsDataGridView.SelectedRows.Count == 1;

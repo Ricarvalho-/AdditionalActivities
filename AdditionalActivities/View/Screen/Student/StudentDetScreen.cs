@@ -28,9 +28,9 @@ namespace AdditionalActivities.View.Screen.Student
                 isEditing = value;
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
+                tableLayoutPanel1.Enabled = IsEditing;
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 
@@ -45,17 +45,12 @@ namespace AdditionalActivities.View.Screen.Student
             semesterComboBox.SelectedIndex = 0;
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                ScreenWillAppear();//Resets fields and discard changes
+                //Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();
@@ -68,6 +63,7 @@ namespace AdditionalActivities.View.Screen.Student
                 if (true)//UNDONE: Could save object
                 {
                     IsEditing = false;
+                    //Set original to WC here
                     if (ShouldSwapOnSave)
                         MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true));//UNDONE: Pass prefilled object
                 }

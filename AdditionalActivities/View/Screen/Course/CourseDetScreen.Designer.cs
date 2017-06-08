@@ -42,12 +42,12 @@
             this.header = new System.Windows.Forms.TableLayoutPanel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.backButton = new System.Windows.Forms.Button();
-            this.editSaveButton = new System.Windows.Forms.Button();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.minDurationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.maxDurationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.backButton = new System.Windows.Forms.Button();
+            this.editSaveButton = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -260,28 +260,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(248, 471);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // backButton
-            // 
-            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backButton.Location = new System.Drawing.Point(3, 3);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(76, 23);
-            this.backButton.TabIndex = 0;
-            this.backButton.Text = "Voltar";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // editSaveButton
-            // 
-            this.editSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editSaveButton.Location = new System.Drawing.Point(167, 3);
-            this.editSaveButton.Name = "editSaveButton";
-            this.editSaveButton.Size = new System.Drawing.Size(78, 23);
-            this.editSaveButton.TabIndex = 3;
-            this.editSaveButton.Text = "Editar";
-            this.editSaveButton.UseVisualStyleBackColor = true;
-            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
-            // 
             // nameTextBox
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.nameTextBox, 4);
@@ -368,6 +346,28 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(248, 29);
             this.tableLayoutPanel2.TabIndex = 11;
+            // 
+            // backButton
+            // 
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backButton.Location = new System.Drawing.Point(3, 3);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(76, 23);
+            this.backButton.TabIndex = 0;
+            this.backButton.Text = "Voltar";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // editSaveButton
+            // 
+            this.editSaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editSaveButton.Location = new System.Drawing.Point(167, 3);
+            this.editSaveButton.Name = "editSaveButton";
+            this.editSaveButton.Size = new System.Drawing.Size(78, 23);
+            this.editSaveButton.TabIndex = 3;
+            this.editSaveButton.Text = "Editar";
+            this.editSaveButton.UseVisualStyleBackColor = true;
+            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
             // 
             // CourseDetScreen
             // 

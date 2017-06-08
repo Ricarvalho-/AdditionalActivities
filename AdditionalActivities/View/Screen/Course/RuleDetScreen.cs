@@ -28,9 +28,9 @@ namespace AdditionalActivities.View.Screen.Course
                 editSaveButton.Text = IsEditing ? "Salvar" : "Editar";
                 backButton.Text = isEditing ? "Cancelar" : "Voltar";
                 splitContainer1.Panel1Collapsed = IsEditing;
+                tableLayoutPanel1.Enabled = IsEditing;
                 if (!IsEditing)
                     ShouldPopOnCancel = false;
-                tableLayoutPanel1.Enabled = IsEditing;
             }
         }
 
@@ -63,17 +63,12 @@ namespace AdditionalActivities.View.Screen.Course
             }
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
             {
                 IsEditing = false;
-                ScreenWillAppear();//Resets fields and discard changes
+                //Resets fields and discard changes
             }
             else
                 MainForm.Instance.PopScreen();

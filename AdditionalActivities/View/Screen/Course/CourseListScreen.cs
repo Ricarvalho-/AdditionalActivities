@@ -41,11 +41,6 @@ namespace AdditionalActivities.View.Screen.Course
             }
         }
 
-        public void ScreenWillAppear()
-        {
-
-        }
-
         private void coursesDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             openButton.Enabled = coursesDataGridView.SelectedRows.Count == 1;
