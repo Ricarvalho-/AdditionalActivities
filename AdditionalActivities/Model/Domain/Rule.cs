@@ -18,6 +18,7 @@ namespace AdditionalActivities.Model.Domain
         public Rule()//HACK: Only here to don't crash
         {
             Course = new Course();
+            Year = 2000;
         }
     }
 }

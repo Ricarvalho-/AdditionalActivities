@@ -58,11 +58,19 @@ namespace AdditionalActivities.View.Screen.Student
             ShouldPopOnCancel = startEditing;
             Student = student;
             registerStateComboBox.DataSource = Enum.GetValues(typeof(Domain.RegistrationState));
-            semesterComboBox.SelectedIndex = 0;
             SetupBindings();
         }
 
-        private void SetupBindings() { }
+        private void SetupBindings() {
+            nameTextBox.DataBindings.Add("Text", WorkingCopyStudent, "Name");
+            registerNumberTextBox.DataBindings.Add("Text", WorkingCopyStudent, "RegistrationNumber");
+            courseComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "Rule.Course");
+            ruleComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "Rule");
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyStudent, "RegistrationPeriod.Year");
+            semesterComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "RegistrationPeriod.Semester");
+            registerStateComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationState");
+            achievedHoursTextBox.DataBindings.Add("Text", WorkingCopyStudent, "AchievedHours");
+        }
         #endregion
 
         #region Event handlers

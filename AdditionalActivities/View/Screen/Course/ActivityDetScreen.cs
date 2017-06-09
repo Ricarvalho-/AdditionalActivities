@@ -15,7 +15,7 @@ namespace AdditionalActivities.View.Screen.Course
     {
         #region Properties
         private bool ShouldPopOnCancel { get; set; }
-        public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
+        //public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
         private bool isEditing;
         private Activity activity;
         private Activity WorkingCopyActivity { get; set; }
@@ -27,6 +27,7 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 activity = value;
                 WorkingCopyActivity = (Activity)Activity.Copy();
+                stepCheckBox.Checked = Activity.HourStep == 1;//TODO: Test this
             }
         }
 
@@ -61,8 +62,6 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void SetupBindings()
         {
-            stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
-            stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
             nameTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Name");
             courseTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Course.Name");
             ruleTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Name");
@@ -71,6 +70,8 @@ namespace AdditionalActivities.View.Screen.Course
             maxHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MaxHours");
             stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
             descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
+            stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
+            //stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
         }
         #endregion
 

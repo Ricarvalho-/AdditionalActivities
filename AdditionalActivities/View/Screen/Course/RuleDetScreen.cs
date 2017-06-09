@@ -58,7 +58,12 @@ namespace AdditionalActivities.View.Screen.Course
             SetupBindings();
         }
 
-        private void SetupBindings() { }
+        private void SetupBindings() {
+            nameTextBox.DataBindings.Add("Text", WorkingCopyRule, "Name");
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "Year");
+            courseTextBox.DataBindings.Add("Text", WorkingCopyRule, "Course.Name");
+            requiredHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "RequiredHours");
+        }
         #endregion
 
         #region Event handlers

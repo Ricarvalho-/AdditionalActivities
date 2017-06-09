@@ -13,5 +13,11 @@ namespace AdditionalActivities.Model.Domain
         public int MinDuration { get; set; }
         public int MaxDuration { get; set; }
         //public List<Rule> Rules { get; set; }
+
+        public Course()
+        {
+            MinDuration = 1;
+            MaxDuration = 1;
+        }
     }
 }

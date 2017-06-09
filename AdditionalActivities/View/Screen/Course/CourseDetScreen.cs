@@ -59,7 +59,11 @@ namespace AdditionalActivities.View.Screen.Course
             SetupBindings();
         }
 
-        private void SetupBindings() { }
+        private void SetupBindings() {
+            nameTextBox.DataBindings.Add("Text", WorkingCopyCourse, "Name");
+            minDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MinDuration");
+            maxDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MaxDuration");
+        }
         #endregion
 
         #region Event handlers

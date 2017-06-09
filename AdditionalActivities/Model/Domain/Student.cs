@@ -18,6 +18,14 @@ namespace AdditionalActivities.Model.Domain
         //public List<ActivityPortfolio> Portfolios { get; set; }
         
         //TODO: Methods
+        public Student()
+        {
+            RegistrationPeriod = new Period();
+            RegistrationPeriod.Year = 2000;
+            RegistrationPeriod.Semester = 1;
+            Rule = new Rule();
+            RegistrationState = RegistrationState.Regular;
+        }
     }
     //TODO: States
     public enum RegistrationState {

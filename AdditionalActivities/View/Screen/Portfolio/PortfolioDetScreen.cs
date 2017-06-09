@@ -28,10 +28,28 @@ namespace AdditionalActivities.View.Screen.Portfolio
             Portfolio = portfolio;
             activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
             semesterComboBox.SelectedIndex = 0;
-            SetupBindings();
+            SetupPortfolioBindings();
+            //SetupActivityBindings();
         }
 
-        private void SetupBindings() { }
+        private void SetupPortfolioBindings() {
+            studentTextBox.DataBindings.Add("Text", WorkingCopyPortfolio, "Student.Name");
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyPortfolio, "SchoolPeriod.Year");
+            semesterComboBox.DataBindings.Add("SelectedValue", WorkingCopyPortfolio, "SchoolPeriod.Semester");
+            deliveryDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "DeliveryDate");
+            evaluationDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "EvaluationDate");
+            evaluatorComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "Evaluator");
+        }
+
+        private void SetupActivityBindings() {
+            activityNameTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Name");
+            activityCertificateTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Certificate");
+            activityComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Activity");
+            activityScheduledHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActItem, "ScheduledHours");
+            activityDeferredHoursTextBox.DataBindings.Add("Text", WorkingCopyActItem, "DeferredHours");
+            activityApprovationComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Approvation");
+            activityObservationTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Observation");
+        }
         #endregion
 
         #region Portfolio
