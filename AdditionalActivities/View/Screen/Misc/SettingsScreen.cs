@@ -20,6 +20,8 @@ namespace AdditionalActivities.View.Screen.Misc
             Dock = DockStyle.Fill;
         }
 
+        public void ScreenWillAppear() { }
+
         private void aboutButton_Click(object sender, EventArgs e)
         {
             MainForm.Instance.PresentScreen(new AboutScreen());

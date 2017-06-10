@@ -11,5 +11,8 @@ namespace AdditionalActivities.View.Screen
     {
         ///<summary> Provides a hint to when to warn user about possible unsaved data loss.</summary>
         bool IsEditing { get; }
+
+        ///<summary> Called each time an IScreen will be presented, right before being added to view hierarchy.</summary>
+        void ScreenWillAppear();
     }
 }

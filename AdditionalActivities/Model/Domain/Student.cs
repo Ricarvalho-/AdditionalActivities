@@ -20,11 +20,30 @@ namespace AdditionalActivities.Model.Domain
         //TODO: Methods
         public Student()
         {
+            Rule = new Rule(new Course());
             RegistrationPeriod = new Period();
             RegistrationPeriod.Year = 2000;
             RegistrationPeriod.Semester = 1;
-            Rule = new Rule();
             RegistrationState = RegistrationState.Regular;
+        }
+
+        public Student(Course course, string nameOrRegistrationNumber)
+        {
+            if (course != null)
+                Rule = new Rule(course);
+            else
+                Rule = new Rule(new Course());
+
+            RegistrationPeriod = new Period();
+            RegistrationPeriod.Year = 2000;
+            RegistrationPeriod.Semester = 1;
+            RegistrationState = RegistrationState.Regular;
+
+            int registrationNumber;
+            if (int.TryParse(nameOrRegistrationNumber, out registrationNumber))
+                RegistrationNumber = registrationNumber;
+            else
+                Name = nameOrRegistrationNumber;
         }
     }
     //TODO: States

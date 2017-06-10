@@ -14,16 +14,28 @@ namespace AdditionalActivities.View.Screen.Student
     public partial class StudentListScreen : UserControl, IScreen
     {
         public bool IsEditing { get { return false; } }
+        private List<Domain.Student> StudentList { get; set; }
 
         public StudentListScreen()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = StudentList;
+            studentsDataGridView.DataSource = bSource;
+        }
+
+        #region Event handlers
+        public void ScreenWillAppear()
+        {
+            //TODO: Update dataGridView (done below)
+            //StudentList = StudentDAO.GetAll();
         }
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new StudentDetScreen(false, false, new Domain.Student()));//UNDONE: Pass object
+            MainForm.Instance.PresentScreen(new StudentDetScreen(false, false, (Domain.Student)studentsDataGridView.SelectedRows[0].DataBoundItem));
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -36,7 +48,13 @@ namespace AdditionalActivities.View.Screen.Student
             switch (MessageBox.Show("Todos os portifólios e atividades relacionados também serão removidos.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
             {
                 case DialogResult.OK:
-                    //TODO: Remove object
+                    foreach (DataGridViewRow row in studentsDataGridView.SelectedRows)
+                    {
+                        studentsDataGridView.Rows.RemoveAt(row.Index);
+                        //TODO: Delete selected (done below)
+                        //StudentDAO.Delete((Student)row.DataBoundItem);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -47,5 +65,6 @@ namespace AdditionalActivities.View.Screen.Student
             openButton.Enabled = studentsDataGridView.SelectedRows.Count == 1;
             removeButton.Enabled = studentsDataGridView.SelectedRows.Count > 0;
         }
+        #endregion
     }
 }

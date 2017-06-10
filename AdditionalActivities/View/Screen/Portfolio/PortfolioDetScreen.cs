@@ -13,10 +13,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
 {
     public partial class PortfolioDetScreen : UserControl, IScreen
     {
-        #region Properties
         private bool ShouldPopOnCancel { get; set; }
         private bool isEditing, isEditingActivity;
-        #endregion
 
         #region Init
         public PortfolioDetScreen(bool startEditing, ActivityPortfolio portfolio)
@@ -25,20 +23,31 @@ namespace AdditionalActivities.View.Screen.Portfolio
             Dock = DockStyle.Fill;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+            //semesterComboBox.SelectedIndex = 0;
+
             Portfolio = portfolio;
-            activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
-            semesterComboBox.SelectedIndex = 0;
+            ActItem = new ActivityItem(WorkingCopyPortfolio);
+
             SetupPortfolioBindings();
-            //SetupActivityBindings();
+            SetupActivityBindings();
         }
 
-        private void SetupPortfolioBindings() {
+        private void SetupPortfolioBindings()
+        {
+            semesterComboBox.Items.AddRange(new object[] { 1, 2 });
+
             studentTextBox.DataBindings.Add("Text", WorkingCopyPortfolio, "Student.Name");
             yearNumericUpDown.DataBindings.Add("Value", WorkingCopyPortfolio, "SchoolPeriod.Year");
-            semesterComboBox.DataBindings.Add("SelectedValue", WorkingCopyPortfolio, "SchoolPeriod.Semester");
+            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "SchoolPeriod.Semester");
             deliveryDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "DeliveryDate");
             evaluationDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "EvaluationDate");
             evaluatorComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "Evaluator");
+
+            evaluationDateTimePicker.Checked = WorkingCopyPortfolio.EvaluationDate != WorkingCopyPortfolio.DeliveryDate;
+
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = ActivityList;
+            activitiesDataGridView.DataSource = bSource;
         }
 
         private void SetupActivityBindings() {
@@ -49,6 +58,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
             activityDeferredHoursTextBox.DataBindings.Add("Text", WorkingCopyActItem, "DeferredHours");
             activityApprovationComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Approvation");
             activityObservationTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Observation");
+
+            activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
         }
         #endregion
 
@@ -56,6 +67,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         #region Properties
         private ActivityPortfolio portfolio;
         private ActivityPortfolio WorkingCopyPortfolio { get; set; }
+        private List<ActivityItem> ActivityList { get; set; }
 
         private ActivityPortfolio Portfolio
         {
@@ -88,6 +100,8 @@ namespace AdditionalActivities.View.Screen.Portfolio
         #endregion
 
         #region Event handlers
+        public void ScreenWillAppear() { }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
@@ -103,7 +117,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             if (IsEditing)
             {
-                if (true)//UNDONE: Could save object
+                if (true)//UNDONE: Could save object: if (ActivityPortfolioDAO.TrySave(WorkingCopyPortfolio))
                 {
                     IsEditing = false;
                     Portfolio = WorkingCopyPortfolio;
@@ -113,6 +127,16 @@ namespace AdditionalActivities.View.Screen.Portfolio
             }
             else
                 IsEditing = true;
+        }
+
+        private void activitiesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            splitContainer2.Panel2Collapsed = activitiesDataGridView.SelectedRows.Count != 1;
+            removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
+            if (activitiesDataGridView.SelectedRows.Count == 1)
+                ActItem = (ActivityItem)activitiesDataGridView.SelectedRows[0].DataBoundItem;
+            else
+                ActItem = new ActivityItem(WorkingCopyPortfolio);
         }
         #endregion
         #endregion
@@ -128,7 +152,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
             set
             {
                 actItem = value;
-                //WorkingCopyActItem = (ActivityItem)ActItem.Copy();//HACK: Prevent nullPointerException
+                WorkingCopyActItem = (ActivityItem)ActItem.Copy();
             }
         }
 
@@ -154,8 +178,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         private void addButton_Click(object sender, EventArgs e)
         {
             IsEditingActivity = true;
-            //TODO: Clear all activity fields
-            ActItem = null;
+            ActItem = new ActivityItem(WorkingCopyPortfolio);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -163,7 +186,13 @@ namespace AdditionalActivities.View.Screen.Portfolio
             switch (MessageBox.Show("Não será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
             {
                 case DialogResult.OK:
-                    //TODO: Remove object
+                    foreach (DataGridViewRow row in activitiesDataGridView.SelectedRows)
+                    {
+                        activitiesDataGridView.Rows.RemoveAt(row.Index);
+                        //TODO: Delete selected (done below)
+                        //ActivityItemDAO.Delete((ActivityItem)row.DataBoundItem);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -180,7 +209,7 @@ namespace AdditionalActivities.View.Screen.Portfolio
         {
             if (IsEditingActivity)
             {
-                if (true)//UNDONE: Could save object
+                if (true)//UNDONE: Could save object: if (RuleDAO.TrySave(WorkingCopyRule))
                 {
                     IsEditingActivity = false;
                     ActItem = WorkingCopyActItem;
@@ -190,16 +219,6 @@ namespace AdditionalActivities.View.Screen.Portfolio
             }
             else
                 IsEditingActivity = true;
-        }
-
-        private void activitiesDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            splitContainer2.Panel2Collapsed = activitiesDataGridView.SelectedRows.Count != 1;
-            removeButton.Enabled = activitiesDataGridView.SelectedRows.Count > 0;
-            if (activitiesDataGridView.SelectedRows.Count == 1)
-                ;//TODO: Item = ItemDTO.GetItem(activitiesDataGridView.SelectedRows[0].Cells[0]);
-            else
-                ActItem = null;
         }
         #endregion
         #endregion

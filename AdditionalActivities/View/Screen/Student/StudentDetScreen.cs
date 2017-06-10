@@ -56,24 +56,31 @@ namespace AdditionalActivities.View.Screen.Student
             ShouldSwapOnSave = fromPortfolioListContext;
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
+
+            //semesterComboBox.SelectedIndex = 0;
             Student = student;
-            registerStateComboBox.DataSource = Enum.GetValues(typeof(Domain.RegistrationState));
             SetupBindings();
         }
 
-        private void SetupBindings() {
+        private void SetupBindings()
+        {
+            registerStateComboBox.DataSource = Enum.GetValues(typeof(Domain.RegistrationState));
+            semesterComboBox.Items.AddRange(new object[] { 1, 2 });
+
             nameTextBox.DataBindings.Add("Text", WorkingCopyStudent, "Name");
             registerNumberTextBox.DataBindings.Add("Text", WorkingCopyStudent, "RegistrationNumber");
-            courseComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "Rule.Course");
-            ruleComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "Rule");
+            courseComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Rule.Course");
+            ruleComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Rule");
             yearNumericUpDown.DataBindings.Add("Value", WorkingCopyStudent, "RegistrationPeriod.Year");
-            semesterComboBox.DataBindings.Add("SelectedValue", WorkingCopyStudent, "RegistrationPeriod.Semester");
+            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationPeriod.Semester");
             registerStateComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationState");
             achievedHoursTextBox.DataBindings.Add("Text", WorkingCopyStudent, "AchievedHours");
         }
         #endregion
 
         #region Event handlers
+        public void ScreenWillAppear() { }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
@@ -89,12 +96,12 @@ namespace AdditionalActivities.View.Screen.Student
         {
             if (IsEditing)
             {
-                if (true)//UNDONE: Could save object
+                if (true)//UNDONE: Could save object: if (StudentDAO.TrySave(WorkingCopyStudent))
                 {
                     IsEditing = false;
                     Student = WorkingCopyStudent;
                     if (ShouldSwapOnSave)
-                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true, new Domain.ActivityPortfolio()));//UNDONE: Pass prefilled object
+                        MainForm.Instance.SwapLastWithScreen(new PortfolioDetScreen(true, new Domain.ActivityPortfolio(WorkingCopyStudent)));
                 }
                 else
                     MessageBox.Show("Falha ao salvar aluno.", "Erro", MessageBoxButtons.OK);//UNDONE: Show validation error

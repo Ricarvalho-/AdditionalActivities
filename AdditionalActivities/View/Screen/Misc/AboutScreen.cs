@@ -23,6 +23,8 @@ namespace AdditionalActivities.View.Screen.Misc
             versionLabel.Text = "Versão " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion + " Debug";
         }
 
+        public void ScreenWillAppear() { }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             MainForm.Instance.PopScreen();

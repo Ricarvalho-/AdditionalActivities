@@ -152,6 +152,7 @@
             // addButton
             // 
             this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addButton.Enabled = false;
             this.addButton.Location = new System.Drawing.Point(3, 3);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(156, 23);

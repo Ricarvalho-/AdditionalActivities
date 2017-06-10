@@ -17,13 +17,13 @@ namespace AdditionalActivities.Model.Domain
         public ActivityCategory Category { get; set; }
         public Rule Rule { get; set; }
 
-        public Activity()//UNDONE: Receive basic info, e.g.: Rule by previous screen
+        public Activity(Rule rule)
         {
+            Rule = rule;
+            Category = new ActivityCategory();
             MinHours = 1;
             MaxHours = 1;
             HourStep = 1;
-            Category = new ActivityCategory();
-            Rule = new Rule();
         }
     }
 }

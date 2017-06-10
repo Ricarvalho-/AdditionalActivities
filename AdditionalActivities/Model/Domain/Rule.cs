@@ -15,9 +15,9 @@ namespace AdditionalActivities.Model.Domain
         public Course Course { get; set; }
         //public List<Activity> Activities { get; set; }
 
-        public Rule()//HACK: Only here to don't crash
+        public Rule(Course course)
         {
-            Course = new Course();
+            Course = course;
             Year = 2000;
         }
     }

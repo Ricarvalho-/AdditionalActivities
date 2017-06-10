@@ -15,7 +15,6 @@ namespace AdditionalActivities.View.Screen.Course
     {
         #region Properties
         private bool ShouldPopOnCancel { get; set; }
-        //public bool ActivityHaveHourStep { get { return Activity.HourStep != 1; } }
         private bool isEditing;
         private Activity activity;
         private Activity WorkingCopyActivity { get; set; }
@@ -27,7 +26,7 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 activity = value;
                 WorkingCopyActivity = (Activity)Activity.Copy();
-                stepCheckBox.Checked = Activity.HourStep == 1;//TODO: Test this
+                stepCheckBox.Checked = Activity.HourStep != 1;
             }
         }
 
@@ -71,11 +70,12 @@ namespace AdditionalActivities.View.Screen.Course
             stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
             descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
             stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
-            //stepCheckBox.DataBindings.Add("Checked", this, "ActivityHaveHourStep");
         }
         #endregion
 
         #region Event handlers
+        public void ScreenWillAppear() { }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             if (isEditing && !ShouldPopOnCancel)
@@ -91,7 +91,7 @@ namespace AdditionalActivities.View.Screen.Course
         {
             if (IsEditing)
             {
-                if (true)//UNDONE: If could save working copy...
+                if (true)//UNDONE: Could save working copy: if (ActivityDAO.TrySave(WorkingCopyActivity))
                 {
                     IsEditing = false;
                     Activity = WorkingCopyActivity;

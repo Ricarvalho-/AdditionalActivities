@@ -17,6 +17,7 @@ namespace AdditionalActivities.View.Screen.Course
         private bool isEditing;
         private Rule rule;
         private Rule WorkingCopyRule { get; set; }
+        private List<Activity> ActivityList { get; set; }
 
         private Rule Rule
         {
@@ -63,18 +64,28 @@ namespace AdditionalActivities.View.Screen.Course
             yearNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "Year");
             courseTextBox.DataBindings.Add("Text", WorkingCopyRule, "Course.Name");
             requiredHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "RequiredHours");
+            
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = ActivityList;
+            activitiesDataGridView.DataSource = bSource;
         }
         #endregion
 
         #region Event handlers
+        public void ScreenWillAppear()
+        {
+            //TODO: Update dataGridView (done below)
+            //ActivityList = ActivityDAO.GetAllWithRule(WorkingCopyRule);
+        }
+
         private void openButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new ActivityDetScreen(false, new Activity()));//UNDONE: Pass selected object
+            MainForm.Instance.PresentScreen(new ActivityDetScreen(false, (Activity)activitiesDataGridView.SelectedRows[0].DataBoundItem));
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.PresentScreen(new ActivityDetScreen(true, new Activity()));
+            MainForm.Instance.PresentScreen(new ActivityDetScreen(true, new Activity(WorkingCopyRule)));
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -82,7 +93,13 @@ namespace AdditionalActivities.View.Screen.Course
             switch (MessageBox.Show("Todas as atividades realizadas por alunos correspondentes a este item também serão removidas dos portifólios.\nNão será possível desfazer esta ação.", "Remover?", MessageBoxButtons.OKCancel))
             {
                 case DialogResult.OK:
-                    //TODO: Remove object
+                    foreach (DataGridViewRow row in activitiesDataGridView.SelectedRows)
+                    {
+                        activitiesDataGridView.Rows.RemoveAt(row.Index);
+                        //TODO: Delete selected (done below)
+                        //ActivityDAO.Delete((Activity)row.DataBoundItem);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -103,7 +120,7 @@ namespace AdditionalActivities.View.Screen.Course
         {
             if (IsEditing)
             {
-                if (true)//UNDONE: Could save object
+                if (true)//UNDONE: Could save object: if (RuleDAO.TrySave(WorkingCopyRule))
                 {
                     IsEditing = false;
                     Rule = WorkingCopyRule;

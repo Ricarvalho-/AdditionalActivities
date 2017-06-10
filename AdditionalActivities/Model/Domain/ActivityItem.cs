@@ -18,12 +18,19 @@ namespace AdditionalActivities.Model.Domain
         public ApprovationState Approvation { get; set; }
         public Activity Activity { get; set; }
         public ActivityPortfolio Portfolio { get; set; }
+
+        public ActivityItem(ActivityPortfolio portfolio)
+        {
+            Portfolio = portfolio;
+            Activity = new Activity(Portfolio.Student.Rule);
+            Approvation = ApprovationState.Aprovado;
+        }
     }
 
     public enum ApprovationState
     {
         Aprovado,
-        Reprovado,
-        Avaliando
+        Avaliando,
+        Reprovado
     };
 }

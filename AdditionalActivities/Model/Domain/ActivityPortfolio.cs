@@ -16,15 +16,13 @@ namespace AdditionalActivities.Model.Domain
         public Student Student { get; set; }
         public Evaluator Evaluator { get; set; }
 
-        public ActivityPortfolio()
+        public ActivityPortfolio(Student student)
         {
+            Student = student;
+            SchoolPeriod = (Period)student.RegistrationPeriod.Copy();
+            Evaluator = new Evaluator();
             DeliveryDate = DateTime.Now;
             EvaluationDate = DateTime.Now;
-            SchoolPeriod = new Period();
-            SchoolPeriod.Year = 2000;
-            SchoolPeriod.Semester = 1;
-            Student = new Student();
-            Evaluator = new Evaluator();
         }
     }
 }

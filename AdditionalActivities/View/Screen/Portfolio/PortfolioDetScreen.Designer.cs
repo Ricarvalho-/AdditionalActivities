@@ -515,9 +515,6 @@
             this.semesterComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.semesterComboBox.FormattingEnabled = true;
-            this.semesterComboBox.Items.AddRange(new object[] {
-            "1",
-            "2"});
             this.semesterComboBox.Location = new System.Drawing.Point(125, 55);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(118, 21);
