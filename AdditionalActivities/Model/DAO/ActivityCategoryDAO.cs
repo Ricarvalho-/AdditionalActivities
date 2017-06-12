@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.DAO
 {
-    class ActivityCategoryDAO : IDAO<ActivityCategory>
+    class ActivityCategoryDAO
     {
-        public void Delete(ActivityCategory obj)
+        public void Delete(string obj)
         {
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -20,11 +20,11 @@ namespace AdditionalActivities.Model.DAO
                     connection.Open();
 
                 MySqlCommand command = new MySqlCommand("delete from category where id=@id;", connection);
-                command.Parameters.AddWithValue("@id", obj.Id.Value);
+                command.Parameters.AddWithValue("@id", obj);
 
                 command.ExecuteNonQuery();
 
-                obj.Id = null;
+                obj = null;
             }
             catch (Exception e)
             {
@@ -36,9 +36,9 @@ namespace AdditionalActivities.Model.DAO
             }
         }
 
-        public List<ActivityCategory> GetAll()
+        public List<string> GetAll()
         {
-            List<ActivityCategory> list = new List<ActivityCategory>();
+            List<string> list = new List<string>();
 
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -53,10 +53,7 @@ namespace AdditionalActivities.Model.DAO
 
                 while (reader.Read())
                 {
-                    ActivityCategory cat = new ActivityCategory();
-
-                    cat.Id = reader.GetInt32("id");
-                    cat.Name = reader.GetString("name");
+                    string cat = reader.GetString("id");
 
                     list.Add(cat);
                 }
@@ -73,14 +70,14 @@ namespace AdditionalActivities.Model.DAO
             return list;
         }
 
-        public List<ActivityCategory> GetByParentID(int id)
+        public List<string> GetByParentID(int id)
         {
-            return new List<ActivityCategory>();
+            return new List<string>();
         }
 
-        public ActivityCategory Read(int id)
+        public string Read(int id)
         {
-            ActivityCategory cat = new ActivityCategory();
+            string cat = "";
 
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -96,8 +93,7 @@ namespace AdditionalActivities.Model.DAO
 
                 if (reader.Read())
                 {
-                    cat.Id = reader.GetInt32("id");
-                    cat.Name = reader.GetString("name");
+                    cat = reader.GetString("id");
                 }
                 else
                 {
@@ -116,7 +112,7 @@ namespace AdditionalActivities.Model.DAO
             return cat;
         }
 
-        public void Save(ActivityCategory obj)
+        public void Save(string obj)
         {
             MySqlConnection connection = DatabaseManager.Instance.Connection;
             MySqlCommand command;
@@ -126,21 +122,18 @@ namespace AdditionalActivities.Model.DAO
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                if (obj.Id.HasValue)
+                if (obj != "")
                 {
-                    command = new MySqlCommand("update category set name = @name where id = @id;", connection);
-                    command.Parameters.AddWithValue("@id", obj.Id.Value);
-                    command.Parameters.AddWithValue("@name", obj.Name);
+                    command = new MySqlCommand("update category set id = @id where id = @id;", connection);
+                    command.Parameters.AddWithValue("@id", obj);
                 }
                 else
                 {
-                    command = new MySqlCommand("insert into category (name) values (@name);", connection);
-                    command.Parameters.AddWithValue("@name", obj.Name);
+                    command = new MySqlCommand("insert into category (id) values (@id);", connection);
+                    command.Parameters.AddWithValue("@id", obj);
                 }
 
                 command.ExecuteNonQuery();
-
-                obj.Id = obj.Id.HasValue ? obj.Id : (int)command.LastInsertedId;
             }
             catch (Exception e)
             {

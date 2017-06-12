@@ -67,14 +67,14 @@ namespace AdditionalActivities.View.Screen.Student
             registerStateComboBox.DataSource = Enum.GetValues(typeof(Domain.RegistrationState));
             semesterComboBox.Items.AddRange(new object[] { 1, 2 });
 
-            nameTextBox.DataBindings.Add("Text", WorkingCopyStudent, "Name");
-            registerNumberTextBox.DataBindings.Add("Text", WorkingCopyStudent, "RegistrationNumber");
-            courseComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Rule.Course");
-            ruleComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Rule");
-            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyStudent, "RegistrationPeriod.Year");
-            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationPeriod.Semester");
-            registerStateComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationState");
-            achievedHoursTextBox.DataBindings.Add("Text", WorkingCopyStudent, "AchievedHours");
+            nameTextBox.DataBindings.Add("Text", WorkingCopyStudent, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            registerNumberTextBox.DataBindings.Add("Text", WorkingCopyStudent, "RegistrationNumber", true, DataSourceUpdateMode.OnPropertyChanged);
+            courseComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Course", true, DataSourceUpdateMode.OnPropertyChanged);
+            ruleComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Rule", true, DataSourceUpdateMode.OnPropertyChanged);
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyStudent, "Year", true, DataSourceUpdateMode.OnPropertyChanged);
+            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "Semester", true, DataSourceUpdateMode.OnPropertyChanged);
+            registerStateComboBox.DataBindings.Add("SelectedItem", WorkingCopyStudent, "RegistrationState", true, DataSourceUpdateMode.OnPropertyChanged);
+            achievedHoursTextBox.DataBindings.Add("Text", WorkingCopyStudent, "AchievedHours", true, DataSourceUpdateMode.OnPropertyChanged);
         }
         #endregion
 
@@ -108,6 +108,12 @@ namespace AdditionalActivities.View.Screen.Student
             }
             else
                 IsEditing = true;
+        }
+
+        private void courseComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO: Get list of rule by course
+            //ruleComboBox.DataSource = RuleDAO.GetRulesWithCourse((Domain.Course)courseComboBox.SelectedItem);
         }
         #endregion
     }

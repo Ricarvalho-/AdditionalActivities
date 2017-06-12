@@ -11,16 +11,15 @@ namespace AdditionalActivities.Model.Domain
         public int? Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Category { get; set; }
         public int MinHours { get; set; }
         public int MaxHours { get; set; }
         public int HourStep { get; set; }
-        public ActivityCategory Category { get; set; }
         public Rule Rule { get; set; }
 
         public Activity(Rule rule)
         {
             Rule = rule;
-            Category = new ActivityCategory();
             MinHours = 1;
             MaxHours = 1;
             HourStep = 1;

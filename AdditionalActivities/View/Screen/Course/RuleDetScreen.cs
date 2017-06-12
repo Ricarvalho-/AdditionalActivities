@@ -60,10 +60,10 @@ namespace AdditionalActivities.View.Screen.Course
         }
 
         private void SetupBindings() {
-            nameTextBox.DataBindings.Add("Text", WorkingCopyRule, "Name");
-            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "Year");
-            courseTextBox.DataBindings.Add("Text", WorkingCopyRule, "Course.Name");
-            requiredHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "RequiredHours");
+            nameTextBox.DataBindings.Add("Text", WorkingCopyRule, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "Year", true, DataSourceUpdateMode.OnPropertyChanged);
+            courseTextBox.DataBindings.Add("Text", WorkingCopyRule, "Course.Name", true, DataSourceUpdateMode.Never);
+            requiredHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyRule, "RequiredHours", true, DataSourceUpdateMode.OnPropertyChanged);
             
             BindingSource bSource = new BindingSource();
             bSource.DataSource = ActivityList;

@@ -26,7 +26,6 @@ namespace AdditionalActivities.View.Screen.Course
             {
                 activity = value;
                 WorkingCopyActivity = (Activity)Activity.Copy();
-                stepCheckBox.Checked = Activity.HourStep != 1;
             }
         }
 
@@ -56,20 +55,21 @@ namespace AdditionalActivities.View.Screen.Course
             IsEditing = startEditing;
             ShouldPopOnCancel = startEditing;
             Activity = activity;
+            stepCheckBox.Checked = activity.HourStep != 1;
             SetupBindings();
         }
 
         private void SetupBindings()
         {
-            nameTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Name");
-            courseTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Course.Name");
-            ruleTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Name");
-            categoryComboBox.DataBindings.Add("SelectedValue", WorkingCopyActivity, "Category");
-            minHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MinHours");
-            maxHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MaxHours");
-            stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep");
-            descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description");
-            stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked");
+            nameTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            courseTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Course.Name", true, DataSourceUpdateMode.Never);
+            ruleTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Rule.Name", true, DataSourceUpdateMode.Never);
+            categoryComboBox.DataBindings.Add("SelectedValue", WorkingCopyActivity, "Category.Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            minHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MinHours", true, DataSourceUpdateMode.OnPropertyChanged);
+            maxHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "MaxHours", true, DataSourceUpdateMode.OnPropertyChanged);
+            stepHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActivity, "HourStep", true, DataSourceUpdateMode.OnPropertyChanged);
+            descriptionTextBox.DataBindings.Add("Text", WorkingCopyActivity, "Description", true, DataSourceUpdateMode.OnPropertyChanged);
+            stepHoursNumericUpDown.DataBindings.Add("Enabled", stepCheckBox, "Checked", true, DataSourceUpdateMode.Never);
         }
         #endregion
 
@@ -105,7 +105,10 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void stepCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            stepHoursNumericUpDown.Value = 1;
+            if (!stepCheckBox.Checked)
+            {
+                stepHoursNumericUpDown.Value = 1;
+            }
         }
         #endregion
     }

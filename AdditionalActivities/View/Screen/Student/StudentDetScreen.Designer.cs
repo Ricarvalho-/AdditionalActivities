@@ -234,6 +234,7 @@
             this.courseComboBox.Name = "courseComboBox";
             this.courseComboBox.Size = new System.Drawing.Size(494, 21);
             this.courseComboBox.TabIndex = 7;
+            this.courseComboBox.SelectedIndexChanged += new System.EventHandler(this.courseComboBox_SelectedIndexChanged);
             // 
             // ruleComboBox
             // 

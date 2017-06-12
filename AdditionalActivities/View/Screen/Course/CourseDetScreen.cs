@@ -62,9 +62,9 @@ namespace AdditionalActivities.View.Screen.Course
 
         private void SetupBindings()
         {
-            nameTextBox.DataBindings.Add("Text", WorkingCopyCourse, "Name");
-            minDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MinDuration");
-            maxDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MaxDuration");
+            nameTextBox.DataBindings.Add("Text", WorkingCopyCourse, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            minDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MinDuration", true, DataSourceUpdateMode.OnPropertyChanged);
+            maxDurationNumericUpDown.DataBindings.Add("Value", WorkingCopyCourse, "MaxDuration", true, DataSourceUpdateMode.OnPropertyChanged);
 
             BindingSource bSource = new BindingSource();
             bSource.DataSource = RuleList;

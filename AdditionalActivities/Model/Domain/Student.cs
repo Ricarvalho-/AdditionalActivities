@@ -10,40 +10,33 @@ namespace AdditionalActivities.Model.Domain
     {
         public int? Id { get; set; }
         public string Name { get; set; }
+        public int Year { get; set; }
+        public int Semester { get; set; }
         public int AchievedHours { get; set; }
-        public int RegistrationNumber { get; set; }
+        public string RegistrationNumber { get; set; }
         public RegistrationState RegistrationState { get; set; }
-        public Period RegistrationPeriod { get; set; }
+        public Course Course { get; set; }
         public Rule Rule { get; set; }
         //public List<ActivityPortfolio> Portfolios { get; set; }
-        
+
         //TODO: Methods
         public Student()
         {
-            Rule = new Rule(new Course());
-            RegistrationPeriod = new Period();
-            RegistrationPeriod.Year = 2000;
-            RegistrationPeriod.Semester = 1;
+            Course = new Course();
+            Rule = new Rule(Course);
+            Year = 2000;
+            Semester = 1;
             RegistrationState = RegistrationState.Regular;
         }
 
-        public Student(Course course, string nameOrRegistrationNumber)
+        public Student(Course course, string name)
         {
-            if (course != null)
-                Rule = new Rule(course);
-            else
-                Rule = new Rule(new Course());
-
-            RegistrationPeriod = new Period();
-            RegistrationPeriod.Year = 2000;
-            RegistrationPeriod.Semester = 1;
+            Course = course != null ? course : new Course();
+            Rule = new Rule(Course);
+            Name = name;
+            Year = 2000;
+            Semester = 1;
             RegistrationState = RegistrationState.Regular;
-
-            int registrationNumber;
-            if (int.TryParse(nameOrRegistrationNumber, out registrationNumber))
-                RegistrationNumber = registrationNumber;
-            else
-                Name = nameOrRegistrationNumber;
         }
     }
     //TODO: States

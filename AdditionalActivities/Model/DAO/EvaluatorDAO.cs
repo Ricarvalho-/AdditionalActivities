@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AdditionalActivities.Model.DAO
 {
-    class EvaluatorDAO : IDAO<Evaluator>
+    class EvaluatorDAO
     {
-        public void Delete(Evaluator obj)
+        public void Delete(string obj)
         {
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -20,11 +20,11 @@ namespace AdditionalActivities.Model.DAO
                     connection.Open();
 
                 MySqlCommand command = new MySqlCommand("delete from evaluator where id=@id;", connection);
-                command.Parameters.AddWithValue("@id", obj.Id.Value);
+                command.Parameters.AddWithValue("@id", obj);
 
                 command.ExecuteNonQuery();
 
-                obj.Id = null;
+                obj = null;
             }
             catch (Exception e)
             {
@@ -36,9 +36,9 @@ namespace AdditionalActivities.Model.DAO
             }
         }
 
-        public List<Evaluator> GetAll()
+        public List<string> GetAll()
         {
-            List<Evaluator> list = new List<Evaluator>();
+            List<string> list = new List<string>();
 
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -53,10 +53,7 @@ namespace AdditionalActivities.Model.DAO
 
                 while (reader.Read())
                 {
-                    Evaluator ev = new Evaluator();
-
-                    ev.Id = reader.GetInt32("id");
-                    ev.Name = reader.GetString("name");
+                    string ev = reader.GetString("id");
 
                     list.Add(ev);
                 }
@@ -73,14 +70,14 @@ namespace AdditionalActivities.Model.DAO
             return list;
         }
 
-        public List<Evaluator> GetByParentID(int id)
+        public List<string> GetByParentID(int id)
         {
-            return new List<Evaluator>();
+            return new List<string>();
         }
 
-        public Evaluator Read(int id)
+        public string Read(int id)
         {
-            Evaluator ev = new Evaluator();
+            string ev = "";
 
             MySqlConnection connection = DatabaseManager.Instance.Connection;
 
@@ -96,8 +93,7 @@ namespace AdditionalActivities.Model.DAO
 
                 if (reader.Read())
                 {
-                    ev.Id = reader.GetInt32("id");
-                    ev.Name = reader.GetString("name");
+                    ev = reader.GetString("id");
                 }
                 else
                 {
@@ -116,7 +112,7 @@ namespace AdditionalActivities.Model.DAO
             return ev;
         }
 
-        public void Save(Evaluator obj)
+        public void Save(string obj)
         {
             MySqlConnection connection = DatabaseManager.Instance.Connection;
             MySqlCommand command;
@@ -126,21 +122,18 @@ namespace AdditionalActivities.Model.DAO
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                if (obj.Id.HasValue)
+                if (obj != "")
                 {
-                    command = new MySqlCommand("update evaluator set name = @name where id = @id;", connection);
-                    command.Parameters.AddWithValue("@id", obj.Id.Value);
-                    command.Parameters.AddWithValue("@name", obj.Name);
+                    command = new MySqlCommand("update evaluator set id = @id where id = @id;", connection);
+                    command.Parameters.AddWithValue("@id", obj);
                 }
                 else
                 {
-                    command = new MySqlCommand("insert into evaluator (name) values (@name);", connection);
-                    command.Parameters.AddWithValue("@name", obj.Name);
+                    command = new MySqlCommand("insert into evaluator (id) values (@id);", connection);
+                    command.Parameters.AddWithValue("@id", obj);
                 }
 
                 command.ExecuteNonQuery();
-
-                obj.Id = obj.Id.HasValue ? obj.Id : (int)command.LastInsertedId;
             }
             catch(Exception e)
             {

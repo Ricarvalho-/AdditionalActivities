@@ -35,31 +35,33 @@ namespace AdditionalActivities.View.Screen.Portfolio
         private void SetupPortfolioBindings()
         {
             semesterComboBox.Items.AddRange(new object[] { 1, 2 });
+            //evaluatorComboBox.DataSource = EvaluatorDAO.GetAll();//List<string>
 
-            studentTextBox.DataBindings.Add("Text", WorkingCopyPortfolio, "Student.Name");
-            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyPortfolio, "SchoolPeriod.Year");
-            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "SchoolPeriod.Semester");
-            deliveryDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "DeliveryDate");
-            evaluationDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "EvaluationDate");
-            evaluatorComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "Evaluator");
-
-            evaluationDateTimePicker.Checked = WorkingCopyPortfolio.EvaluationDate != WorkingCopyPortfolio.DeliveryDate;
+            studentTextBox.DataBindings.Add("Text", WorkingCopyPortfolio, "Student.Name", true, DataSourceUpdateMode.Never);
+            yearNumericUpDown.DataBindings.Add("Value", WorkingCopyPortfolio, "Year", true, DataSourceUpdateMode.OnPropertyChanged);
+            semesterComboBox.DataBindings.Add("SelectedItem", WorkingCopyPortfolio, "Semester", true, DataSourceUpdateMode.OnPropertyChanged);
+            deliveryDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "DeliveryDate", true, DataSourceUpdateMode.OnPropertyChanged);
+            evaluationDateTimePicker.DataBindings.Add("Value", WorkingCopyPortfolio, "EvaluationDate", true, DataSourceUpdateMode.OnPropertyChanged);
+            evaluatorComboBox.DataBindings.Add("Text", WorkingCopyPortfolio, "Evaluator", true, DataSourceUpdateMode.OnPropertyChanged);
+            evaluationDateTimePicker.DataBindings.Add("Checked", WorkingCopyPortfolio, "IsEvaluated", true, DataSourceUpdateMode.OnPropertyChanged);
 
             BindingSource bSource = new BindingSource();
             bSource.DataSource = ActivityList;
             activitiesDataGridView.DataSource = bSource;
         }
 
-        private void SetupActivityBindings() {
-            activityNameTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Name");
-            activityCertificateTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Certificate");
-            activityComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Activity");
-            activityScheduledHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActItem, "ScheduledHours");
-            activityDeferredHoursTextBox.DataBindings.Add("Text", WorkingCopyActItem, "DeferredHours");
-            activityApprovationComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Approvation");
-            activityObservationTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Observation");
-
+        private void SetupActivityBindings()
+        {
             activityApprovationComboBox.DataSource = Enum.GetValues(typeof(ApprovationState));
+            //activityComboBox.DataSource = ActivityDAO.GetActivitiesByRule(WorkingCopyPortfolio.Student.Rule);
+
+            activityNameTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            activityCertificateTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Certificate", true, DataSourceUpdateMode.OnPropertyChanged);
+            activityComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Activity", true, DataSourceUpdateMode.OnPropertyChanged);
+            activityScheduledHoursNumericUpDown.DataBindings.Add("Value", WorkingCopyActItem, "ScheduledHours", true, DataSourceUpdateMode.OnPropertyChanged);
+            activityDeferredHoursTextBox.DataBindings.Add("Text", WorkingCopyActItem, "DeferredHours", true, DataSourceUpdateMode.Never);
+            activityApprovationComboBox.DataBindings.Add("SelectedItem", WorkingCopyActItem, "Approvation", true, DataSourceUpdateMode.OnPropertyChanged);
+            activityObservationTextBox.DataBindings.Add("Text", WorkingCopyActItem, "Observation", true, DataSourceUpdateMode.OnPropertyChanged);
         }
         #endregion
 
